@@ -9,7 +9,7 @@
 Transition into the YGLF logo.
 
 Go wild and create your own unique transition, gamification or interaction using the YGLF logo.
-For an example, check out how different letters transition into the YGLF logo as you scroll down  [our](http://yougottalovefrontend.com) website.
+For an example, check out how different letters transition into the YGLF logo as you scroll down [our](http://yougottalovefrontend.com) website.
 
 ## Guidelines
 None. Use any frontend technology you want! The sky(or the latest version of Chrome)'s the limit.
@@ -18,7 +18,7 @@ None. Use any frontend technology you want! The sky(or the latest version of Chr
 It has to run in a browser. Submissions will be run on the latest stable version of Chrome.
 
 ## How to participate?
-Fork this repo. Youou will find the our logo in various formats for your convenience.
+Fork this repo. You will find the our logo in various formats for your convenience.
 Go wild and be creative.
 When you're done, submit a pull request and include both your full name and your ticket order number in the description. 
 

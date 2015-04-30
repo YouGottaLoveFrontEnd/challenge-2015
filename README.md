@@ -1,20 +1,20 @@
-# Coding Challenge
+# YGLF Coding Challenge
 
 > TL;DR
 > Create awesome stuff and win Apple Macbook Pro.
 
 ![frame](/frame.png)
 
-## The Challenge
+## Overview
 Transition into the YGLF logo.
 
 Go wild and create your own unique transition / gamification / interaction to the YGLF logo.
 E.g. see how the letters transition into the YGLF logo as you scroll down in the [yougottalovefrontend.com](http://yougottalovefrontend.com) website.
 
-## The Guidelines
+## Guidelines
 None. Use any front end technology you want! The sky (and a browser) is the limit.
 
-## The Rules
+## Rules
 Only one - it has to run in a browser. Submissions will be checked on latest stable chrome.
 
 ## How to participate?

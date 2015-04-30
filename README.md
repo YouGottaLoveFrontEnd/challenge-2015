@@ -1,2 +1,0 @@
-# challenge
-Win Your Prize

@@ -28,11 +28,6 @@ Submit your pull request by `May 26th, 23:59 GMT+2` (Tel Aviv time!)
 ## How to win?
 Our panel of expert judges will look for originality, front-end awesomeness and sophistication. 
 
-## The Prizes
-* 1st place: ___________
-* 2nd place: ___________
-* 3rd place: ___________
-
 ## Need inspiration?
 Transition, transform or animate something into the logo.
 Create a game which interacts with the logo and it's letters

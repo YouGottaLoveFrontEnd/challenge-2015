@@ -15,7 +15,7 @@ For an example, check out how different letters transition into the YGLF logo as
 None. Use any frontend technology you want! The sky(or the latest version of Chrome)'s the limit.
 
 ## Rules
-It has to run in a browser. Submissions will be run on the latest stable version of Chrome.
+It has to run in a browser. Submissions should work on the latest stable version of Chrome.
 
 ## How to participate?
 Fork this repo. You will find the our logo in various formats for your convenience.
@@ -29,9 +29,9 @@ Submit your pull request by `May 26th, 23:59 GMT+2` (Tel Aviv time!)
 Our panel of expert judges will look for originality, front-end awesomeness and sophistication. 
 
 ## The Prizes
-* First place: _________
-* Second place: ___________
-* Thirt place: ___________
+* 1st place: ___________
+* 2nd place: ___________
+* 3rd place: ___________
 
 ## Need inspiration?
 Transition, transform or animate something into the logo.

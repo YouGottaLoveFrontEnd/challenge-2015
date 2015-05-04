@@ -18,7 +18,7 @@ None. Use any frontend technology you want! The sky(or the latest version of Chr
 It has to run in a browser. Submissions should work on the latest stable version of Chrome.
 
 ## How to participate?
-Fork this repo. You will find the our logo in various formats for your convenience.
+Fork this repo. You will find our logo in various formats for your convenience.
 Go wild and be creative.
 When you're done, submit a pull request and include both your full name and your ticket order number in the description. 
 

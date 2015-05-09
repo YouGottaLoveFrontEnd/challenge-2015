@@ -1,6 +1,15 @@
-var previousId, currentId, currentRow, currentCol, numLeft = 20;
+var previousId, currentId, currentRow, currentCol, numLeft = 20, fadeOutIndex = 0;
 var didStart = false,
   didEnd = false;
+
+$('.row-lost').children().hide();
+$('.row-won').children().hide();
+
+//jQuery.fn.reverse = [].reverse;
+
+jQuery.fn.reverse = function() {
+  return this.pushStack(this.get().reverse(), arguments);
+};
 
 //.addClass("current");
 
@@ -76,13 +85,37 @@ var addToChosen = function() {
     $(currentId).addClass("victory");
     window.setTimeout(youWin, 1000);
   }
-
 }
 
 var youLose = function() {
-  alert('you lose :(');
+  $('.logo-background').fadeOut();
+  fadeOutElements('.row3');
+  fadeOutElements('.row2');
+  fadeOutElements('.row1');
+  fadeInElements('.row-lost');
 }
 
 var youWin = function() {
-  alert('you win! :)');
+  $('.logo-lose').fadeOut();
+  $('.logo-background').fadeOut();
+  fadeOutElements('.row3');
+  fadeOutElements('.row2');
+  fadeOutElements('.row1');
+  fadeInElements('.row-won');
 }
+
+var fadeOutElements = function(specificClass) {
+  $(specificClass).children().reverse().each(function() {
+    $(this).delay(100 * fadeOutIndex).fadeOut(100);
+    fadeOutIndex++;
+  });
+}
+
+
+var fadeInElements = function(specificClass) {
+  $(specificClass).children().each(function() {
+    $(this).delay(100 * fadeOutIndex).fadeIn(100);
+    fadeOutIndex++;
+  });
+}
+

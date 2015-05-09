@@ -28,22 +28,24 @@ $(".square").hover(function() {
 
 $(window).keypress(function(e) {
   if (didStart) {
-    var key = e.which;
+    var code = e.charCode || e.keyCode;
+    var key = String.fromCharCode(code);
+    //alert(key);
     //right
-    if (key == 100) {
-      currentCol++;
+    if (key == 's') {
+      currentRow++;
     }
     //left
-    else if (key == 97) {
-      currentCol--;
-    }
-    //up
-    else if (key == 119) {
+    else if (key == 'w') {
       currentRow--;
     }
+    //up
+    else if (key == 'a') {
+      currentCol--;
+    }
     //down
-    else if (key == 115) {
-      currentRow++;
+    else if (key == 'd') {
+      currentCol++;
     } else {
       return;
     }
@@ -57,12 +59,13 @@ var addToChosen = function() {
   previousId = currentId;
   currentId = "#sq" + currentRow + currentCol;
   if (didStart && ($(currentId).hasClass("selected"))) {
+    didEnd = true;
     $(previousId).removeClass("current");
     $(currentId).addClass("failed");
-    youLose();
+    window.setTimeout(youLose, 1000);
   } else if (didStart && ($(currentId).length == 0)) {
     didEnd = true;
-    youLose();
+    window.setTimeout(youLose, 1000);
   } else {
     didStart = true;
     $(previousId).removeClass("current");
@@ -78,11 +81,9 @@ var addToChosen = function() {
 }
 
 var youLose = function() {
-  didEnd = true;
   alert('you lose :(');
 }
 
 var youWin = function() {
-  didEnd = true;
   alert('you win! :)');
 }

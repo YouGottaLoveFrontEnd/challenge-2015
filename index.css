@@ -39,6 +39,14 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.failed{
+  background-color: rgba(250, 126, 117, 0.7);
+}
+
+.victory{
+  background-color: rgba(105, 255, 200, 0.7);
+}
+
 #count{
   position: absolute;
   right: 20px;

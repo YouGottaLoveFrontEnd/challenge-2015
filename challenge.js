@@ -52,7 +52,11 @@ $(window).keypress(function(e) {
 
 var addToChosen = function() {
   var squareId = "#sq" + currentRow + currentCol;
-  if (didStart && (($(squareId).length == 0) || ($(squareId).hasClass("selected")))) {
+  if (didStart && ($(squareId).hasClass("selected"))) {
+    $(squareId).addClass("failed");
+    youLose();
+  }
+  else if (didStart && ($(squareId).length == 0)){
     youLose();
   } else {
     didStart = true;
@@ -60,7 +64,8 @@ var addToChosen = function() {
     numLeft--;
   }
   if(numLeft == 0){
-    youWin();
+    $(squareId).addClass("victory");
+    window.setTimeout(youWin, 1000);
   }
 
 }

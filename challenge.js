@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 
   var previousId, currentId, currentRow, currentCol, numLeft = 20,
@@ -9,26 +11,26 @@ $(document).ready(function() {
   $('.row-lost').children().hide();
   $('.row-won').children().hide();
 
-  //.addClass("current");
+  //.addClass('current');
 
-  $(".square").click(function() {
+  $('.square').click(function() {
     if (!didStart) {
-      currentId = $(this).attr('id'),
-        currentRow = currentId.charAt(2),
-        currentCol = currentId.charAt(3);
+      currentId = $(this).attr('id');
+      currentRow = currentId.charAt(2);
+      currentCol = currentId.charAt(3);
       previousId = currentId;
       addToChosen();
     }
   });
 
-  $(".square").hover(function() {
+  $('.square').hover(function() {
       if (!didStart) {
-        $(this).addClass("selected");
+        $(this).addClass('selected');
       }
     },
     function() {
       if (!didStart) {
-        $(this).removeClass("selected");
+        $(this).removeClass('selected');
       }
     }
   );
@@ -63,24 +65,24 @@ $(document).ready(function() {
 
   var addToChosen = function() {
     previousId = currentId;
-    currentId = "#sq" + currentRow + currentCol;
-    if (didStart && ($(currentId).hasClass("selected"))) {
+    currentId = '#sq' + currentRow + currentCol;
+    if (didStart && ($(currentId).hasClass('selected'))) {
       didEnd = true;
-      $(previousId).removeClass("current");
-      $(currentId).addClass("failed");
+      $(previousId).removeClass('current');
+      $(currentId).addClass('failed');
       window.setTimeout(youLose, 1000);
-    } else if (didStart && ($(currentId).length == 0)) {
+    } else if (didStart && ($(currentId).length === 0)) {
       didEnd = true;
       window.setTimeout(youLose, 1000);
     } else {
       didStart = true;
-      $(previousId).removeClass("current");
-      $(currentId).addClass("selected").addClass("current");
+      $(previousId).removeClass('current');
+      $(currentId).addClass('selected').addClass('current');
       numLeft--;
     }
-    if (numLeft == 0) {
+    if (numLeft === 0) {
       didEnd = true;
-      $(currentId).addClass("victory");
+      $(currentId).addClass('victory');
       window.setTimeout(youWin, 1000);
     }
   }
@@ -93,7 +95,7 @@ $(document).ready(function() {
     fadeOutElements('.row1');
     fadeInElements('.row-lost');
     window.setTimeout(allowRestart, 3600);
-  }
+  };
 
   var youWin = function() {
     canRestart = false;
@@ -127,7 +129,7 @@ $(document).ready(function() {
 
   var restart = function() {
 
-    if (canRestart == true) {
+    if (canRestart === true) {
       numLeft = 20, fadeOutIndex = 0, didStart = false, didEnd = false;
       $('.row-lost').children().hide();
       $('.row-won').children().hide();
@@ -141,7 +143,7 @@ $(document).ready(function() {
     }
   }
 
-  $(".restart").click(function() {
+  $('.restart').click(function() {
     restart();
   });
 });

@@ -26,26 +26,25 @@ $(".square").hover(function() {
   }
 );
 
-$(window).keypress(function(e) {
+$(window).keydown(function(e) {
   if (didStart) {
-    var code = e.charCode || e.keyCode;
-    var key = String.fromCharCode(code);
+    var key = e.keyCode;
     //alert(key);
     //right
-    if (key == 's') {
-      currentRow++;
+    if (key == 39) {
+      currentCol++;
     }
     //left
-    else if (key == 'w') {
-      currentRow--;
-    }
-    //up
-    else if (key == 'a') {
+    else if (key == 37) {
       currentCol--;
     }
+    //up
+    else if (key == 38) {
+      currentRow--;
+    }
     //down
-    else if (key == 'd') {
-      currentCol++;
+    else if (key == 40) {
+      currentRow++;
     } else {
       return;
     }

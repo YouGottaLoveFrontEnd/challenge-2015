@@ -1,79 +1,88 @@
-var currentId, currentRow, currentCol, numLeft = 20;
-var didStart = false;
+var previousId, currentId, currentRow, currentCol, numLeft = 20;
+var didStart = false,
+  didEnd = false;
 
+//.addClass("current");
 
 $(".square").click(function() {
-  if(!didStart){
-  currentId = $(this).attr('id'),
-    currentRow = currentId.charAt(2),
-    currentCol = currentId.charAt(3);
-  addToChosen();
+  if (!didStart) {
+    currentId = $(this).attr('id'),
+      currentRow = currentId.charAt(2),
+      currentCol = currentId.charAt(3);
+    previousId = currentId;
+    addToChosen();
   }
 });
 
 $(".square").hover(function() {
-  if(!didStart){
-    $(this).addClass("selected");
+    if (!didStart) {
+      $(this).addClass("selected");
+    }
+  },
+  function() {
+    if (!didStart) {
+      $(this).removeClass("selected");
+    }
   }
-},
-function() {
-  if(!didStart){
-    $(this).removeClass("selected");
-  }
-}
 );
 
 $(window).keypress(function(e) {
-  if(didStart){
+  if (didStart) {
     var key = e.which;
     //right
-    if(key == 100){
+    if (key == 100) {
       currentCol++;
     }
     //left
-    else if(key == 97){
+    else if (key == 97) {
       currentCol--;
     }
     //up
-    else if(key == 119){
+    else if (key == 119) {
       currentRow--;
     }
     //down
-    else if(key == 115){
+    else if (key == 115) {
       currentRow++;
-    }
-    else{
+    } else {
       return;
     }
-
-    window.setTimeout(addToChosen(), 1000);
+    if (!didEnd) {
+      window.setTimeout(addToChosen(), 1000);
+    }
   }
 });
 
 var addToChosen = function() {
-  var squareId = "#sq" + currentRow + currentCol;
-  if (didStart && ($(squareId).hasClass("selected"))) {
-    $(squareId).addClass("failed");
+  previousId = currentId;
+  currentId = "#sq" + currentRow + currentCol;
+  if (didStart && ($(currentId).hasClass("selected"))) {
+    $(previousId).removeClass("current");
+    $(currentId).addClass("failed");
     youLose();
-  }
-  else if (didStart && ($(squareId).length == 0)){
+  } else if (didStart && ($(currentId).length == 0)) {
+    didEnd = true;
     youLose();
   } else {
     didStart = true;
-    $(squareId).addClass("selected");
+    $(previousId).removeClass("current");
+    $(currentId).addClass("selected").addClass("current");
     numLeft--;
   }
-  if(numLeft == 0){
-    $(squareId).addClass("victory");
+  if (numLeft == 0) {
+    didEnd = true;
+    $(currentId).addClass("victory");
     window.setTimeout(youWin, 1000);
   }
 
 }
 
 var youLose = function() {
+  didEnd = true;
   alert('you lose :(');
 }
 
 var youWin = function() {
+  didEnd = true;
   alert('you win! :)');
 }

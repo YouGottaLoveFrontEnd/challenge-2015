@@ -38,7 +38,6 @@ $(document).ready(function() {
   $(window).keydown(function(e) {
     if (didStart) {
       var key = e.keyCode;
-      //alert(key);
       //right
       if (key == 39) {
         currentCol++;

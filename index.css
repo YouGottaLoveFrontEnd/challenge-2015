@@ -63,6 +63,7 @@ body {
 
 .selected{
   background-color: rgba(255, 255, 255, 0.2);
+  cursor:pointer;
 }
 
 .current{
@@ -81,4 +82,54 @@ body {
   position: absolute;
   right: 20px;
   up: 20px;
+}
+
+.game-instructions{
+  background: #fff;
+  position: absolute;
+  z-index: 4;
+  font-family: Futura-pt, Arial;
+  font-size: 13px;
+  right: 20px;
+  top: 20px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 3px
+}
+
+#headline-container, #links-container{
+  text-align: center;
+}
+
+.game-instructions img{
+  max-width: 100px;
+}
+
+.game-instructions h3{
+  color: #39e5bd;
+  display: block;
+  text-transform: uppercase;
+}
+
+.game-instructions ol{
+  margin-left: 20px;
+  padding-left: 0px;
+}
+
+.game-instructions ol li{
+  line-height: 20px;
+  color: #39e5bd;
+}
+
+.game-instructions a{
+  padding-top: 5px;
+  display: block;
+  text-decoration: none;
+  color: #39e5bd;
+  -webkit-transition:color 0.5s;
+  -moz-transition:color 0.5s;
+  transition:color 0.5s;
+}
+
+.game-instructions a:hover{
+  color: #25b392;
 }

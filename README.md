@@ -20,7 +20,7 @@ It has to run in a browser. Submissions should work on the latest stable version
 ## How to participate?
 Fork this repo. You will find our logo in various formats for your convenience.
 Go wild and be creative.
-When you're done, submit a pull request and include both your full name and your ticket order number in the description. 
+When you're done, submit a pull request and include both your full name and your <b>ticket order number</b> in the description. 
 
 ## Submission Deadline
 Submit your pull request by `May 26th, 23:59 GMT+2` (Tel Aviv time!)

@@ -13,7 +13,9 @@ For an example, check out how different letters transition into the YGLF logo as
 
 ## What can you win?
 1st place: **Macbook air + $100,000 credit for [Google Cloud Platform](https://cloud.google.com/)**
+
 2nd place: **Flight + 2 nights hotel in Europe**
+
 3rd place: **New smartphone**
 
 ## Guidelines

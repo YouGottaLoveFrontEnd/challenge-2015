@@ -1,0 +1,160 @@
+body {
+  font-family: Futura-pt, Arial;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0961c5, #00d09d, #00d09d) no-repeat fixed;
+}
+
+a {
+  color: white;
+}
+
+#yglf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  min-width: 974px;
+}
+
+#elements {
+  visibility: hidden;
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+}
+
+#table {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: monospace;
+  width: 900px;
+  padding: 30px;
+  border: solid 7px currentColor;
+  position: relative;
+  color: white;
+}
+#table .space {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 60px;
+}
+#table .tag {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50px;
+  height: 60px;
+}
+#table .tag:hover {
+  z-index: 1;
+}
+#table .tag.tag-display-inline-block .content {
+  background-color: #3f9eff;
+}
+#table .tag.tag-display-block .content {
+  background-color: #00d09d;
+}
+#table .tag.tag-display-inline .content {
+  background-color: #0961c5;
+}
+#table .tag.tag-display-none .content {
+  background-color: #dc85de;
+}
+#table .tag .content {
+  background-color: #d82a64;
+  border: thin solid white;
+  width: calc(100% - 4px);
+  height: calc(100% - 8px);
+  padding: 4px 0 4px 4px;
+  word-wrap: break-word;
+  display: block;
+  text-decoration: none;
+}
+#table .tag .content .info {
+  opacity: 0;
+  display: none;
+  height: calc(100% - 22px);
+  overflow-y: scroll;
+  transition: opacity .7s .7s;
+}
+#table .tag .content .title {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+#table .tag .content .title:before {
+  content: "<";
+}
+#table .tag .content .title:after {
+  content: "/>";
+}
+#table .tag:hover .content {
+  width: calc(300px - 8px);
+  height: calc(150px - 8px);
+  margin-left: -125px;
+  margin-top: -45px;
+  transition: width .7s, height .7s .7s, margin-left .7s, margin-top .7s .7s;
+  box-shadow: 0 0 0 7px rgba(20, 20, 20, 0.5);
+}
+#table .tag:hover .content .info {
+  display: block;
+  opacity: 1;
+}
+#table .copy {
+  position: absolute;
+  transition: all 1s;
+  transition-timing-function: ease-out;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  vertical-align: top;
+}
+#table .copy.moved {
+  font-size: 40px;
+}
+#table .copy .trailing {
+  opacity: 0;
+  font-size: 40px;
+  transition: all 1s;
+  transition-timing-function: ease-in;
+}
+#table .copy .trailing.show {
+  opacity: 1;
+}
+#table .char.copied {
+  color: black;
+  transition: all 1s;
+}
+
+#periodic {
+  position: absolute;
+  left: 145px;
+  top: 25px;
+  text-transform: uppercase;
+  font-size: 40px;
+  letter-spacing: 13px;
+  line-height: 60px;
+  transition: all .4s;
+  pointer-events: none;
+}
+#periodic .hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#periodic a {
+  letter-spacing: 5px;
+  pointer-events: auto;
+}
+
+#about {
+  position: absolute;
+  left: 640px;
+  top: 65px;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s 3.5s;
+}
+#about .shown {
+  opacity: 1;
+  visibility: visible;
+}

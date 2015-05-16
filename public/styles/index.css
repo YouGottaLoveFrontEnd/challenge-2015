@@ -136,7 +136,7 @@ a {
   transition: all .4s;
   pointer-events: none;
 }
-#periodic .hidden {
+#periodic.hidden {
   opacity: 0;
   visibility: hidden;
 }
@@ -154,7 +154,7 @@ a {
   visibility: hidden;
   transition: all 1s 3.5s;
 }
-#about .shown {
+#about.shown {
   opacity: 1;
   visibility: visible;
 }

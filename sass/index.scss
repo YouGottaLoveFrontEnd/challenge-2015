@@ -155,7 +155,7 @@ a {
   transition: all .4s;
   pointer-events: none;
 
-  .hidden {
+  &.hidden {
     opacity: 0;
     visibility: hidden;
   }
@@ -175,7 +175,7 @@ a {
   visibility: hidden;
   transition: all 1s 3.5s;
 
-  .shown {
+  &.shown {
     opacity: 1;
     visibility: visible;
   }

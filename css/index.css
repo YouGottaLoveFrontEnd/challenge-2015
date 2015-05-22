@@ -1,0 +1,562 @@
+body {
+  background-color: #ddd;
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.logo {
+  font-family: Futura-pt, Arial;
+  text-transform: uppercase;
+  font-size: 64px;
+  width: 613px;
+  height: 448px;
+  padding: 60px;
+  letter-spacing: 15px;
+  display: inline-block;
+  box-sizing: border-box;
+  white-space: nowrap;
+  color: white;
+  border: solid 7px currentColor;
+  background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
+  position: absolute;
+  top: calc(50vh - 224px);
+  left: calc(50vw - 306px);
+  color: rgba(0,0,0,0.5);
+}
+
+.container {
+  width: 479px;
+  height: 314px;
+  position: absolute;
+  top: calc(50vh - 224px);
+  left: calc(50vw - 306px);
+  border: solid 7px #ffffff;
+  padding: 60px;
+  margin: 0;
+  transition: all .2s;
+}
+
+.letter {
+  font-family: Futura-pt, Arial;
+  text-transform: uppercase;
+  font-size: 64px;
+  color: #ffffff;
+ 
+  float: left;
+  letter-spacing: 15px;
+
+  transition: transform .3s;
+}
+.word {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+
+.u {
+  transform-origin: 50% 0;
+}
+.u:hover {
+  transform: skewX(-16deg);
+}
+.o {
+  transform-origin: 50% 0;
+  transition: transform 1s;
+
+}
+.o:hover {
+  transform: rotate3d(0,4,3,-360deg);
+}
+
+.y {
+  transform-origin: 50% 100%;
+}
+
+.y:hover {
+  transform: rotate3d(10,0,0,32deg);
+}
+
+.l {
+  transform-origin: 40% 100%;
+}
+
+.l:hover {
+  transform: rotate3d(10,10,0,62deg);
+}
+.r {
+  transform-origin: 90% 40%;
+}
+
+.r:hover {
+  transform: rotate3d(10,10,0,48deg);
+}
+
+
+.e {
+  transform-origin: 50% 0%;
+}
+
+.e:hover {
+  transform: rotate3d(0,0,10,32deg);
+}
+
+.d {
+  transform-origin: 12% 80%;
+}
+
+.d:hover {
+  transform: rotate3d(1,0,1,42deg);
+}
+
+.n {
+  transform-origin: 39%;
+}
+
+.n:hover {
+  transform: rotate3d(0,1,0,359deg);
+}
+
+.charecters {
+  display: none;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 1s linear ;
+  -webkit-transition-delay: .1s;
+  overflow: hidden;
+}
+
+.charecters.show {
+  display: block;
+  opacity: 1;
+}
+
+.action-figure  {
+  position: relative;
+  height: 449px;
+  display: none;
+  top: calc(50vh - 216px);
+  margin: 0 auto;
+  width: 598px; 
+  border: 8px solid #ffffff;
+}
+
+.action-figure.play{
+  display: block;
+}
+
+.inner-part {
+  position: absolute;
+  opacity: 0; 
+}
+
+.body-part {
+  position: absolute;
+}
+
+.relative-part {
+  position: inherit;
+   
+  opacity: 0; 
+  height: inherit;   
+  width: inherit; 
+}
+
+p {
+  color: #ffffff;
+  padding: 10px 50px;
+  font-size: 20px;
+  font-family: Futura-pt, Arial;
+}
+
+span.big{
+  font-size: 50px;
+  text-transform: capitalize;
+}
+
+span.medium{
+  font-size: 35px;
+}
+
+.hulk .bg[transition="top"] {
+  right: 0;
+}
+
+@-webkit-keyframes slideFromTop {
+  0% { top: -500px;}
+  100% {opacity: 1; top: 0px;}
+}
+
+@-webkit-keyframes slideToTop {
+  0% {  top: 0px;}
+  100% {opacity: 0; top: -500px;}
+}
+
+@-webkit-keyframes slideFromBotton {
+  0% { top: 500px;}
+  100% {opacity: 1; top: 0px;}
+}
+
+@-webkit-keyframes slideToBotton {
+  0% {  top: 0px; }
+  100% {opacity: 0; top: 500px;}
+}
+
+@-webkit-keyframes pop {
+  0% { transform: scale3d(1,0,1);}
+  100% {opacity: 1; transform: scale3d(1,1,1);}
+}
+
+@-webkit-keyframes popOut {
+  0% {  transform: scale3d(1,1,1);}
+  100% {opacity: 0; transform: scale3d(1,0,1);}
+}
+
+.animate-in [transition="top"] {
+  -webkit-animation: slideFromTop .5s .5s 1 forwards; 
+}
+
+.animate-in [transition="bottom"] {
+  -webkit-animation: slideFromBotton .5s 1 forwards; 
+}
+
+.animate-in [transition="pop"] {
+  -webkit-animation: pop .5s 1s 1 forwards; 
+}
+
+.animate-out [transition="top"] {
+  opacity: 1;
+  -webkit-animation: slideToBotton .5s .5s 1 forwards; 
+}
+
+.animate-out [transition="bottom"] {
+  opacity: 1;
+  -webkit-animation: slideToTop .5s 1 forwards; 
+}
+
+.animate-out [transition="pop"] {
+  opacity: 1;
+  -webkit-animation: popOut .5s 1s 1 forwards; 
+}
+
+.hulk .right-hand, 
+.hulk .body,
+.hulk .left-hand {
+  transition: all .2s;
+}
+
+@-webkit-keyframes hulkRightHand {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(10deg);}
+  100% {transform: rotate(0deg);}
+}
+
+@-webkit-keyframes hulkLeftHand {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(15deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.hulk .left-hand {
+  left: 180px;
+  top: 172px;
+  width: 55%;
+  z-index: 10;
+}
+
+.hulk .right-hand {
+  width: 51%;
+  right: -174px;
+  top: 108px;
+  z-index: 1;
+
+  transform-origin: 2% 17%;
+}
+
+.hulk [transition="pop"]{
+  transform-origin: 50% 100%;
+}
+
+.hulk .body {
+    width: 90%;
+    z-index: 7;
+    left: 200px;
+}
+
+.hulk.play .right-hand {
+  -webkit-animation: hulkRightHand 5s infinite;
+}
+
+.hulk.play .left-hand {
+  -webkit-animation: hulkLeftHand 5s infinite;
+  transform-origin: 74% 20%;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {}
+  100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeOut {
+  0% {}
+  100% {opacity: 0}
+}
+
+.capt-arr .bg[transition="fadeIn"] {
+  -webkit-animation: fadeIn 1s forwards;
+}
+
+.capt-arr .capt,
+.capt-arr .arr {
+  position: relative;
+  height: 100%;
+}
+
+.capt-arr .capt .body {
+    width: 95%;
+    position: absolute;
+    z-index: 21;
+    top: 0;
+    left: 0;
+}
+
+.capt-arr .capt .shiled {
+    position: absolute;
+    width: 121%;
+    z-index: 1000;
+    right: -200px;
+    bottom: -373px;
+}
+
+.capt-arr .arr {
+  display: block;
+
+  position: inherit;
+  top: -438px;
+ -webkit-filter: blur(1px);
+  right: 210px;
+  z-index: 1;
+}
+
+.capt-arr .arr .body {
+  position: absolute;
+  top: 14px;
+  right: -51px;
+  width: 46%;
+  z-index: 1;
+  transform: rotate(-3deg);
+}
+
+.capt-arr .arr .arrow {
+  position: absolute;
+  top: 21px;
+  width: 51%;
+  right: -66px;
+  z-index: 3;
+  transform-origin: 23% 60%;
+}
+
+@-webkit-keyframes blurIn {
+    from{ -webkit-filter: blur(0px);}
+    to { -webkit-filter: blur(3px);}
+}
+
+@-webkit-keyframes blurOut {
+    from{ -webkit-filter: blur(1px);}
+    to { -webkit-filter: blur(0px);}
+}
+
+@-webkit-keyframes moveArr {
+    0%{transform: rotate(0deg);}
+    50% {transform: rotate(3deg)}
+    100% { transform: rotate(0deg)}
+}
+
+@-webkit-keyframes lowerShiled {
+    0%{transform: scale(1);}
+    100% { transform: scale(0.8);
+      right: -317px;
+      bottom: -496px;}
+}
+
+@-webkit-keyframes leftIn {
+  0% {}
+  100% {opacity: 1; right: -20px;}
+}
+
+.capt-arr.animate-in .capt {
+  -webkit-animation: blurIn 1s 5s forwards; 
+  z-index: 20;
+}
+
+.capt-arr.animate-out .capt .shiled,
+.capt-arr.animate-in .capt .shiled{
+  -webkit-animation: lowerShiled .5s 3s forwards; 
+}
+
+.capt-arr.animate-in .arr[transition="leftIn"] {
+  /*-webkit-animation: blurOut 1s 3.5s forwards;*/
+  -webkit-animation: leftIn 1s 3s forwards, blurOut 1s 5.5s forwards;
+}
+
+.capt-arr.animate-in .arr .arrow{
+  -webkit-animation: moveArr 3s 6s 3 forwards; 
+}
+
+.capt-arr.animate-out .capt {
+  -webkit-animation: blurOut 1s 5s forwards, fadeOut 1s 1s forwards;  
+  z-index: 20;
+}
+
+.capt-arr.animate-out .arr[transition="leftIn"] {
+  -webkit-animation: leftIn 1s 3s forwards, blurOut 1s 5.5s forwards, fadeOut 1s forwards;
+}
+
+.capt-arr.animate-out  .bg[transition="fadeIn"] {
+  -webkit-animation: fadeIn 1s forwards, fadeOut 1s .5s forwards;
+}
+
+.black .bg,
+.black .left-hand ,
+.black .right-hand ,
+.black .body  {
+   position: absolute;
+}
+
+.black .bg {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}
+
+.black-video-container {
+    width: 598px;
+    overflow: hidden;
+    height: 449px;
+    position: absolute;
+    z-index: 0;
+}
+
+.black-video {
+  width: 700px;
+}
+
+.black .body {
+    width: 60%;   
+    left: 49px;
+    top: 5px;
+    z-index: 9999999999999;
+}
+
+.black.animate-out[transition="fadeOut"] {
+  -webkit-animation: fadeOut 1s 1.5s forwards;
+
+}
+
+.fire-spark {
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(252,105,0,1) 0%,rgba(244,214,124,0.45) 59%,rgba(244,214,124,0.07) 100%);
+  position: absolute;
+  z-index: 999;
+  -webkit-transition: bottom 1s linear, left 1s linear,opacity .3s;
+  border-radius: 50%;
+}
+
+.iron-thor {
+  overflow: hidden;
+}
+
+@-webkit-keyframes shiftScene {
+    0%{}
+    100% { left: -400px;}
+}
+
+.iron-thor .scene.bg {
+  background: url('../images/iron.jpg') no-repeat;
+  background-size: 102%;
+  background-position: 0px 0px;
+  -webkit-filter: blur(3px);
+  top: 0;
+  height: 100%;
+}
+
+.iron-thor .scene {
+  width: 1000px;
+  height: 433px;
+  position: relative;
+  top: -433px;
+  left: 0px;
+  -webkit-animation: shiftScene 3s 8s forwards; 
+
+}
+
+.iron-thor .ironman {
+  position: relative;
+}
+
+@-webkit-keyframes powerOn {
+    0%{-webkit-filter: blur(13px)}
+    50%{-webkit-filter: blur(3px)}
+    100% { -webkit-filter: blur(13px)}
+}
+.iron-thor .ironman .light{
+  position: absolute;
+  width: 35px; 
+  height: 35px;
+  border-radius: 50%;
+  background-color: #fbfaf8;
+  -webkit-animation: powerOn 1.5s 6 forwards; 
+}
+
+.iron-thor .ironman .light.hand {
+  top: 68px;
+  left: 557px;
+}
+
+.iron-thor .ironman .light.body {
+  top: 222px;
+  left: 320px;
+  transform: skew(-2deg) rotateY(47deg);
+}
+
+.iron-thor .ironman img{
+  position: absolute;
+  width: 36%;
+  right: 344px;
+  top: -13px;
+   -webkit-animation: blurIn 1.5s 7.5s forwards;
+}
+
+.thor {
+  position: relative;
+}
+
+.thor img{
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  width: 36%;
+}
+
+.thor canvas {
+  position: absolute;
+  top: 0;
+  right: 110px;
+  width: 20%;
+  height: 432px;
+}
+
+
+
+
+
+

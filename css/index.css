@@ -467,7 +467,7 @@ span.medium{
   background: -webkit-radial-gradient(center, ellipse cover,  rgba(252,105,0,1) 0%,rgba(244,214,124,0.45) 59%,rgba(244,214,124,0.07) 100%);
   position: absolute;
   z-index: 999;
-  -webkit-transition: bottom 1s linear, left 1s linear,opacity .3s;
+  -webkit-transition: top 1s linear, left 1s linear, opacity .3s, transform .2s;
   border-radius: 50%;
 }
 

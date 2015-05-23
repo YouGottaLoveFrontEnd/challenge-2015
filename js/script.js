@@ -171,6 +171,9 @@ $(document).ready(function () {
 		clip(true);
 	});
 
+	new ChasingItem().capture('chase1', 'billboard');
+	new ChasingItem().capture('chase2', 'billboard');
+	new ChasingItem().capture('chase3', 'billboard');
 	
 });
 

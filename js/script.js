@@ -130,7 +130,7 @@ function animateIn() {
 			window[fnc]();
 		});
 	}
-	setTimeout(animateOut,charectersArr[playIndex].duration * 1000);
+	// setTimeout(animateOut,charectersArr[playIndex].duration * 1000);
 }
 
 function incVol () {
@@ -157,7 +157,7 @@ function clip(play) {
 		sound.volume = 0.1;
 		incVol();
 		sound.play();
-		playIndex = 0;
+		playIndex = 4;
 		$('.charecters').addClass('show');
 		animateIn(0);
 	}else{ 

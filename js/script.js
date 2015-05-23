@@ -118,6 +118,7 @@ function animateIn() {
 	if(playIndex === charectersArr.length || forceStop) {
 		
 		$('.charecters').removeClass('show');
+		$('#billboard').show();
 		setTimeout(function() {
 			sound.pause();
 			sound.currentTime = 0;
@@ -154,6 +155,7 @@ function decVol () {
 
 function clip(play) {
 	if(play) {
+		$('#billboard').hide();
 		sound.volume = 0.1;
 		incVol();
 		sound.play();
@@ -175,5 +177,8 @@ $(document).ready(function () {
 	new ChasingItem().capture('chase2', 'billboard');
 	new ChasingItem().capture('chase3', 'billboard');
 	
+	$('.game-start-btn').on('click', function () {
+		new Game().init();
+	});
 });
 

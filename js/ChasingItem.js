@@ -18,7 +18,7 @@ var ChasingItem = function () {
 
 	function mouseOut () {
 		isout = true;
-		resetTimer = setTimeout(resetItem, 1000);
+		resetTimer = setTimeout(resetItem, 500);
 	}
 
 	function resetItem () {
@@ -32,7 +32,6 @@ var ChasingItem = function () {
 		style.zIndex = 999 * 999;
 		item.addEventListener('mouseover', watchOut);
 		item.addEventListener('mouseout', mouseOut);
-		// parent.addEventListener('mouseout', resetItem);
 	}
 
 	return {

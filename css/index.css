@@ -562,6 +562,31 @@ span.medium{
     -webkit-transition: top .2s linear, left .2s linear;
 }
 
+.game-start-btn {
+  cursor: pointer;
+}
+
+.game-start-btn:hover{
+  background-color: pink;
+  color: rgba(0,0,0,0);
+  transform: rotate(-90deg);
+  letter-spacing: 1px;
+  transform-origin: 48% 94%;
+  margin-right: -6px;
+  padding: 10px;
+  height: 20px;
+}
+
+.game-start-btn:hover:after{
+  background-color: pink;
+  color: #fff;
+  content: 'Start';
+  font-size: 16px;
+  position: absolute;
+  padding: 14px;
+  left: -20px;
+  top: 0;
+}
 
 
 

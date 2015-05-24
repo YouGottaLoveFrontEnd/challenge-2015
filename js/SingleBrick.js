@@ -12,10 +12,8 @@ var SingleBrick = function () {
 	var player; 
 	var playerLocation;
 	var checkHitTimeout = 10;
-	var psnd = new Audio('audio/hitPlayer.wav'); 
-	var bsnd = new Audio('audio/bounce.wav'); 
-	var osnd = new Audio('audio/gameOver.wav'); 
-	osnd.volume = .2;
+	var soundManager;
+
 	function lookForHit () {
 		var currentY = parseInt(elemStyle.top) + (parseInt(elemStyle.height) /2);
 		var currentX = parseInt(elemStyle.left) + parseInt(elemStyle.width);
@@ -31,7 +29,7 @@ var SingleBrick = function () {
 				}
 
 				flyToYDirection = flyToYDirection * -1;
-				psnd.play();
+				soundManager.play(3);
 				elemStyle.top = parseInt(elemStyle.top) + (speed * flyToYDirection) + 'px';
 				elemStyle.left = parseInt(elemStyle.left) + (speed * flyToXDirection) + 'px';
 			}
@@ -46,13 +44,11 @@ var SingleBrick = function () {
 		
 		if( newY <= 0) {
 			flyToYDirection = flyToYDirection * -1;
-			// bsnd.play();
 			newY = parseInt(elemStyle.top) + (speed * flyToYDirection);
 		}
 
 		if(newX <=0 || newX >= boundries.width - ballSize) {
 			flyToXDirection = flyToXDirection * -1;
-			// bsnd.play();
 			newX = parseInt(elemStyle.left) + (speed * flyToXDirection);
 		}
 
@@ -72,7 +68,7 @@ var SingleBrick = function () {
 
 	}
 
-	function create (content, _boundries, _message, _player) {
+	function create (content, _boundries, _message, _player, _soundManager) {
 		message = _message;
 		boundries = _boundries;
 		elemStyle.width = ballSize + 'px';
@@ -89,7 +85,7 @@ var SingleBrick = function () {
 		elemStyle.transition = 'left .1s linear top .1s linear';
 		elem.innerHTML = content.innerHTML;
 		player = _player;
-
+		soundManager = _soundManager;
 		lookForHit();
 		fly();
 
@@ -100,7 +96,7 @@ var SingleBrick = function () {
 	}
 
 	function kill () {
-		osnd.play();
+		soundManager.play(2);
 		clearTimeout(flyTimeout);
 		clearTimeout(checkHitTimeout);
 	}

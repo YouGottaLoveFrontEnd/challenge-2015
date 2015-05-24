@@ -8,10 +8,11 @@ var Bricks = function () {
 	var player;
 	var addBrickTimer;
 	var brickIndex = 0;
+	var soundManager;
 
 	function addBrick() {
 		var brick = new SingleBrick();
-		brick.create(bricksData[brickIndex], boundries, message, player);
+		brick.create(bricksData[brickIndex], boundries, message, player, soundManager);
 		bricksList.push(brick);
 		board.appendChild(brick.getElem());
 		brickIndex++;
@@ -27,7 +28,7 @@ var Bricks = function () {
 		bricksData[bricksList.length -1].style.color = '#fff000';
 	}
 
-	function init (bricksArr, boardId, _message, _player) {
+	function init (bricksArr, boardId, _message, _player, _soundManager) {
 		message =_message;
 		bricksData = bricksArr;
 		bricksList = [];
@@ -39,7 +40,7 @@ var Bricks = function () {
 		boundries.height = board.offsetHeight;
 
 		player = _player;
-
+		soundManager = _soundManager;
 		addBrick();
 		
 	}

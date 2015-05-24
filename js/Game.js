@@ -6,6 +6,7 @@ var Game = function () {
 	var player;
 	var messageData;
 	var messenger;
+	var soundManager = new SoundManager();
 
 	function addPlayer() {
 		player = new Player();
@@ -43,7 +44,7 @@ var Game = function () {
 		
 		setTimeout(function () {
 			bricksManager = new Bricks();
-			bricksManager.init(document.getElementsByClassName('letter'), boardId, message, player);
+			bricksManager.init(document.getElementsByClassName('letter'), boardId, message, player, soundManager);
 
 		},1500);
 		

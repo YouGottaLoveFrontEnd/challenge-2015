@@ -39,9 +39,11 @@ var Player = function () {
 		if(changeToLeft <= 0) {
 			changeToLeft = 0;
 		}
+
+		
 		playerStyle.left = changeToLeft + 'px';
-		if(playerWidth + parseInt(playerStyle.left) > board.offsetWidth - 16) {
-			playerStyle.left = board.offsetWidth - parseInt(playerStyle.width) - 16 + 'px';
+		if(playerWidth + parseInt(playerStyle.left) > board.offsetWidth - 36) {
+			playerStyle.left = board.offsetWidth - parseInt(playerStyle.width) - 36 + 'px';
 		}
 	}
 

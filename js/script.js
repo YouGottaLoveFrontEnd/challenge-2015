@@ -105,6 +105,7 @@ function clip(play) {
 }
 
 $(document).ready(function () {
+	$('body').show();
 	$('.g.btn').on('click', function () {
 		clip(true);
 	});

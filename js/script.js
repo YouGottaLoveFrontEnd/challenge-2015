@@ -15,77 +15,13 @@ var charectersArr = [{name: 'intro', duration: 12},
 					 {name:'hulk', duration: 5},
 					 {name:'capt-arr',duration: 14},
 					 {name:'black', action:['createSparks','playBlackVid'], duration: 10},
-					 {name:'iron-thor', action:['lightning'], duration: 18},
+					 {name:'iron-thor', duration: 18},
 					 {name: 'closer', action:['decVol'], duration: 1}];
 
 var sceneTimer = 10 * 1000;
 var playIndex;
 var forceStop = false;
 var blackVideo = document.getElementById('blackBgVideo');
-var canvas = document.getElementById('lightning');
-var context = canvas.getContext('2d');
-var lightningOver = false;
-
-function strike (shine) {
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	if($('.iron-thor').hasClass('animate-out'))
-	{
-		return;
-	}
-	
-	context.lineWidth = 2;
-	var mode = shine;
-	if(shine) {
-		context.beginPath();
-		context.moveTo(20, 150);
-		context.lineTo(30, 140);
-		context.lineTo(20, 135);
-		context.lineTo(40, 130);
-		context.lineTo(50, 120);
-		context.lineTo(55, 125);
-		context.lineTo(65, 115);
-		context.strokeStyle = 'rgba(250,249,247, .7)';
-		context.stroke();
-
-		context.beginPath();
-		context.moveTo(80, 140);
-		context.lineTo(75, 135);
-		context.lineTo(83, 125);
-		context.lineTo(75, 110);
-		context.lineTo(80, 105);
-		context.lineTo(73, 100);
-		context.lineTo(90, 97);
-		context.strokeStyle = 'rgba(250,249,247, .7)';
-		context.stroke();
-	}else{
-		context.beginPath();
-		context.moveTo(30, 150);
-		context.lineTo(20, 140);
-		context.lineTo(30, 135);
-		context.lineTo(50, 130);
-		context.lineTo(40, 120);
-		context.lineTo(45, 125);
-		context.lineTo(55, 115);
-		context.strokeStyle = 'rgba(250,249,247, .7)';
-		context.stroke();
-
-		context.beginPath();
-		context.moveTo(70, 140);
-		context.lineTo(85, 135);
-		context.lineTo(73, 125);
-		context.lineTo(85, 110);
-		context.lineTo(70, 105);
-		context.lineTo(83, 100);
-		context.lineTo(90, 97);
-		context.strokeStyle = 'rgba(250,249,247, .7)';
-		context.stroke();
-	}
-	setTimeout(function () {strike(mode ? false : true );},20);
-}
-
-function lightning () {
-	setTimeout(strike,11000);
-}
 
 function playBlackVid () {
 	

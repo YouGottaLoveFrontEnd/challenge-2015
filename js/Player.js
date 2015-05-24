@@ -95,7 +95,7 @@ var Player = function () {
 		board = document.getElementById(boardId);
 		setPlayerWidth();
 		playerStyle.height = '15px';
-		playerStyle.backgroundColor = '#ff0000';
+		playerStyle.backgroundColor = '#1eb1d2';
 		playerStyle.bottom = '10px';
 		playerStyle.position = 'absolute';
 		playerStyle.left = Math.floor(Math.random() * (board.offsetWidth - 16 - playerWidth)) + 'px';

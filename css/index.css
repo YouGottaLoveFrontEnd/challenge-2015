@@ -508,29 +508,63 @@ span.medium{
   position: relative;
 }
 
-@-webkit-keyframes powerOn {
-    0%{-webkit-filter: blur(13px)}
-    50%{-webkit-filter: blur(3px)}
-    100% { -webkit-filter: blur(13px)}
+@-webkit-keyframes powerGlow {
+    0%{-webkit-filter: blur(13px);}
+    50%{-webkit-filter: blur(3px); }
+    100% { -webkit-filter: blur(13px); }
 }
+
+@-webkit-keyframes powerOn {
+    0%{-webkit-filter: blur(13px); transform: skew(280deg, 100deg);}
+    50%{-webkit-filter: blur(3px); transform: skew(10deg, 10deg);}
+    100% { -webkit-filter: blur(13px); transform: skew(280deg, 100deg);}
+}
+
+@-webkit-keyframes shake {
+    0%{top: 2px; left: -2px;}
+    5%{top: -2px; left: 2px;}
+    10%{top: 2px; left: -2px;}
+    15%{top: 2px; left: -2px;}
+    20%{top: 2px; left: -2px;}
+    25%{top: -2px; left: 2px;}
+    30%{top: 2px; left: -2px;}
+    35%{top: -2px; left: 2px;}
+    40%{top: -2px; left: 2px;}
+    45%{top: 2px; left: -2px;}
+    50%{top: -2px; left: -2px;}
+    55%{top: 2px; left: 2px;}
+    60%{top: -2px; left: -2px;}
+    65%{top: -2px; left: 2px;}
+    70%{top: 2px; left: -2px;}
+    75%{top: 2px; left: -2px;}
+    80%{top: -2px; left: -2px;}
+    85%{top: -2px; left: 2px;}
+    90%{top: 2px; left: -2px;}
+    95%{top: -2px; left: 2px;}
+    100%{top: 2px; left: 2px;}
+}
+
+
 .iron-thor .ironman .light{
   position: absolute;
   width: 35px; 
   height: 35px;
   border-radius: 50%;
   background-color: #fbfaf8;
-  -webkit-animation: powerOn 1.5s 6 forwards; 
 }
 
 .iron-thor .ironman .light.hand {
   top: 68px;
   left: 557px;
+  -webkit-animation: powerOn 1.5s 6 forwards; 
+
 }
 
 .iron-thor .ironman .light.body {
   top: 222px;
   left: 320px;
-  transform: skew(-2deg) rotateY(47deg);
+  -webkit-animation: powerGlow 1.5s 6 forwards; 
+
 }
 
 .iron-thor .ironman img{
@@ -545,25 +579,30 @@ span.medium{
   position: relative;
 }
 
-.thor img{
+.thor .body{
   position: absolute;
   top: 10px;
-  right: 12px;
+  right: 22px;
 }
 
-.thor canvas {
+@-webkit-keyframes rotateHammer {
+    0%{transform: rotate(0deg);}
+    100% {transform: rotate(-359deg);}
+}
+.thor .hammer{
   position: absolute;
-  top: 0;
-  right: 110px;
-  width: 20%;
-  height: 432px;
-}
+  top: 327px;
+  right: 327px;
+  transform-origin: 85% 15%;
+  -webkit-animation: rotateHammer .2s 11s 50;
 
+  
+}
 .chase {
     position: relative;
     top: 0px;
     left: 0px;
-    -webkit-transition: top .2s linear, left .2s linear;
+    -webkit-transition: top .5s linear, left .2s linear;
 }
 
 .game-start-btn {

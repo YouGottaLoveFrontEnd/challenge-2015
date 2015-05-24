@@ -35,7 +35,11 @@ var Player = function () {
 
 	function setPlayerWidth () {
 		playerStyle.width = playerWidth + 'px';
-		playerStyle.left = parseInt(playerStyle.left) - 10 + 'px';
+		var changeToLeft = parseInt(playerStyle.left) - 10;
+		if(changeToLeft <= 0) {
+			changeToLeft = 0;
+		}
+		playerStyle.left = changeToLeft + 'px';
 		if(playerWidth + parseInt(playerStyle.left) > board.offsetWidth - 16) {
 			playerStyle.left = board.offsetWidth - parseInt(playerStyle.width) - 16 + 'px';
 		}

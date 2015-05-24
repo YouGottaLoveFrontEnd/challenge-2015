@@ -8,6 +8,10 @@ body {
   cursor: pointer;
 }
 
+.btn:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
 .logo {
   font-family: Futura-pt, Arial;
   text-transform: uppercase;

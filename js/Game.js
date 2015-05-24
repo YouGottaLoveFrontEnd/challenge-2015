@@ -21,11 +21,9 @@ var Game = function () {
 		switch(data) {
 			case 1:
 				bricksManager.killAll();
-				setTimeout(clearBoard , 1000);
+				setTimeout(clearBoard , 2000);
 			break;
-			case 2:
-				
-			break;
+			
 		}
 		new Message().send(data);
 	}
@@ -42,13 +40,17 @@ var Game = function () {
 		document.getElementsByTagName('body')[0].appendChild(board);
 
 		addPlayer();
+		
+		setTimeout(function () {
+			bricksManager = new Bricks();
+			bricksManager.init(document.getElementsByClassName('letter'), boardId, message, player);
 
-		bricksManager = new Bricks();
-		bricksManager.init(document.getElementsByClassName('letter'), boardId, message, player);
-
+		},1500);
+		
 		messenger = new Message();
 		messageData = messenger.data;
 		board.appendChild(messenger.create());
+		message(0);
 
 	}
 

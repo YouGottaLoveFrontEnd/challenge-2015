@@ -1,4 +1,5 @@
 function yglf() {
+    'use strict';
 
     function getRelativePosition(node, root) {
         var offsetTop = 0;

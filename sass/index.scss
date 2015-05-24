@@ -46,6 +46,14 @@ a {
     display: inline-block;
     width: 50px;
     height: 60px;
+    opacity: 0;
+
+    $elements: 150;
+    @for $i from 0 to $elements {
+      &:nth-child(#{$i}) {
+        -webkit-animation: fadein .3s #{$i/50 + 0.5}s forwards;
+      }
+    }
 
     &:hover {
       z-index: 1;
@@ -163,6 +171,7 @@ a {
   a {
     letter-spacing: 5px;
     pointer-events: auto;
+    -webkit-animation: blink 2s infinite;
   }
 }
 
@@ -181,3 +190,13 @@ a {
   }
 }
 
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}

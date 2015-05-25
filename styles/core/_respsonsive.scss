@@ -1,0 +1,55 @@
+@include breakpoint(tablet) {
+	.title {
+		font-size: 100px;
+		padding-left: 80px;
+		letter-spacing: -11px;
+		z-index: 110;
+	}
+
+	.behavior-sub-title {
+		top: 40px;
+		left: 6px;
+		padding-left: 80px;
+	}
+
+	.logo {
+		z-index: 105;
+	}
+
+	.item-css,
+	.item-html,
+	.item-ipad,
+	.item-frame,
+	.item-book_open,
+	.item-js{ display: none }
+}
+
+@include breakpoint(mobile) {
+	.title {
+		font-size: 80px;
+		padding-left: 40px;
+	}
+
+	.behavior-sub-title {
+		top: 20px;
+		padding-left: 40px;
+	}
+
+	.logo {
+		transform: scale(.7,.7);
+		right: -37px;
+		top: 130px;
+	}
+
+	.date {
+		right: 40px;
+		top: 480px;
+		width: 315px;
+	}
+
+	.item-book_open,
+	.item-ipad,
+	.item-js,
+	.item-flowerpot { display: none }
+
+}

@@ -1,0 +1,71 @@
+//Scene style
+.scene-design{
+	background: rgba(208,197,194,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(208,197,194,1) 0%, rgba(165,148,141,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(208,197,194,1)), color-stop(100%, rgba(165,148,141,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(208,197,194,1) 0%, rgba(165,148,141,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(208,197,194,1) 0%, rgba(165,148,141,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(208,197,194,1) 0%, rgba(165,148,141,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(208,197,194,1) 0%, rgba(165,148,141,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0c5c2', endColorstr='#a5948d', GradientType=1 );
+}
+
+//Scene Items
+.item-case {
+	@extend %item;
+	background-position:0 -4312px;
+	width:581px;
+	height:329px;
+	top: 0;
+	right: 350px;
+}
+.item-brush_white {
+	@extend %item;
+	background-position:-528px -3920px;
+	width:206px;
+	height:374px;
+	top: 0;
+	right: 430px;
+	-webkit-filter: drop-shadow(22px -18px 16px rgba(0, 0, 0, 0.3));
+	filter: drop-shadow(22px -18px 16px rgba(0, 0, 0, 0.3));
+	z-index: 103;
+}
+.item-box {
+	@extend %item;
+	background-position:-802px 0;
+	width:72px;
+	height:107px;
+	top: 10px;
+	right: 0;
+	-webkit-filter: drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5));
+	filter: drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5));
+}
+.item-brush_black {
+	@extend %item;
+	background-position:0 -3053px;
+	width:732px;
+	height:439px;
+	bottom: 0;
+	right: 300px;
+	z-index: 104;
+}
+.item-palette {
+	@extend %item;
+	background-position:0 -1934px;
+	width:744px;
+	height:585px;
+	top: 200px;
+	right: 0;
+	z-index: 102;
+	-webkit-filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+	filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+}
+.item-paint {
+	@extend %item;
+	background-position:0 -3492px;
+	width:341px;
+	height:428px;
+	right: -20px;
+	bottom: 0;
+	z-index: 103;
+}

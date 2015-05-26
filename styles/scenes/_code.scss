@@ -1,0 +1,62 @@
+//Scene style
+.scene-code {
+	background: rgba(161,174,189,1);
+	background: -moz-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(161,174,189,1)), color-stop(19%, rgba(167,178,194,1)), color-stop(23%, rgba(162,174,190,1)), color-stop(43%, rgba(144,158,178,1)), color-stop(100%, rgba(86,104,126,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
+	background: linear-gradient(135deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1aebd', endColorstr='#56687e', GradientType=1 );
+}
+
+//Scene Items
+.item-pen {
+	@extend %item;
+	background-position:0 -5151px;
+	width:408px;
+	height:134px;
+	right: 120px;
+	top: 0;
+	-webkit-filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
+	filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
+	z-index: 104;
+}
+.item-flowerpot {
+	@extend %item;
+	background-position:0 -3920px;
+	width:528px;
+	height:392px;
+	right: 0;
+	top: -40px;
+	z-index: 103;
+}
+.item-machine {
+	@extend %item;
+	background-position: 0 0;
+	width:802px;
+	height:666px;
+	right: 0;
+	bottom: -25px;
+	-webkit-filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+	filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+	z-index: 100;
+}
+.item-cup {
+	@extend %item;
+	background-position:-414px -4641px;
+	width:299px;
+	height:268px;
+	right: 540px;
+	bottom: 0;
+	z-index: 104;
+}
+.item-book {
+	@extend %item;
+	background-position:-427px -1313px;
+	width:457px;
+	height:489px;
+	left: 150px;
+	bottom: -50px;
+	z-index: 103;
+}

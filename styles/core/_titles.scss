@@ -1,0 +1,159 @@
+//Titles styles
+.title {
+	position: relative;
+	font-size: 160px;
+	text-align: left;
+	padding-left: 140px;
+	z-index: 101;
+	font-weight: 700;
+	letter-spacing: -22px;
+	cursor: default;
+}
+
+.subtitle {
+	bottom: 15%;
+	right: 15%;
+	font-weight: 300;
+	position: absolute;
+	cursor: default;
+	transform: translate(-15%, -15%);
+	font-style: italic;
+	font-size: 35px;
+}
+
+.behavior-sub-title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	position: absolute;
+	top: 110px;
+	left: 12px;
+	font-size: 40px;
+	text-align: left;
+	padding-left: 140px;
+	z-index: 101;
+	letter-spacing: -22px;
+	cursor: default;
+}
+
+//Titles animations
+/* Hover Effects Inspired by http://tympanus.net/Development/TextStylesHoverEffects */
+.animated-title {
+	cursor: crosshair;
+
+	&:before {
+		content: '';
+		position: absolute;
+		box-sizing: border-box;
+		height: 100%;
+		width: 100%;
+		border-width: 2px 0 0 0;
+		border-color: #282828;
+		border-style: dashed;
+		left: 0;
+		-webkit-transform: translate3d(-101%, 0, 0);
+		transform: translate3d(-101%, 0, 0);
+		-webkit-transition: -webkit-transform 0.5s;
+		transition: transform 0.5s;
+	}
+
+	&:hover:before {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	span {
+		display: inline-block;
+		position: relative;
+		-webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+		transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+		-webkit-transition: -webkit-transform 0.5s, color 0.5s;
+		transition: transform 0.5s, color 0.5s;
+	}
+
+	&:hover span {
+		-webkit-transform: perspective(1000px) rotate3d(0,1,0,360deg);
+		transform: perspective(1000px) rotate3d(0,1,0,360deg);
+	}
+}
+
+.animated-title span:nth-child(6),
+.animated-title:hover span:first-child {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.animated-title span:nth-child(5),
+.animated-title:hover span:nth-child(2) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.animated-title span:nth-child(4),
+.animated-title:hover span:nth-child(3) {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.animated-title span:nth-child(3),
+.animated-title:hover span:nth-child(4) {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.animated-title span:nth-child(2),
+.animated-title:hover span:nth-child(5) {
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+
+.animated-title span:first-child,
+.animated-title:hover span:nth-child(6) {
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+/* Hover Effects Inspired by http://tympanus.net/Development/TextStylesHoverEffects */
+.behavior {
+	overflow: hidden;
+	color: rgba(0, 0, 0, 255);
+	cursor: crosshair;
+
+	&:after {
+		content: '';
+		position: absolute;
+		height: 5px;
+		width: 100%;
+		top: 73%;
+		right: 0;
+		background: #F9F9F9;
+		-webkit-transform: translate3d(-100%, 0, 0);
+		transform: translate3d(-100%, 0, 0);
+		-webkit-transition: -webkit-transform 0.4s;
+		transition: transform 0.4s;
+		-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+		transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	}
+
+	&:hover {
+		&:before {
+			width: 100%;
+		}
+
+		&:after {
+			-webkit-transform: translate3d(100%,0,0);
+			transform: translate3d(100%,0,0);
+		}
+	}
+
+	&:before {
+		content: attr(data-letters);
+		position: absolute;
+		z-index: 2;
+		overflow: hidden;
+		color: rgba(28, 28, 28, 0.96);
+		white-space: nowrap;
+		width: 0;
+		-webkit-transition: width 0.4s .3s, color .4s;
+		transition: width 0.4s .3s, color .4;
+	}
+}

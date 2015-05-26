@@ -1,0 +1,75 @@
+//Scene style
+.scene-behavior {
+	background: rgba(173,197,187,1);
+	background: -moz-linear-gradient(left, rgba(173,197,187,1) 0%, rgba(195,213,205,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(173,197,187,1)), color-stop(100%, rgba(195,213,205,1)));
+	background: -webkit-linear-gradient(left, rgba(173,197,187,1) 0%, rgba(195,213,205,1) 100%);
+	background: -o-linear-gradient(left, rgba(173,197,187,1) 0%, rgba(195,213,205,1) 100%);
+	background: -ms-linear-gradient(left, rgba(173,197,187,1) 0%, rgba(195,213,205,1) 100%);
+	background: linear-gradient(to right, rgba(173,197,187,1) 0%, rgba(195,213,205,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adc5bb', endColorstr='#c3d5cd', GradientType=1 );
+}
+
+//Scene Items
+.item-imac {
+	@extend %item;
+	background-position:0 -666px;
+	width:836px;
+	height:647px;
+	bottom: 0;
+	right: 0;
+	-webkit-filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+	filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
+}
+.item-iphone {
+	@extend %item;
+	background-position:-581px -4312px;
+	width:167px;
+	height:312px;
+	bottom: 53px;
+	right: 388px;
+}
+.item-ipad {
+	@extend %item;
+	background-position:0 -4641px;
+	width:414px;
+	height:300px;
+	top: 40px;
+	right: 40px;
+	z-index: 102;
+}
+.item-pencil-gray {
+	@extend %item;
+	background-position:-598px -4941px;
+	width:233px;
+	height:121px;
+	top: 0;
+	right: 530px;
+}
+.item-mouse {
+	@extend %item;
+	background-position:-748px -4312px;
+	width:132px;
+	height:90px;
+	right: 760px;
+	top: 350px;
+	-webkit-filter: drop-shadow(22px 32px 17px rgba(0, 0, 0, 0.5));
+	filter: drop-shadow(22px 32px 17px rgba(0, 0, 0, 0.5));
+	z-index: 101;
+}
+.item-sharpener {
+	@extend %item;
+	background-position:-732px -3053px;
+	width:150px;
+	height:194px;
+	top:-15px;
+	right: 0;
+}
+.item-stone-medium {
+	@extend %item;
+	background-position:-482px -5151px;
+	width:64px;
+	height:64px;
+	right: 250px;
+	top: 40px;
+}

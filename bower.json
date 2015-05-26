@@ -1,0 +1,22 @@
+{
+  "name": "challenge",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paveliko/challenge",
+  "authors": [
+    "Pavel Rapoport <pavel@responso.io>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "EaselJS": "~0.8.0",
+    "TweenJS": "~0.6.0",
+    "SoundJS": "~0.6.0",
+    "PreloadJS": "~0.6.0"
+  }
+}

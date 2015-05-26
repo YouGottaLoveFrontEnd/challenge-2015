@@ -23,19 +23,24 @@
 	.item-cup,
 	.item-book,
 	.item-case,
-	.item-brush_white,
+	.item-brush-white,
 	.item-box,
-	.item-brush_black,
+	.item-brush-black,
 	.item-paint,
 	.item-iphone,
 	.item-ipad,
 	.item-mouse,
-	.item-pencil_gray,
-	.item-css,
+	.item-pencil-gray,
+	.item-sharpener,
+	.item-stone-medium,
+	.item-stone-big,
+	.item-book-open,
 	.item-html,
+	.item-css,
 	.item-js,
 	.item-frame,
-	.item-book_open,
+	.item-drupal,
+	.item-chrome
 	{ display: none }
 }
 
@@ -61,33 +66,40 @@
 	.item-cup,
 	.item-book,
 	.item-case,
-	.item-brush_white,
+	.item-brush-white,
 	.item-box,
-	.item-brush_black,
+	.item-brush-black,
 	.item-paint,
 	.item-iphone,
 	.item-ipad,
 	.item-mouse,
-	.item-pencil_gray,
-	.item-book_open,
+	.item-pencil-gray,
+	.item-sharpener,
+	.item-stone-medium,
+	.item-stone-big,
+	.item-book-open,
 	.item-html,
 	.item-css,
-	.item-js { display: none }
+	.item-js,
+	.item-frame,
+	.item-drupal,
+	.item-chrome
+	{ display: none }
 
 	.logo {
 		transform: scale(.7,.7);
-		right: -50px;
+		right: -45px;
 		top: 130px;
 	}
 
-	.date {
-		right: 30px;
+	.yglf-site {
+		right: 35px;
 		top: 480px;
 		width: 315px;
 	}
 
 	.credit {
-		right: -50px;
+		right: -45px;
 	}
 
 }

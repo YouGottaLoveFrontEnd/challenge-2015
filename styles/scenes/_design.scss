@@ -19,7 +19,7 @@
 	top: 0;
 	right: 350px;
 }
-.item-brush_white {
+.item-brush-white {
 	@extend %item;
 	background-position:-528px -3920px;
 	width:206px;
@@ -40,7 +40,7 @@
 	-webkit-filter: drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5));
 	filter: drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5));
 }
-.item-brush_black {
+.item-brush-black {
 	@extend %item;
 	background-position:0 -3053px;
 	width:732px;

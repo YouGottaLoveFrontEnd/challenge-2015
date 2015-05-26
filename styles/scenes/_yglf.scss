@@ -24,7 +24,7 @@
 	filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.2));
 	z-index: 102;
 }
-.date {
+.yglf-site {
 	position: absolute;
 	right: 120px;
 	top: 520px;
@@ -63,7 +63,7 @@
 }
 
 //Scene Items
-.item-book_open {
+.item-book-open {
 	@extend %item;
 	background-position:-341px -3492px;
 	width:487px;
@@ -142,7 +142,7 @@
 	left: 160px;
 	top: -80px;
 }
-.item-imac_blur {
+.item-imac-blur {
 	@extend %item;
 	background-position:0 -2519px;
 	width:888px;
@@ -151,7 +151,7 @@
 	right: 0;
 	z-index: 99;
 }
-.item-stone_regular {
+.item-stone-regular {
 	@extend %item;
 	background-position:-836px -666px;
 	width:44px;
@@ -159,7 +159,7 @@
 	left: 490px;
 	top: 29px;
 }
-.item-stone_side {
+.item-stone-float-right {
 	@extend %item;
 	background-position:-874px 0;
 	width:13px;

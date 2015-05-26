@@ -40,16 +40,16 @@
 	bottom: -25px;
 	-webkit-filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
 	filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
-	z-index: 102;
+	z-index: 100;
 }
 .item-cup {
 	@extend %item;
 	background-position:-414px -4641px;
 	width:299px;
 	height:268px;
-	left: 620px;
+	right: 540px;
 	bottom: 0;
-	z-index: 102;
+	z-index: 104;
 }
 .item-book {
 	@extend %item;
@@ -58,4 +58,5 @@
 	height:489px;
 	left: 150px;
 	bottom: -50px;
+	z-index: 103;
 }

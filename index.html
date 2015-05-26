@@ -1,17 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Challenge</title>
-	<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
-  media="all">
-	<link rel="stylesheet" href="index.css">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb" media="all">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-	<div class="logo">
-		You
-		<br>gotta
-		<br>love
-		<br>frontend
-	</div>
+    <div class="pretext instructions">
+        OOOPS! JSLint claims that my <a href="https://github.com/ShaiMesisterano/BlindJS" target="_blank">GitHub project</a> has some issues, can you help me solve them?
+    </div>
+    <div class="pretext fork hidden">
+        GREAT! Please fork <a href="https://github.com/ShaiMesisterano/BlindJS" target="_blank">my repo</a> and commit your change
+    </div>
+    <div class="logo">
+        <div class="container">
+            <div class="txt">
+                You
+                <br>gotta
+                <br>love
+                <br>frontend
+            </div>
+            <div class="report">
+                Loading...
+            </div>
+        </div>
+    </div>
+    <textarea class="editor"></textarea>
+    <button class="check">JSLint</button>
+
+    <script src="report.js"></script>
+    <script src="jslint.js"></script>
+    <script>
+        var btnCheck = document.getElementsByClassName('check')[0],
+            report = document.getElementsByClassName('report')[0],
+            editor = document.getElementsByClassName('editor')[0],
+            txt = document.getElementsByClassName('txt')[0],
+            instructions = document.getElementsByClassName('instructions')[0],
+            fork = document.getElementsByClassName('fork')[0];
+
+        window.onload = function () {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "blind.js", true);
+            xmlhttp.send(null);
+            xmlhttp.onload = function () {
+                editor.innerHTML = xmlhttp.responseText;
+                displayReport();
+            };
+        };
+
+        btnCheck.onclick = function () {
+            displayReport();
+        };
+
+        displayReport = function () {
+            var result;
+
+            result = jslint(editor.value);
+            if (result.warnings.length === 0) {
+                displaySuccess();
+            } else {
+                report.innerHTML = REPORT.error(result);
+            }
+        };
+
+        displaySuccess = function () {
+            report.innerHTML = "";
+            txt.className += " scaled";
+            instructions.className = "hidden";
+            fork.className = "pretext faded";
+        }
+    </script>
 </body>
+
 </html>

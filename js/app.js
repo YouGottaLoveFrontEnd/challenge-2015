@@ -158,7 +158,7 @@
 						}
 						break;
 					default:
-						//throw new Error('not a valid key!');
+						throw new Error('not a valid key!');
 				}
 			}
 		});

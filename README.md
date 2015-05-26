@@ -30,7 +30,7 @@ Go wild and be creative.
 When you're done, submit a pull request and include both your full name and your <b>ticket order number</b> in the description. 
 
 ## Submission Deadline
-Submit your pull request by `May 26th, 23:59 GMT+2` (Tel Aviv time!)
+Submit your pull request by `June 1st, 23:59 GMT+2` (Tel Aviv time!)
 
 ## How to win?
 Our panel of expert judges will look for originality, front-end awesomeness and sophistication. 

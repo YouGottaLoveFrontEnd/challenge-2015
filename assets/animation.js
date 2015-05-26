@@ -198,8 +198,8 @@
                 pos : 0
             };
             TweenMax.to(animObj, movementAnimationDuration/2, { rad: 95, pos : 40 , onUpdate: stage2UpdateHandler, onUpdateParams: [animObj] , delay:0.3 , ease : Back.easeOut.config(2.2) , onComplete:function(){
-				$("#boxLines").hide(0);
-				TweenMax.set(frame,{scale:0.67,transformOrigin:"50% 50%",attr:{'stroke-width':2}});
+                TweenMax.set(frame,{scale:0.67,transformOrigin:"50% 50%",attr:{'stroke-width':2}});
+                $("#boxLines").remove(0);
 				TweenMax.to(frame,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",attr:{'stroke-width':5.6481,rx:0,ry:0,width:353.4,height:284.7,x:78.3,y:81.6},delay:0.55});
                 var jelliesFinish = 0;
                 for (var i = 0; i < 4 ; i++) {
@@ -250,7 +250,6 @@
 
     function jellyGo(jellyIndex){
         var currentJelly = jellies[jellyIndex];
-        console.log();
         var jellyCurrentXPos = currentJelly.travelJelly._gsTransform.x;
         var jellyCurrentYPos = currentJelly.travelJelly._gsTransform.y;
         var jellyXpos = currentJelly.travelJellyLetters[currentJelly.travelLetterIndex][0];
@@ -364,7 +363,7 @@
             TweenMax.set(hiddenLettersTop,{opacity:0});
             $("#hiddenLettersTop").attr("class","");
 
-
+            $("#startAnimation").remove();
             TweenMax.set(pauseAnimBtn,{scale:0,transformOrigin:"50% 50%"});
             TweenMax.set(playAnimBtn,{scale:0,transformOrigin:"50% 50%"});
 
@@ -389,7 +388,7 @@
 
         if (!isAnimationPaused){
             ball.isMoved = true;
-            var partdur = Math.floor((Math.random() * 5)) + 1+Math.random();
+            var partdur = Math.floor((Math.random() * 5)) + 2+Math.random();
             var delay = Math.floor((Math.random() * 2500));
             var scale = Math.random()*1.5;
             var xPos = Math.floor((Math.random() * 280)+10);
@@ -399,7 +398,7 @@
             setTimeout(function() {
                 ball.isMoved = false;
                 animateBall(ball);
-            },(partdur * 500)+delay);
+            },(partdur * 1000)+delay);
         }
     }
 

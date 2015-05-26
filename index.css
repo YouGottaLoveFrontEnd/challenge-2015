@@ -4,7 +4,7 @@ body {
   height: 100%;
   background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 * {
@@ -125,7 +125,7 @@ h1 {
   transition: all 1s;
   margin-bottom: 10px;
   font-family: 'Raleway', sans-serif;
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 
 .secret .glyphicon {

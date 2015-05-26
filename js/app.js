@@ -116,7 +116,7 @@
 		}
 
 		if (checkSuccess()) {
-			$(secretClass).addClass(secretRevealClass).html('Secret Revealed!<br>Well... all i wanted to say is: <a target="_blank" href="http://yougottalovefrontend.com/" class="link">"You gotta L&#9829;ve Front End !"</a>');
+			$(secretClass).addClass(secretRevealClass).html('Secret Revealed!<br>Well... all i wanted to say is: <a target="_blank" href="http://yougottalovefrontend.com/" class="link">"You gotta L&#9829;ve Front End&nbsp!"</a>');
 		}
 	}
 

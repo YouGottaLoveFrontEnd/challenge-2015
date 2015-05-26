@@ -3,7 +3,10 @@
 ![frame](/frame.jpg)
 
 ## Overview
-This is my submission for the YGLF challenge,
+This is my submission for the YGLF challenge.
+
+## Goodies
+Download YGLF wallpaper pack (1980x1200) - https://www.dropbox.com/s/4043w4ieyed2wbq/wallpapers.zip?dl=0
 
 ## Credits
 Parallax slider - https://github.com/Prinzhorn/skrollr

@@ -7,7 +7,7 @@
 The concept is to illustrate the areas that the Front End developer deals with every day in a creative way...
 It's a fully responsive landing page using a Parallax slider with CSS transitions, SVG animation, tons of graphic design and love.
 
-## Demo
+## Preview
 http://eliorshalev.com/yglf/
 
 ## Goodies

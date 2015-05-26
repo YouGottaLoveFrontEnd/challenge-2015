@@ -76,6 +76,7 @@ button:focus {outline:0 !important;}
 
 .link {
   color: #333;
+  font-weight: bold;
   outline: none;
   text-decoration: none;
   position: relative;

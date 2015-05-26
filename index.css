@@ -50,7 +50,8 @@ button:focus {outline:0 !important;}
 
 .special-center {
   position: absolute;
-  left: 38%;
+  width: 28%;
+  left: 36%;
   /*border: 2px solid;*/
   padding: 26px;
   /*background: tomato;*/

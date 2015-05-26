@@ -106,7 +106,6 @@
 					$this.addClass(currentClass.slice(1));
 				})
 			}
-
 		} else {
 			var elHTML = els.html();
 			if (!els.hasClass(switchedClass)) {
@@ -115,7 +114,6 @@
 				els.html(currentHTML).addClass(currentClass.slice(1));
 			}
 		}
-
 
 		if (checkSuccess()) {
 			$(secretClass).addClass(secretRevealClass).html('Secret Revealed!<br> YGLF &#9829;');

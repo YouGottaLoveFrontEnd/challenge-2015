@@ -84,5 +84,7 @@ body {
 
 #movementLetters{display:none!important;}
 
-#pausePlayBtns{cursor: pointer;pointer-events: bounding-box;}
+#pauseAnim,#playAnim{cursor: pointer;pointer-events: bounding-box;}
+#pauseAnim:hover line{stroke:#00CB96}
+#playAnim:hover{stroke:#00CB96;fill:#00CB96}
 

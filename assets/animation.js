@@ -78,10 +78,10 @@
     ];
 
     var jelliesEnterAnimationPositions = [
-        [{x:-34, y:4},{x:58, y:-30},{x:-62, y:-92},{x:0, y:-115},{x:-155,y:-152}],
-        [{x:-34, y:-64},{x:0, y:28},{x:62, y:-92},{x:-85, y:-30},{x:-155,y:99}],
-        [{x:34, y:-64},{x:-58, y:-30},{x:62, y:32},{x:0, y:55},{x:165,y:99}],
-        [{x:34, y:4},{x:0, y:-88},{x:-62, y:32},{x:85, y:-30},{x:165,y:-152}]
+        [{x:-34, y:4},{x:68, y:-30},{x:-155,y:-152}],
+        [{x:-34, y:-64},{x:0, y:38},{x:-155,y:99}],
+        [{x:34, y:-64},{x:-68, y:-30},{x:165,y:99}],
+        [{x:34, y:4},{x:0, y:-98},{x:165,y:-152}]
     ];
 
 
@@ -197,7 +197,7 @@
                 rad : 20,
                 pos : 0
             };
-            TweenMax.to(animObj, movementAnimationDuration/2, { rad: 95, pos : 40 , onUpdate: stage2UpdateHandler, onUpdateParams: [animObj] , delay:0.3 , ease : Back.easeOut.config(2.2) , onComplete:function(){
+            TweenMax.to(animObj, movementAnimationDuration/2, { rad: 95, pos : 40 , onUpdate: stage2UpdateHandler, onUpdateParams: [animObj] , delay:0.25 , ease : Back.easeOut.config(2.2) , onComplete:function(){
                 TweenMax.set(frame,{scale:0.67,transformOrigin:"50% 50%",attr:{'stroke-width':2}});
                 $("#boxLines").remove(0);
 				TweenMax.to(frame,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",attr:{'stroke-width':5.6481,rx:0,ry:0,width:353.4,height:284.7,x:78.3,y:81.6},delay:0.55});
@@ -207,7 +207,7 @@
                     TweenMax.staggerTo(
                         currentJelly.balls,
                         movementAnimationDuration,
-                        {fill:'#ffffff', bezier:{curviness : 0 , values:[{x:0, y:-30},currentJelly.enterAnimationPosition[4]]},ease:Power1.easeIn},
+                        {fill:'#ffffff', bezier:{curviness : 0 , values:[{x:0, y:-30},currentJelly.enterAnimationPosition[2]]},ease:Power1.easeIn},
                         movementAnimationDuration/animationTimeScale/14,function(){
                             if (jelliesFinish==3){
                                 for (var j = 0; j < 4 ; j++) {
@@ -420,13 +420,15 @@
     document.getElementById('pauseAnim').addEventListener('click', function() {
         isAnimationPaused = true;
         TweenMax.to(jellyBalls,movementAnimationDuration/2,{scale:0.8,x:'182',y:'93'});
+        TweenMax.to(jellyBalls,movementAnimationDuration,{scale:0,delay:movementAnimationDuration/1.5});
+
         TweenMax.to(hiddenLettersTop,movementAnimationDuration/2,{opacity:0});
         TweenMax.to(frameTop,movementAnimationDuration/2,{opacity:0});
         if (blackBGHidden){
             TweenMax.to(hiddenLettersTop,movementAnimationDuration/5,{opacity:0});
             TweenMax.to(frameTop,movementAnimationDuration/5,{opacity:0});
         }
-        TweenMax.to(jellyBalls,movementAnimationDuration/2,{scale:0,delay:movementAnimationDuration});
+
         TweenMax.to(pauseAnimBtn,movementAnimationDuration/2,{scale:0,transformOrigin:"50% 50%"});
         TweenMax.to(playAnimBtn,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",delay:movementAnimationDuration/2});
 

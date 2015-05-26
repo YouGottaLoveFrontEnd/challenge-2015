@@ -53,7 +53,7 @@
 				$.each(els,function(i,val) {
 					var elHTML = $(this).html();
 					if (i == 1 ) {
-						current.html(elHTML);
+						current.eq(1).html(elHTML);
 						$(this).html(currentHTML);
 					}
 					$(this).addClass(currentClass.slice(1));

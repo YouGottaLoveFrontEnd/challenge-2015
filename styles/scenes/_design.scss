@@ -18,6 +18,8 @@
 	height:329px;
 	top: 0;
 	right: 350px;
+	-webkit-filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.2));
+	filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.2));
 }
 .item-brush-white {
 	@extend %item;

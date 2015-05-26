@@ -1,4 +1,4 @@
-## Front End it's all about Code, Design and Behavior.
+## Front End: it's all about Code, Design and Behavior.
 
 ![frame](/frame.jpg)
 

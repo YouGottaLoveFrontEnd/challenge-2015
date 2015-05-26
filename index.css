@@ -1,22 +1,135 @@
-.logo {
-  font-family: Futura-pt, Arial;
-  text-transform: uppercase;
-  font-size: 64px;
-  width: 613px;
-  height: 448px;
-  padding: 60px;
-  letter-spacing: 15px;
-  display: inline-block;
-  box-sizing: border-box;
-  white-space: nowrap;
-  color: white;
-  border: solid 7px currentColor;
-  background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
-  position: absolute;
-  top: calc(50vh - 224px);
-  left: calc(50vw - 306px);
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+    font-family: Futura-pt, Arial;
 }
 
-body {
-  background-color: #ddd;
+.pretext {
+    width: 613px;
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.logo {
+    width: 613px;
+    height: 448px;
+    padding: 60px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: solid 7px currentColor;
+    background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
+    position: absolute;
+    top: calc(50vh - 224px);
+    left: 45%;
+}
+
+.container {
+    position: relative;
+}
+
+.txt {
+    opacity: 0.2;
+    text-transform: uppercase;
+    font-size: 64px;
+    letter-spacing: 15px;
+    white-space: nowrap;
+    color: white;
+}
+
+.editor,
+.report {
+    font-family: 'courier';
+    font-size: 12px;
+}
+
+.editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: calc(100% - 50px);
+    border: 0;
+    background: black;
+    color: white;
+}
+
+.check {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    background-color: lightsteelblue;
+    border: 0;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+}
+
+.report {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.scaled {
+    -webkit-animation: scale 0.3s 3;
+    animation: scale 0.3s 3;
+    opacity: 1;
+}
+
+@-webkit-keyframes scale {
+    0%, 100% {
+        -webkit-transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.2);
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.faded {
+    -webkit-animation: fadein 2s 1;
+    animation: fadein 2s 1;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

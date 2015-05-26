@@ -1,84 +1,30 @@
 "use strict";
 
 (function($, window, undefined) {
-	var oldHTML = $('.mainrow').html();
-	var secretOldHTML = $('.secret').html();
+
+	  /********************************/
+	 /*          Caching             */
+	/********************************/
+
+	var currentClass = '.logoCurrentPos',
+	 	switchedClass = 'tile-switched',
+		secretClass = '.secret',
+		secretRevealClass = 'secret--reveal',
+		mainRowClass = '.mainrow',
+		mainContainerId = '#mainLogoGameContainer',
+	  oldHTML = $(mainRowClass).html(),
+		secretOldHTML = $(secretClass).html();
+
+	  /********************************/
+	 /*          Constants           */
+	/********************************/
+
 	var KEYS = {
 		38: 'up',
 		40: 'down',
 		37: 'left',
 		39: 'right'
 	};
-
-	var status = {
-		up: true,
-		left: true,
-		right: true,
-		down: true
-	};
-
-	var currentClass = '.logoCurrentPos';
-	var switchedClass = 'tile-switched';
-
-	function getUp() {
-		var current = $(currentClass);
-		var index = current.index();
-		var parentIndex = current.parent().index();
-		return current.parents('#mainLogoGameContainer').children().children(':nth-child('+parentIndex+')').children().eq(index).attr('class') || false;
-	}
-
-	function getDown() {
-		var current = $(currentClass);
-		var index = current.index();
-		var parentIndex = current.parent().index();
-		return current.parents('#mainLogoGameContainer').children().children().eq(parentIndex+1).children().eq(index).attr('class') || false;
-	}
-
-	function getRight() {
-		return $(currentClass).next().attr('class') || false;
-	}
-
-	function getLeft() {
-		return $(currentClass).prev().attr('class') || false;
-	}
-
-	function switchWith(elClass) {
-		var current = $(currentClass);
-		var currentHTML = current.eq(1).html();
-		var els = $("[class='"+elClass+"']");
-		if (els.length > 1) {
-			if (!els.eq(1).hasClass(switchedClass)) {
-				current.addClass(switchedClass);
-				current.removeClass(currentClass.slice(1));
-				$.each(els,function(i,val) {
-					var elHTML = $(this).html();
-					if (i == 1 ) {
-						current.eq(1).html(elHTML);
-						$(this).html(currentHTML);
-					}
-					$(this).addClass(currentClass.slice(1));
-				})
-			}
-
-		} else {
-			var elHTML = els.html();
-			if (!els.hasClass(switchedClass)) {
-				// switch html
-				current.addClass(switchedClass);
-				current.removeClass(currentClass.slice(1));
-				current.html(elHTML);
-				els.html(currentHTML);
-				els.addClass(currentClass.slice(1));
-			}
-		}
-
-
-		if (checkSuccess()) {
-			$('.secret').addClass('secret--reveal');
-			$('.secret').html('Secret Revealed!<br> YGLF &#9829;');
-		}
-	}
-
 
 
 	/* You */
@@ -115,6 +61,67 @@
 		25: "d"
 	}
 
+
+	  /********************************/
+	 /*      Helper Functions        */
+	/********************************/
+
+	function getUp() {
+		var current = $(currentClass);
+		var index = current.index();
+		var parentIndex = current.parent().index();
+		return current.parents(mainContainerId).children().children(':nth-child('+parentIndex+')').children().eq(index).attr('class') || false;
+	}
+
+	function getDown() {
+		var current = $(currentClass);
+		var index = current.index();
+		var parentIndex = current.parent().index();
+		return current.parents(mainContainerId).children().children().eq(parentIndex+1).children().eq(index).attr('class') || false;
+	}
+
+	function getRight() {
+		return $(currentClass).next().attr('class') || false;
+	}
+
+	function getLeft() {
+		return $(currentClass).prev().attr('class') || false;
+	}
+
+	function switchWith(elClass) {
+		var current = $(currentClass);
+		var currentHTML = current.eq(1).html();
+		var els = $("[class='"+elClass+"']");
+		if (els.length > 1) {
+			if (!els.eq(1).hasClass(switchedClass)) {
+				current.addClass(switchedClass);
+				current.removeClass(currentClass.slice(1));
+				$.each(els,function(i,val) {
+					var $this = $(this);
+					var elHTML = $this.html();
+					if (i == 1 ) {
+						current.eq(1).html(elHTML);
+						$this.html(currentHTML);
+					}
+					$this.addClass(currentClass.slice(1));
+				})
+			}
+
+		} else {
+			var elHTML = els.html();
+			if (!els.hasClass(switchedClass)) {
+				// switch html
+				current.addClass(switchedClass).removeClass(currentClass.slice(1)).html(elHTML);
+				els.html(currentHTML).addClass(currentClass.slice(1));
+			}
+		}
+
+
+		if (checkSuccess()) {
+			$(secretClass).addClass(secretRevealClass).html('Secret Revealed!<br> YGLF &#9829;');
+		}
+	}
+
 	function checkSuccess() {
 		var length_expected = 0;
 		var arr = $.map(VALUES_EXPECTED, function(value, key) {
@@ -124,10 +131,23 @@
 		return $.grep(arr, function(item, index) {return item == true}).length == length_expected;
 	}
 
-	// window ready
-	$(function() {
+	  /********************************/
+	 /*          Window Ready        */
+	/********************************/
 
+	$(function() {
+		// reset scrolling if the page was scrolled unintentionally
 		$(window).scrollTop(0);
+
+		  /********************************/
+		 /*       Event Listeners        */
+		/********************************/
+
+		$('#resetButton').on('click', function() {
+			$(mainRowClass).html(oldHTML);
+			$(secretClass).removeClass(secretRevealClass).html(secretOldHTML);
+		});
+
 		$(window).on('keydown', function(e) {
 			var key = KEYS[e.keyCode];
 			if (typeof key == "string") {
@@ -161,13 +181,10 @@
 						throw new Error('not a valid key!');
 				}
 			}
-		});
-		$('#resetButton').on('click', function() {
-			$('.mainrow').html(oldHTML);
-			$('.secret').removeClass('secret--reveal');
-			$('.secret').html(secretOldHTML);
-		});
-	});
+		});// end of on keydown
+
+	});// end of window ready
+
 })(jQuery, window);
 
 /*

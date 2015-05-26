@@ -1,3 +1,4 @@
+
 .logo {
   font-family: Futura-pt, Arial;
   text-transform: uppercase;
@@ -82,3 +83,6 @@ body {
 .gooFilter .circle{ width:50px;height: 50px;background-color: red;display: block;}
 
 #movementLetters{display:none!important;}
+
+#pausePlayBtns{cursor: pointer;pointer-events: bounding-box;}
+

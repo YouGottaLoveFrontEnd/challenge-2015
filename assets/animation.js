@@ -14,6 +14,8 @@
     var boxPath2 = $("#boxLine2");
     var boxPath3 = $("#boxLine3");
     var boxPath4 = $("#boxLine4");
+    var pauseAnimBtn = $("#pauseAnim")
+    var playAnimBtn = $("#playAnim")
 
     var jelliesLettersOrder = [
         [
@@ -136,7 +138,7 @@
                         transformOrigin: "50% 50%",
                         fill: currentJelly.enterColor,
                         bezier: [{x: 0, y: -30, scaleX: 0.5, scaleY: 0.5}, currentJelly.enterPosition],
-                        ease: Power1.easeInOut  
+                        ease: Power1.easeInOut
                     },
                     0.1 / animationTimeScale,
                     function () {
@@ -347,6 +349,7 @@
             .to(blackJelly2.travelJellyTail2,movementAnimationDuration,{x:'-51',y:'1',scale:0,transformOrigin:"50% 50%",ease:jellyEasing},"-="+(movementAnimationDuration-movementAnimationDuration/(animationTimeScale*movementAnimationDuration*10)))
     }
 
+    var jellyBalls = [];
     function startFinishAnimation(){
         for (var i = 0; i < jellies.length ; i++){
             var currentJelly = jellies[i];
@@ -361,39 +364,89 @@
             TweenMax.set(hiddenLettersTop,{opacity:0});
             $("#hiddenLettersTop").attr("class","");
 
-            var jellyBallsWrapper = document.getElementById("jellyBalls");
 
+            TweenMax.set(pauseAnimBtn,{scale:0,transformOrigin:"50% 50%"});
+            TweenMax.set(playAnimBtn,{scale:0,transformOrigin:"50% 50%"});
+
+            pauseAnimBtn.attr("class","");
+            playAnimBtn.attr("class","");
+            TweenMax.to(pauseAnimBtn,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",delay:movementAnimationDuration});
+
+            var jellyBallsWrapper = document.getElementById("jellyBalls");
             for (var i = 0; i < numOfJellyBalls ; i++){
                 var jellyBall = makeSVG('circle',{cx:'100',cy:'100',r:'24',fill : '#ffffff'});
                 jellyBallsWrapper.appendChild(jellyBall);
+                jellyBalls.push(jellyBall);
                 TweenMax.set(jellyBall,{scale:0,x:'182',y:'93'});
                 TweenMax.to(jellyBall,movementAnimationDuration/2,{scale:0.8,transformOrigin:"50% 50%",onComplete:animateBall.bind(this,jellyBall)});
             }
         },movementAnimationDuration/2/animationTimeScale*1000);
     }
 
-    function animateBall(ball){
-        var partdur = Math.floor((Math.random() * 5)) + 1+Math.random();
-        var delay = Math.floor((Math.random() * 2500));
-        var scale = Math.random()*1.5;
-        var xPos = Math.floor((Math.random() * 280)+10);
-        var yPos = Math.floor((Math.random() * 220)+20);
-        TweenMax.to(ball, partdur, {scale:scale,x:xPos,y:yPos,ease:Cubic.easeInOut});
+    var isAnimationPaused = false;
 
-        setTimeout(function() {
-            animateBall(ball);
-        },(partdur * 1000)+delay);
+    function animateBall(ball){
+
+        if (!isAnimationPaused){
+            ball.isMoved = true;
+            var partdur = Math.floor((Math.random() * 5)) + 1+Math.random();
+            var delay = Math.floor((Math.random() * 2500));
+            var scale = Math.random()*1.5;
+            var xPos = Math.floor((Math.random() * 280)+10);
+            var yPos = Math.floor((Math.random() * 220)+20);
+            TweenMax.to(ball, partdur, {scale:scale,x:xPos,y:yPos,ease:Cubic.easeInOut});
+
+            setTimeout(function() {
+                ball.isMoved = false;
+                animateBall(ball);
+            },(partdur * 500)+delay);
+        }
     }
 
     var blackBGHidden = true;
     function animateBackgorund(){
-        TweenMax.to(hiddenLettersTop,5,{opacity:blackBGHidden?1:0});
-        TweenMax.to(frameTop,5,{opacity:blackBGHidden?1:0});
-        blackBGHidden = !blackBGHidden;
-        setTimeout(function() {
-            animateBackgorund();
-        },10000);
+        if (!isAnimationPaused){
+            TweenMax.to(hiddenLettersTop,5,{opacity:blackBGHidden?1:0});
+            TweenMax.to(frameTop,5,{opacity:blackBGHidden?1:0});
+            blackBGHidden = !blackBGHidden;
+            setTimeout(function() {
+                    animateBackgorund();
+
+            },10000);
+        }
     }
+
+
+
+    document.getElementById('pauseAnim').addEventListener('click', function() {
+        isAnimationPaused = true;
+        TweenMax.to(jellyBalls,movementAnimationDuration/2,{scale:0.8,x:'182',y:'93'});
+        TweenMax.to(hiddenLettersTop,movementAnimationDuration/2,{opacity:0});
+        TweenMax.to(frameTop,movementAnimationDuration/2,{opacity:0});
+        if (blackBGHidden){
+            TweenMax.to(hiddenLettersTop,movementAnimationDuration/5,{opacity:0});
+            TweenMax.to(frameTop,movementAnimationDuration/5,{opacity:0});
+        }
+        TweenMax.to(jellyBalls,movementAnimationDuration/2,{scale:0,delay:movementAnimationDuration});
+        TweenMax.to(pauseAnimBtn,movementAnimationDuration/2,{scale:0,transformOrigin:"50% 50%"});
+        TweenMax.to(playAnimBtn,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",delay:movementAnimationDuration/2});
+
+
+    });
+
+    document.getElementById('playAnim').addEventListener('click', function() {
+        isAnimationPaused = false;
+        for (var i = 0; i < jellyBalls.length ; i++){
+            var jellyBall = jellyBalls[i];
+            if (!jellyBall.isMoved){
+                TweenMax.to(jellyBall,movementAnimationDuration/2,{scale:0.8,onComplete:animateBall.bind(this,jellyBall)});
+            }
+        }
+        setTimeout(animateBackgorund,8000);
+        TweenMax.to(playAnimBtn,movementAnimationDuration/2,{scale:0,transformOrigin:"50% 50%"});
+        TweenMax.to(pauseAnimBtn,movementAnimationDuration/2,{scale:1,transformOrigin:"50% 50%",delay:movementAnimationDuration/2});
+    });
+
 
     function makeSVG(tag, attrs) {
         var el= document.createElementNS('http://www.w3.org/2000/svg', tag);

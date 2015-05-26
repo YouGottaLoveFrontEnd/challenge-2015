@@ -1,22 +1,3 @@
-/*.logo {
-  font-family: Futura-pt, Arial;
-  text-transform: uppercase;
-  font-size: 64px;
-  width: 613px;
-  height: 448px;
-  padding: 60px;
-  letter-spacing: 15px;
-  display: inline-block;
-  box-sizing: border-box;
-  white-space: nowrap;
-  color: white;
-  border: solid 7px currentColor;
-  background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
-  position: absolute;
-  top: calc(50vh - 224px);
-  left: calc(50vw - 306px);
-}*/
-
 html,body { min-height: 100%; }
 
 body {
@@ -52,14 +33,8 @@ button:focus {outline:0 !important;}
   position: absolute;
   width: 28%;
   left: 36%;
-  /*border: 2px solid;*/
   padding: 26px;
-  /*background: tomato;*/
   top: 2%;
-}
-
-.special-center button {
-  /*margin-top: 55%;*/
 }
 
 #mainLogoGameContainer {
@@ -67,8 +42,6 @@ button:focus {outline:0 !important;}
 }
 
 .logoCurrentPos {
-  /*background-color: orange;*/
-  /*font-size: 55px;*/
   color: #D64541 !important;
   background-color: rgba(0,0,0,0.2);
   transform: rotateY(0) !important;
@@ -78,7 +51,6 @@ button:focus {outline:0 !important;}
   -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
   -o-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
   transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-  /*transform: translate3d(50px,50px,50px);*/
 
   transform: translateZ( -40px ) rotateX(  -60deg );
 
@@ -140,7 +112,6 @@ h1 {
 }
 
 .secret {
-  /*transform: rotateZ(  45deg ) translateY(90px) translateX(100px);*/
   transform-style: preserve-3d;
   color: #333;
   padding: 10px;
@@ -165,30 +136,8 @@ h1 {
   transform: rotateY(  360deg ) rotateX(  360deg );
 }
 
-/* You */
-/*.tile__pos1, .tile__pos2, .tile__pos3 {
-color: #E26A6A;
-}*/
-/* Gotta */
-/*.tile__pos6, .tile__pos7, .tile__pos8, .tile__pos9, .tile__pos10  {
-color: #D24D57;
-}*/
+
 /* Love */
 .tile__pos11, .tile__pos12, .tile__pos14, .tile__pos15  {
   color: #D64541;
 }
-/* Front */
-/*.tile__pos16, .tile__pos17, .tile__pos18, .tile__pos19, .tile__pos20  {
-color: #3498DB;
-}*/
-/* end */
-/*.tile__pos23, .tile__pos24, .tile__pos25  {
-color: blue;
-}*/
-/*
-6,7,2
-11,12,13,8,5
-16,17,9,10
-21,18,19,14,15
-24,25,20
-*/

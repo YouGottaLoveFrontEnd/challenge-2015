@@ -1,17 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Challenge</title>
-	<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
-  media="all">
-	<link rel="stylesheet" href="index.css">
+  <title>YGLF Challenge | Nazih Ahmed</title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-	<div class="logo">
-		You
-		<br>gotta
-		<br>love
-		<br>frontend
-	</div>
+  <div class="row mainrow">
+
+    <table class="col-xs-4">
+      <tr>
+        <td class="logoCurrentPos tile tile__pos1">&#9733;</td>
+        <td class="tile tile__pos2">&larr;</td>
+        <td class="tile tile__pos3">&larr;</td>
+        <td class="tile tile__pos4">&larr;</td>
+        <td class="tile tile__pos5">&larr;</td>
+      </tr>
+      <tr>
+        <td class="tile tile__pos6">&darr;</td>
+        <td class="tile tile__pos7">?</td>
+        <td class="tile tile__pos8">?</td>
+        <td class="tile tile__pos9">?</td>
+        <td class="tile tile__pos10"> &uarr; </td>
+      </tr>
+      <tr>
+        <td class="tile tile__pos11">&darr;</td>
+        <td class="tile tile__pos12">?</td>
+        <td class="tile tile__pos13">&#9829;</td>
+        <td class="tile tile__pos14">?</td>
+        <td class="tile tile__pos15"> &uarr; </td>
+      </tr>
+      <tr>
+        <td class="tile tile__pos16">&darr;</td>
+        <td class="tile tile__pos17">?</td>
+        <td class="tile tile__pos18">?</td>
+        <td class="tile tile__pos19">?</td>
+        <td class="tile tile__pos20"> &uarr; </td>
+      </tr>
+      <tr>
+        <td class="tile tile__pos21">&rarr; </td>
+        <td class="tile tile__pos22">&rarr; </td>
+        <td class="tile tile__pos23">&rarr; </td>
+        <td class="tile tile__pos24">&rarr; </td>
+        <td class="tile tile__pos25"> &uarr; </td>
+      </tr>
+    </table>
+
+    <table id="mainLogoGameContainer" class="col-xs-4 col-xs-offset-2">
+      <tr id="logoRow1">
+        <td class="logoCurrentPos tile tile__pos1">&#9829;</td>
+        <td class="tile tile__pos2">u</td>
+        <td class="tile tile__pos3">&#9733;</td>
+        <td class="tile tile__pos4">&#9733;</td>
+        <td class="tile tile__pos5">a</td>
+      </tr>
+      <tr id="logoRow2">
+        <td class="tile tile__pos6">y</td>
+        <td class="tile tile__pos7">o</td>
+        <td class="tile tile__pos8">t</td>
+        <td class="tile tile__pos9">v</td>
+        <td class="tile tile__pos10">e</td>
+      </tr>
+      <tr id="logoRow3">
+        <td class="tile tile__pos11">g</td>
+        <td class="tile tile__pos12">o</td>
+        <td class="tile tile__pos13">t</td>
+        <td class="tile tile__pos14">n</td>
+        <td class="tile tile__pos15">t</td>
+      </tr>
+      <tr id="logoRow4">
+        <td class="tile tile__pos16">l</td>
+        <td class="tile tile__pos17">o</td>
+        <td class="tile tile__pos18">r</td>
+        <td class="tile tile__pos19">o</td>
+        <td class="tile tile__pos20">d</td>
+      </tr>
+      <tr id="logoRow5">
+        <td class="tile tile__pos21">f</td>
+        <td class="tile tile__pos22">&#9733;</td>
+        <td class="tile tile__pos23">&#9733;</td>
+        <td class="tile tile__pos24">e</td>
+        <td class="tile tile__pos25">n</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="special-center">
+    <div class="row">
+        <h1 class="main-title center-align">The Switching Game</h1>
+        <h3 class="main-subtitle center-align">- A game Made By : <a target="_blank" href="https://github.com/max1011" class="link">Nazih Ahmed</a> -</h3>
+        <p class="main-description">You have to switch with tiles (using your arrow keys, based on the guide on the left) <br> until you get to the <strong>surprise!</strong></p>
+    </div>
+    <div class="row secret-parent">
+      <div class="secret">
+        <h1>Secret Unrevealed!</h1>
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-default btn-lg col-xs-12" id="resetButton">Restart</button>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>

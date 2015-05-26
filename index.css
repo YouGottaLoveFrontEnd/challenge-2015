@@ -1,22 +1,152 @@
-.logo {
-  font-family: Futura-pt, Arial;
-  text-transform: uppercase;
-  font-size: 64px;
-  width: 613px;
-  height: 448px;
-  padding: 60px;
-  letter-spacing: 15px;
-  display: inline-block;
-  box-sizing: border-box;
-  white-space: nowrap;
-  color: white;
-  border: solid 7px currentColor;
-  background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
-  position: absolute;
-  top: calc(50vh - 224px);
-  left: calc(50vw - 306px);
-}
+html,body { min-height: 100%; }
 
 body {
-  background-color: #ddd;
+  height: 100%;
+  background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
+  position: relative;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+table {
+  float: left;
+  border-collapse: collapse;
+  border: 7px solid white;
+  padding: 20px;
+  margin: 20px 30px 20px 30px;
+  perspective: 1000px;
+  max-width: 500px;
+}
+
+td {
+  padding: 10px;
+  width: 100px;
+  height: 60px;
+  font-size: 60px;
+  color: #E4F1FE;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+button:focus {outline:0 !important;}
+
+.special-center {
+  position: absolute;
+  width: 28%;
+  left: 36%;
+  padding: 26px;
+  top: 2%;
+}
+
+#mainLogoGameContainer {
+  float: right;
+}
+
+.logoCurrentPos {
+  color: #D64541 !important;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transform: rotateY(0) !important;
+  -ms-transform: rotateY(0) !important;
+  -o-transform: rotateY(0) !important;
+  transform: rotateY(0) !important;
+}
+
+.tile {
+  -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  -o-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  transform: translateZ( -40px ) rotateX(  -60deg );
+
+  transform-style: preserve-3d;
+}
+
+.tile-switched {
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.center-align {
+  text-align: center;
+}
+
+.link {
+  color: #333;
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+  position: relative;
+  font-size: 1em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.link:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.main-title {
+  font-weight: bold;
+}
+
+.main-subtitle {
+  font-family: 'Droid Serif', serif;
+}
+
+.main-description {
+  font-family: 'Droid Serif', serif;
+}
+
+.secret-parent {
+  perspective: 1000px;
+}
+
+.secret {
+  transform-style: preserve-3d;
+  color: #333;
+  padding: 10px;
+  border: 7px solid #c9302c;
+  transition: all 1s;
+  margin-bottom: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+}
+
+.secret .glyphicon {
+  font-size: 35px;
+}
+
+.secret h1,.secret--reveal h1 {
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.secret--reveal {
+  border-color: #5cb85c;
+  -webkit-transform: rotateY(  360deg ) rotateX(  360deg );
+  -ms-transform: rotateY(  360deg ) rotateX(  360deg );
+  -o-transform: rotateY(  360deg ) rotateX(  360deg );
+  transform: rotateY(  360deg ) rotateX(  360deg );
+}
+
+
+/* Love */
+.tile__pos11, .tile__pos12, .tile__pos14, .tile__pos15  {
+  color: #D64541;
 }

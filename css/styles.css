@@ -649,7 +649,12 @@ http://codepen.io/khaag/pen/wotBH */
   z-index: 101;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .skrollr-deck, .skrollr-deck-blank {
+    height: 500px;
+    max-height: 500px;
+  }
+
   .title {
     font-size: 100px;
     padding-left: 80px;
@@ -663,20 +668,34 @@ http://codepen.io/khaag/pen/wotBH */
     padding-left: 80px;
   }
 
-  .logo {
-    z-index: 105;
-  }
-
+  #mouse-icon,
+  .item-pen,
+  .item-flowerpot,
+  .item-cup,
+  .item-book,
+  .item-case,
+  .item-brush_white,
+  .item-box,
+  .item-brush_black,
+  .item-paint,
+  .item-iphone,
+  .item-ipad,
+  .item-mouse,
+  .item-pencil_gray,
   .item-css,
   .item-html,
-  .item-ipad,
+  .item-js,
   .item-frame,
-  .item-book_open,
-  .item-js {
+  .item-book_open {
     display: none;
   }
 }
 @media (max-width: 480px) {
+  .skrollr-deck, .skrollr-deck-blank {
+    height: 500px;
+    max-height: 500px;
+  }
+
   .title {
     font-size: 80px;
     padding-left: 40px;
@@ -687,24 +706,42 @@ http://codepen.io/khaag/pen/wotBH */
     padding-left: 40px;
   }
 
+  #mouse-icon,
+  .item-pen,
+  .item-flowerpot,
+  .item-cup,
+  .item-book,
+  .item-case,
+  .item-brush_white,
+  .item-box,
+  .item-brush_black,
+  .item-paint,
+  .item-iphone,
+  .item-ipad,
+  .item-mouse,
+  .item-pencil_gray,
+  .item-book_open,
+  .item-html,
+  .item-css,
+  .item-js {
+    display: none;
+  }
+
   .logo {
     -webkit-transform: scale(0.7, 0.7);
         -ms-transform: scale(0.7, 0.7);
             transform: scale(0.7, 0.7);
-    right: -37px;
+    right: -50px;
     top: 130px;
   }
 
   .date {
-    right: 40px;
+    right: 30px;
     top: 480px;
     width: 315px;
   }
 
-  .item-book_open,
-  .item-ipad,
-  .item-js,
-  .item-flowerpot {
-    display: none;
+  .credit {
+    right: -50px;
   }
 }

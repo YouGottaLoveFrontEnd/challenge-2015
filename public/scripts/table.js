@@ -87,6 +87,11 @@ function populateTable() {
         return tagNode;
     }
 
+    function consoleDoge() {
+        var dogeUrl = window.location.href.replace('index.html', 'images/doge.jpg');
+        console.log('%c  ', 'background: url(' + dogeUrl + ') no-repeat; font-size: 500px');
+    }
+
     var tableNode = document.getElementById('table');
     var tagsInfo = getTagsInfo();
     var documentFragment = _.reduce(tagsInfo, function (fragment, tag, index) {
@@ -105,4 +110,7 @@ function populateTable() {
         return fragment;
     }, document.createDocumentFragment());
     tableNode.appendChild(documentFragment);
+    consoleDoge();
+
+
 }

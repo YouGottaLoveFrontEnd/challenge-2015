@@ -2,13 +2,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-a:link,
-a:active,
-a:visited,
-a:hover {
-	color: #ffffff;
-	font-weight: 700;
-	text-decoration: none;
+%item {
+	background: url('../images/hq_sprite.png') no-repeat, url('../images/lq_sprite.png') no-repeat;
+	position: absolute;
+	z-index: 100;
 }
 
 ::-moz-selection { background: transparent; }
@@ -42,10 +39,4 @@ a:hover {
 	line-height:850px;
 	width:100%;
 	height:100vh;
-}
-
-%item {
-	background: url('../images/sprite.png') no-repeat;
-	position: absolute;
-	z-index: 100;
 }

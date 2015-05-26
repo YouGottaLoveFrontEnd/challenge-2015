@@ -1,4 +1,5 @@
 @include breakpoint(tablet) {
+
 	.skrollr-deck {
 		height: 500px;
 		max-height: 500px;
@@ -45,10 +46,6 @@
 }
 
 @include breakpoint(mobile) {
-	.skrollr-deck {
-		height: 500px;
-		max-height: 500px;
-	}
 
 	.title {
 		font-size: 80px;
@@ -60,46 +57,20 @@
 		padding-left: 40px;
 	}
 
-	#mouse-icon,
-	.item-pen,
-	.item-flowerpot,
-	.item-cup,
-	.item-book,
-	.item-case,
-	.item-brush-white,
-	.item-box,
-	.item-brush-black,
-	.item-paint,
-	.item-iphone,
-	.item-ipad,
-	.item-mouse,
-	.item-pencil-gray,
-	.item-sharpener,
-	.item-stone-medium,
-	.item-stone-big,
-	.item-book-open,
-	.item-html,
-	.item-css,
-	.item-js,
-	.item-frame,
-	.item-drupal,
-	.item-chrome
-	{ display: none }
-
 	.logo {
 		transform: scale(.7,.7);
-		right: -45px;
+		right: -40px;
 		top: 130px;
 	}
 
 	.yglf-site {
-		right: 35px;
+		right: 40px;
 		top: 480px;
 		width: 315px;
 	}
 
 	.credit {
-		right: -45px;
+		right: -40px;
 	}
 
 }

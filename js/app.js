@@ -20,5 +20,5 @@ require(['snake', 'animation'],
             snake.on(Snake.events.fail, animation.lettersDown.bind(animation));
             snake.on(Snake.events.eating, animation.letterToGold.bind(animation));
             snake.on(Snake.events.win, animation.win.bind(animation));
-        }, 1000);
+        }, 700);
     });

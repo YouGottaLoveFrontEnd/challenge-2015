@@ -9,7 +9,7 @@ require.config({
     }
 });
 
-require(['snake', 'Animation'],
+require(['snake', 'animation'],
     function (Snake, Animation) {
         setTimeout(function () {
             var snake = new Snake('#board', 30, 21);

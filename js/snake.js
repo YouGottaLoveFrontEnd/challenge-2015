@@ -2,7 +2,7 @@
  * Created by Dima on 24/05/2015.
  */
 
-define(['snakeBoard', 'SnakeBody', 'Score', 'Food', 'Cell', 'RulesBox', 'settings', 'logger'],
+define(['snakeBoard', 'snakeBody', 'score', 'food', 'cell', 'rulesBox', 'settings', 'logger'],
     function (SnakeBoard, SnakeBody, Score, Food, Cell, RulesBox, settings) {
         'use strict';
         function getRandomInt(min, max) {

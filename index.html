@@ -1,17 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Challenge</title>
-	<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
-  media="all">
-	<link rel="stylesheet" href="index.css">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-	<div class="logo">
-		You
-		<br>gotta
-		<br>love
-		<br>frontend
-	</div>
+    <div class="logo">
+        <span>Y</span><span>o</span><span>u</span>
+        <br><span>g</span><span>o</span><span>t</span><span>t</span><span>a</span>
+        <br><span>l</span><span>o</span><span>v</span><span>e</span>
+        <br><span>f</span><span>r</span><span>o</span><span>n</span><span>t</span><span>e</span><span>n</span><span>d</span>
+    </div>
+    <div class="spaceship"></div>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $.fn.random = function () { return this.eq(Math.floor(Math.random() * this.length)); }
+        function Random(min, max) {
+            min = min || 0;
+            max = max || 100;
+            return Math.random() * (max - min) + min;
+        }
+        window.requestAnimFrame = function () {
+            return (
+                window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (/* function */ callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                }
+            );
+        }();
+        $(document).on('ready', function () {
+            var $doc = $(this), $spaceShip = $('.spaceship'), spacePos = 50;
+
+            var _sendFire = function () {
+                var fire = $('<div/>').addClass('fireball').appendTo('body');
+                setTimeout(function () {
+                    fire.css({ 'top': 0, 'left': spacePos + '%', 'width': 50, 'height': 77, 'margin-top': -77 });
+                    setTimeout(function () {
+                        fire.remove();
+                    }, 1001);
+                })
+            }
+
+            var _spaceShipTimeout;
+            var _moveSpaceShip = function (direction) {
+                if (_spaceShipTimeout) return;
+                spacePos += direction * 3;
+                spacePos = Math.min(spacePos, 100);
+                spacePos = Math.max(spacePos, 0);
+                $spaceShip.css({ 'left': spacePos + '%' });
+                _spaceShipTimeout = setTimeout(function () { _spaceShipTimeout = null; _moveSpaceShip(direction) }, 100);
+            }
+
+            $doc.on('keydown', function (e) {
+                if (e.keyCode == 32) _sendFire();
+                if (e.keyCode == 37) _moveSpaceShip(-1);
+                if (e.keyCode == 39) _moveSpaceShip(1);
+            });
+
+            $doc.on('keyup', function (e) { clearTimeout(_spaceShipTimeout); _spaceShipTimeout = null });
+
+            var currentLetter, $letters = $('.logo span'), $letter, letterTimeout, letterClearTimeout, letterPos = 50;
+            var _dropLetter = function () {
+                if ($letter) {
+                    _callDropLetter();
+                    return;
+                }
+                currentLetter = $letters.not('.active').random();
+                if (!(currentLetter && currentLetter.length)) {
+                    clearTimeout(letterTimeout);
+                    return;
+                }
+                $letter = $('<div/>').addClass('letter').appendTo('body');
+                setTimeout(function () {
+                    letterPos = Random();
+                    $letter.css({ 'background-image': 'url(letter/' + currentLetter.text() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
+                    if (letterPos > 50) $letter.addClass('left');
+                    letterClearTimeout = setTimeout(function () {
+                        if ($letter) {
+                            $letter.remove();
+                            $letter = null;
+                            _callDropLetter();
+                        }
+                    }, 5001);
+                });
+
+            }
+
+            var _callDropLetter = function () {
+                if (letterTimeout) clearTimeout(letterTimeout);
+                if (letterClearTimeout) clearTimeout(letterClearTimeout);
+                letterClearTimeout
+                letterTimeout = setTimeout(_dropLetter, 1000);
+            }
+
+            var _fireMeetLetter = function () {
+                if ($letter) {
+                    var letter = $letter.position();
+                    letter.isleft = $letter.hasClass('left');
+                    $('.fireball').each(function () {
+                        var $this = $(this), pos = $this.position();
+                        if (Math.abs(letter.top - pos.top) <= 50 && Math.abs(letter.left - pos.left) - (letter.isleft ? 0 : 50) <= 100) {
+                            $this.remove();
+                            $letter.remove();
+                            currentLetter.addClass('active');
+                            $letter = null;
+                            _callDropLetter();
+                        }
+                    });
+                }
+                window.requestAnimFrame(_fireMeetLetter);
+            }
+
+            window.requestAnimFrame(_fireMeetLetter);
+            _callDropLetter();
+
+        });
+    </script>
 </body>
 </html>

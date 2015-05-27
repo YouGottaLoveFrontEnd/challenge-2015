@@ -156,7 +156,7 @@ define(['snakeBoard', 'snakeBody', 'score', 'food', 'cell', 'rulesBox', 'setting
         };
 
         Snake.prototype.smartDevWin = function () {
-            if (!this.body) {
+            if (!this.body || this.isFailed) {
                 this.setNewGame();
                 this.start();
             }

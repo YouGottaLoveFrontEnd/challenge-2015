@@ -34,7 +34,7 @@ $(document).on('ready', function () {
         var fire = $('<div/>').addClass('fireball').appendTo('body');
         setTimeout(function () {
             createjs.Sound.play(SOUNDS.SHOOT);
-            fire.css({ 'top': 0, 'left': spacePos + '%', 'width': 50, 'height': 77, 'margin-top': -77 });
+            fire.css({ 'top': 0, 'left': spacePos + '%', 'width': 50, 'height': 50, 'margin-top': -77 });
             setTimeout(function () {
                 fire.remove();
             }, 1001);
@@ -58,7 +58,7 @@ $(document).on('ready', function () {
         if (e.keyCode == 37) _moveSpaceShip(-1);
         if (e.keyCode == 39) _moveSpaceShip(1);
         if (e.keyCode && keyMaps[e.keyCode])
-            TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.4, { 'background-color': 'rgb(0, 208, 157)' }, { 'background-color': 'rgb(255, 255, 255)' }, 0);
+            TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.4, { 'background-color': 'rgba(0, 208, 157,1)' }, { 'background-color': 'rgba(255, 255, 255, 0.8)' }, 0);
     });
 
     $doc.on('keyup', function (e) { clearTimeout(_spaceShipTimeout); _spaceShipTimeout = null });

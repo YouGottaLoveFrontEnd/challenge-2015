@@ -17,11 +17,23 @@ window.requestAnimFrame = function () {
     );
 }();
 $(document).on('ready', function () {
+
+    createjs.Sound.initializeDefaultPlugins();
+    var SOUNDS = {
+        WIN: 'audio/Game-Win.ogg',
+        SHOOT: 'audio/Game-Shot.ogg',
+        ANSWER_GOOD: 'audio/Game-Spawn.ogg',
+        ANSWER_BAD: 'audio/Game-Bad.ogg'
+    }
+    for (var key in SOUNDS) createjs.Sound.registerSound(SOUNDS[key]);
+
+
     var $doc = $(this), $spaceShip = $('.spaceship'), spacePos = 50;
 
     var _sendFire = function () {
         var fire = $('<div/>').addClass('fireball').appendTo('body');
         setTimeout(function () {
+            createjs.Sound.play(SOUNDS.SHOOT);
             fire.css({ 'top': 0, 'left': spacePos + '%', 'width': 50, 'height': 77, 'margin-top': -77 });
             setTimeout(function () {
                 fire.remove();
@@ -47,29 +59,45 @@ $(document).on('ready', function () {
 
     $doc.on('keyup', function (e) { clearTimeout(_spaceShipTimeout); _spaceShipTimeout = null });
 
+    var wrongLetters = ['b', 'h', 'j', 'k'];
+    var currentLetter, $letters = $('.logo span'), $letter, letterTimeout, letterClearTimeout, letterPos = 50;
+
+
     var _winGame = function () {
-        var fire = $('<div/>').addClass('fireball').css({ left: spacePos + '%', top: 'auto', bottom: 0 }).appendTo('body');
-        $spaceShip.css({ bottom: 25 });
-        TweenMax.staggerFromTo($('.fireball,.spaceship'), 2, { bottom: '0%' }, { bottom: '100%' }, 0, function () {
+        TweenMax.staggerFromTo($spaceShip, 2, { bottom: '0%' }, { bottom: '100%' }, 0, function () {
+            createjs.Sound.play(SOUNDS.WIN);
             $('body').addClass('success');
             TweenMax.staggerFromTo($letters, 0.2, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.1);
         });
     }
 
 
-    var _answer = function (correct) {
-        TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, }, { autoAlpha: 0, scale: 5 }, 0.2, function () {
-            if (correct)
-                TweenMax.staggerFromTo(currentLetter.addClass('active'), 0.4, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.2);
-
+    var _answer = function (correct, skip) {
+        var __after = function () {
             $letter.remove();
             $letter = null;
             _callDropLetter();
-        });
+        }
+        if (!skip) {
+            createjs.Sound.play(correct ? SOUNDS.ANSWER_GOOD : SOUNDS.ANSWER_BAD);
+            if (correct) {
+                TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, }, { autoAlpha: 0, scale: 5 }, 0.2, function () {
+                    TweenMax.staggerFromTo(currentLetter.addClass('active'), 0.4, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.2);
+                    __after();
+                });
+            } else {
+                var _letter = $letters.filter('.active').random().css({ 'color': '#ff0000' });
+                TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000) }, 0.2, function () {
+                    TweenMax.staggerFromTo(_letter, 1, { autoAlpha: 1, scale: 1, x: 0, y: 0, 'color': '#ff0000' }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000), 'color': '#ff0000' }, 0.2, function () {
+                        _letter.attr('style', '').removeClass('active');
+                        __after();
+                    });
+                });
+            }
+        } else
+            __after();
     }
 
-    var wrongLetters = ['b', 'h', 'j', 'k'];
-    var currentLetter, $letters = $('.logo span'), $letter, letterTimeout, letterClearTimeout, letterPos = 50;
     var _dropLetter = function () {
         if ($letter) {
             _callDropLetter();
@@ -91,7 +119,7 @@ $(document).on('ready', function () {
             $letter.css({ 'background-image': 'url(letter/' + currentLetter.text() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
             if (letterPos > 50) $letter.addClass('left');
             letterClearTimeout = setTimeout(function () {
-                if ($letter) _answer(false);
+                if ($letter) _answer(!(currentLetter && currentLetter.parents('body').length), !(currentLetter && currentLetter.parents('body').length));
             }, 5001);
         }, 50);
 

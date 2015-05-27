@@ -13,70 +13,11 @@ html, body {
 }
 
 body {
+    font-family: Futura-pt, Arial;
     background-image: linear-gradient(180deg,rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157));
-    -moz-animation: bg_animate 3s ease infinite;
-    -o-animation: bg_animate 3s ease infinite;
-    -webkit-animation: bg_animate 3s ease infinite;
-    animation: bg_animate 3s ease infinite;
-    background-size: 100% 400%;
     position: relative;
 }
 
-@-moz-keyframes bg_animate {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 0 100%;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-@-ms-keyframes bg_animate {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 0 100%;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-@-webkit-keyframes bg_animate {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 0 100%;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-@keyframes bg_animate {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 0 100%;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
 
 
 .logo {
@@ -113,6 +54,71 @@ body.success {
 
     body.success .logo {
         background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
+    }
+
+.instructions {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 14px;
+}
+body.success.instructions {
+    display:none;
+}
+
+
+    .instructions div:first-child, .instructions span {
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #fff;
+        border: 2px solid #666;
+        color: #666;
+        margin: 2px 0;
+        width: 250px;
+    }
+
+    .instructions span {
+        display: inline-block;
+        padding: 5px;
+        width: auto;
+        text-align: center;
+    }
+
+        .instructions span:first-child {
+            width: 180px;
+        }
+
+
+.progressBar {
+    border-radius: 5px;
+    height: 25px;
+    width: 215px;
+    margin: 15px auto 0;
+    border: 1px solid rgb(9, 97, 197);
+    position: relative;
+    line-height: 23px;
+    text-align: center;
+}
+
+    .progressBar span:first-child {
+        border-radius: 0;
+        background-color: rgb(0, 208, 157);
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        margin: auto;
+        border: none;
+        -moz-transition: width ease 0.5s;
+        -o-transition: width ease 0.5s;
+        -webkit-transition: width ease 0.5s;
+        transition: width ease 0.5s;
+    }
+
+    .progressBar b {
+        position: relative;
+        z-index: 3;
     }
 
 .fireball, .letter {

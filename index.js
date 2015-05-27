@@ -28,7 +28,7 @@ $(document).on('ready', function () {
     for (var key in SOUNDS) createjs.Sound.registerSound(SOUNDS[key]);
 
 
-    var $doc = $(this), $spaceShip = $('.spaceship'), spacePos = 50;
+    var $doc = $(this), $spaceShip = $('.spaceship'), spacePos = 50, _won;
 
     var _sendFire = function () {
         var fire = $('<div/>').addClass('fireball').appendTo('body');
@@ -51,10 +51,14 @@ $(document).on('ready', function () {
         _spaceShipTimeout = setTimeout(function () { _spaceShipTimeout = null; _moveSpaceShip(direction) }, 100);
     }
 
+    var $keys = $('.instructions .keys span'), keyMaps = { 32: 1, 37: 2, 39: 3 };
     $doc.on('keydown', function (e) {
+        if (_won) return;
         if (e.keyCode == 32) _sendFire();
         if (e.keyCode == 37) _moveSpaceShip(-1);
         if (e.keyCode == 39) _moveSpaceShip(1);
+        if (e.keyCode && keyMaps[e.keyCode])
+            TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.4, { 'background-color': 'rgb(0, 208, 157)' }, { 'background-color': 'rgb(255, 255, 255)' }, 0);
     });
 
     $doc.on('keyup', function (e) { clearTimeout(_spaceShipTimeout); _spaceShipTimeout = null });
@@ -64,41 +68,45 @@ $(document).on('ready', function () {
 
 
     var _winGame = function () {
-        TweenMax.staggerFromTo($spaceShip, 2, { bottom: '0%' }, { bottom: '100%' }, 0, function () {
-            createjs.Sound.play(SOUNDS.WIN);
-            $('body').addClass('success');
-            TweenMax.staggerFromTo($letters, 0.2, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.1);
-        });
+        //TweenMax.staggerFromTo($spaceShip, 2, { bottom: '0%' }, { bottom: '100%' }, 0, function () {
+        createjs.Sound.play(SOUNDS.WIN);
+        $('body').addClass('success');
+        _won = true;
+        TweenMax.staggerFromTo($letters, 0.2, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.1);
+        //});
     }
 
 
-    var _answer = function (correct, skip) {
-        var __after = function () {
-            $letter.remove();
-            $letter = null;
-            _callDropLetter();
+    var _answer = function (correct) {
+        createjs.Sound.play(correct ? SOUNDS.ANSWER_GOOD : SOUNDS.ANSWER_BAD);
+        if (correct) {
+            TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, }, { autoAlpha: 0, scale: 5 }, 0.2, function () {
+                TweenMax.staggerFromTo(currentLetter.addClass('active'), 0.4, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.2);
+                _callDropLetter();
+            });
+        } else {
+            var _letter = $letters.filter('.active').random().css({ 'color': '#ff0000' });
+            TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000) }, 0.2, function () {
+                TweenMax.staggerFromTo(_letter, 1, { autoAlpha: 1, scale: 1, x: 0, y: 0, 'color': '#ff0000' }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000), 'color': '#ff0000' }, 0.2, function () {
+                    _letter.attr('style', '').removeClass('active');
+                    _callDropLetter();
+                });
+            });
         }
-        if (!skip) {
-            createjs.Sound.play(correct ? SOUNDS.ANSWER_GOOD : SOUNDS.ANSWER_BAD);
-            if (correct) {
-                TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, }, { autoAlpha: 0, scale: 5 }, 0.2, function () {
-                    TweenMax.staggerFromTo(currentLetter.addClass('active'), 0.4, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.2);
-                    __after();
-                });
-            } else {
-                var _letter = $letters.filter('.active').random().css({ 'color': '#ff0000' });
-                TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000) }, 0.2, function () {
-                    TweenMax.staggerFromTo(_letter, 1, { autoAlpha: 1, scale: 1, x: 0, y: 0, 'color': '#ff0000' }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000), 'color': '#ff0000' }, 0.2, function () {
-                        _letter.attr('style', '').removeClass('active');
-                        __after();
-                    });
-                });
-            }
-        } else
-            __after();
+    }
+
+    var _setProgress = function () {
+        $('.progressBar b').html($letters.filter('.active').length + '/' + $letters.length);
+        $('.progressBar span').css({ 'width': (100 * $letters.filter('.active').length / $letters.length) + '%' });
     }
 
     var _dropLetter = function () {
+        _setProgress();
+        if (!($letters.not('.active').length)) {
+            clearTimeout(letterTimeout);
+            _winGame();
+            return;
+        }
         if ($letter) {
             _callDropLetter();
             return;
@@ -108,24 +116,29 @@ $(document).on('ready', function () {
         } else {
             currentLetter = $letters.not('.active').random();
         }
-        if (!(currentLetter && currentLetter.length)) {
-            clearTimeout(letterTimeout);
-            _winGame();
-            return;
-        }
         $letter = $('<div/>').addClass('letter').appendTo('body');
         setTimeout(function () {
             letterPos = Random();
             $letter.css({ 'background-image': 'url(letter/' + currentLetter.text() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
             if (letterPos > 50) $letter.addClass('left');
             letterClearTimeout = setTimeout(function () {
-                if ($letter) _answer(!(currentLetter && currentLetter.parents('body').length), !(currentLetter && currentLetter.parents('body').length));
+                if ($letter) _callDropLetter()
             }, 5001);
         }, 50);
 
     }
 
     var _callDropLetter = function () {
+        _setProgress();
+        if ($letter) {
+            $letter.remove();
+            $letter = null;
+        }
+        if (!($letters.not('.active').length)) {
+            clearTimeout(letterTimeout);
+            _winGame();
+            return;
+        }
         if (letterTimeout) clearTimeout(letterTimeout);
         if (letterClearTimeout) clearTimeout(letterClearTimeout);
         letterClearTimeout

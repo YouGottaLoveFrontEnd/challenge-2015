@@ -12,11 +12,11 @@ function createSparks () {
 }
 
 var charectersArr = [{name: 'intro', duration: 12},
-					 {name:'hulk', duration: 5},
+					 {name:'hulk', duration: 6},
 					 {name:'capt-arr',duration: 14},
 					 {name:'black', action:['createSparks','playBlackVid'], duration: 10},
 					 {name:'iron-thor', duration: 18},
-					 {name: 'closer', action:['decVol'], duration: 1}];
+					 {name: 'closer', action:['decVol'], duration: .01}];
 
 var sceneTimer = 10 * 1000;
 var playIndex;

@@ -10,7 +10,7 @@ var Game = function () {
 
 	function addPlayer() {
 		player = new Player();
-		player.create(boardId);
+		player.create(boardId, message);
 	}
 
 	function clearBoard () {
@@ -21,9 +21,20 @@ var Game = function () {
 	function message (data) {
 		switch(data) {
 			case 1:
+				bricksManager.killAll(false);
+				setTimeout(clearBoard , 2500);
+			break;
 			case 4:
-				bricksManager.killAll();
-				setTimeout(clearBoard , 2000);
+				bricksManager.killAll(true);
+				setTimeout(clearBoard , 2500);
+			break;
+			case 5:
+			case 6:
+				player.doubleSizeMe();
+			break;
+			case 8:
+			case 7:
+				bricksManager.changeSpeed();
 			break;
 			
 		}
@@ -41,7 +52,7 @@ var Game = function () {
 		board.style.zIndex = 999999999;
 		document.getElementsByTagName('body')[0].appendChild(board);
 
-		addPlayer();
+		
 		
 		setTimeout(function () {
 			bricksManager = new Bricks();
@@ -53,6 +64,8 @@ var Game = function () {
 		messageData = messenger.data;
 		board.appendChild(messenger.create());
 		message(0);
+
+		addPlayer();
 
 	}
 

@@ -16,59 +16,55 @@ var SingleBrick = function () {
 
 	function lookForHit () {
 		var currentY = parseInt(elemStyle.top) + (parseInt(elemStyle.height) /2);
-		var currentX = parseInt(elemStyle.left) + parseInt(elemStyle.width);
+
+		var currentX = flyToXDirection === -1 ? parseInt(elemStyle.left) +  parseInt(elemStyle.width): parseInt(elemStyle.left);
+		if(currentX < 0 || currentX > boundries.width) {
+			kill();
+		}
 		playerLocation = player.getPlayerLocations();
 		if(currentY >= playerLocation.y - playerLocation.height - ballSize) {
-
 			if(currentX >= playerLocation.x && currentX <= playerLocation.x + playerLocation.width) {
-
 				if(currentX <= playerLocation.x + 30 ){
 					flyToXDirection = -1;
 				}else if(currentX >= playerLocation.x + playerLocation.width - 30) {
 					flyToXDirection = 1;
 				}
-
 				flyToYDirection = flyToYDirection * -1;
 				soundManager.play(3);
 				elemStyle.top = parseInt(elemStyle.top) + (speed * flyToYDirection) + 'px';
 				elemStyle.left = parseInt(elemStyle.left) + (speed * flyToXDirection) + 'px';
 			}
+		}else if(currentY >= playerLocation.y + playerLocation.height || currentX < 0 || currentX > parseInt(board.style.width)) {
+			kill();
 		}
-
 		checkHitTimeout = setTimeout(lookForHit, 10);
 	}
 
 	function fly() {
 		var newY = parseInt(elemStyle.top) + (speed * flyToYDirection);
 		var newX = parseInt(elemStyle.left) + (speed * flyToXDirection);
-		
 		if( newY <= 0) {
 			flyToYDirection = flyToYDirection * -1;
 			newY = parseInt(elemStyle.top) + (speed * flyToYDirection);
 		}
-
 		if(newX <=0 || newX >= boundries.width - ballSize) {
 			flyToXDirection = flyToXDirection * -1;
 			newX = parseInt(elemStyle.left) + (speed * flyToXDirection);
 		}
-
 		if(newY > playerLocation.y - playerLocation.height) {
 			kill();
 			message(1);
 			return;
 		}
-
 		var percentage = newY / (boundries.height / 2);
 		elemStyle.backgroundColor = 'rgba(255, 255, 255, '+ percentage +')';
-		
 		elemStyle.top = newY + 'px';
 		elemStyle.left = newX + 'px';
-
 		flyTimeout = setTimeout(fly, 100);
-
 	}
 
-	function create (content, _boundries, _message, _player, _soundManager) {
+	function create (content, _boundries, _message, _player, _soundManager, _defaultSpeed) {
+		speed = _defaultSpeed;
 		message = _message;
 		boundries = _boundries;
 		elemStyle.width = ballSize + 'px';
@@ -80,6 +76,7 @@ var SingleBrick = function () {
 		elemStyle.lineHeight = '25px';
 		elemStyle.textAlign = 'center';
 		elemStyle.borderRadius = '50%';
+		elemStyle.pointerEvents= 'none';
 		elemStyle.top = Math.floor(Math.random() * (boundries.height /2)) + 'px';
 		elemStyle.left = Math.floor(Math.random() * (boundries.width -16)) + 'px';
 		elemStyle.transition = 'left .1s linear top .1s linear';
@@ -91,12 +88,16 @@ var SingleBrick = function () {
 
 	}
 
+	function changeSpeed () {
+		speed = speed === 10 ? 1 : 10;
+	}
+
 	function getElem () {
 		return elem;
 	}
 
 	function kill () {
-		soundManager.play(2);
+		
 		clearTimeout(flyTimeout);
 		clearTimeout(checkHitTimeout);
 	}
@@ -104,6 +105,7 @@ var SingleBrick = function () {
 	return {
 		create: create,
 		kill: kill,
-		getElem: getElem
+		getElem: getElem,
+		changeSpeed: changeSpeed
 	}
 }

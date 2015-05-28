@@ -1,10 +1,16 @@
 var Message = function () {
 	var messageData = {
-		0: 'Game is about to start, press <span class="big">[A]</span> <span class="big">[D]</span> to move',
+		0: 'Game is about to start. Lets start simple just keep the mouse inside the box.',
 		1: '<span class="big">Game Over!</span> Better Luck next time :)',
 		2: 'I dare you not to press <span class="big">[S]</span>.',
 		3: '',
-		4: 'Seriously? you did it?'
+		4: 'Who&rsquo;s the man?? You&rsquo;re the man!',
+		5: 'Double size me.',
+		6: 'Haa? you can&rsquo;t triple size. now you&rsquo;ll shrink.',
+		7: 'Hangover Time #%@$% Things get slooowww.',
+		8: 'Hangover done, back to normal.',
+		9: 'I dare you not to press <span class="big">[D]</span>.',
+		10: 'Christmas came early, and you&rsquo;ve been good. Gifts are on their way.'
 	};
 
 	var isInited = false;

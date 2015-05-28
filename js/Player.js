@@ -4,37 +4,36 @@ var Player = function () {
 	var player = document.createElement('div');
 	var playerStyle = player.style;
 	var speed = 50;
-	var playerWidth = 50;
-	var creationTimer = 200;
+	var playerWidth = 150;
+	var creationTimer = 80;
 	var stopScale = false;
-	
+	var message;
+
 	var arrows = {
-		97: 'left',
-		100: 'right',
-		115: 'speed'
+		68: 'double',
+		83: 'slow'
 	}
 
 	var onTheMove = false;
 	var movementDirection;
 	var moveTimeout;
+	var goSlow = false;
 
-	function movePlayer() {
-		 var newLeft = parseInt(playerStyle.left) + (movementDirection * speed);
+	function movePlayer2(e) {
+		playerWidth = parseInt(playerStyle.width);
+		var mouseX = e.offsetX;
+		var newLeft = mouseX - (playerWidth / 2);
 		if(newLeft <= 0) {
-			playerStyle.left = '0px';
-			return;
+			newLeft = 0;
 		}
 
-		if(newLeft >= board.offsetWidth - parseInt(playerStyle.width) - 16) {
-			playerStyle.left = board.offsetWidth - parseInt(playerStyle.width) - 16  +'px';
-			return;
+		if(mouseX + (playerWidth / 2) >= (board.offsetWidth -14)) {
+			newLeft = board.offsetWidth - 14 - playerWidth;
 		}
 		playerStyle.left = newLeft +'px';
-		moveTimeout = setTimeout(movePlayer, creationTimer);
 	}
 
 	function setPlayerWidth () {
-		
 		var changeToLeft = parseInt(playerStyle.left) - 10;
 		if(changeToLeft <= 0) {
 			changeToLeft = 0;
@@ -48,41 +47,31 @@ var Player = function () {
 
 	}
 
+	function changeBallSpeed() {
+		message(goSlow ? 8 : 7);
+		goSlow = goSlow ? goSlow = false : goSlow = true;
+		if(goSlow) {
+			setTimeout(changeBallSpeed, 1500);
+		}
+	}
+
 	function controller(e) {
 		if(arrows[e.keyCode]) {
 			switch(arrows[e.keyCode]) {
-				case 'right':
-					movementDirection = 1;
-					if(!onTheMove){
-						onTheMove = true;
-						movePlayer();
-					}
+				case 'double':
+					playerWidth = parseInt(playerStyle.width) === 150 ? message(5) : message(6);
 				break;
-				case 'left':
-					movementDirection = -1;
-					if(!onTheMove){
-						onTheMove = true;
-						movePlayer();
-					}
-				break;
-				case 'speed':
-					if(stopScale) {
-						return;
-					}
-					playerWidth += 20;
-					if(playerWidth >= 350) {
-						playerWidth = 350;
-						stopScale = true;
-					}
-					setPlayerWidth();
+				case 'slow':
+					changeBallSpeed();
 				break;
 			}
 		}
 	}
 
-	function controllerDone(e) {
-		clearTimeout(moveTimeout);
-		onTheMove = false;
+	function doubleSizeMe () {
+		playerWidth = parseInt(playerStyle.width);
+		playerWidth = playerWidth === 150 ? playerWidth * 2 : playerWidth / 2;
+		playerStyle.width = playerWidth + 'px';
 	}
 
 	function getPlayerLocations () {
@@ -94,24 +83,28 @@ var Player = function () {
 		}
 	}
 
-	function create(boardId) {
+	function create(boardId, _message) {
+		message = _message;
 		board = document.getElementById(boardId);
 		setPlayerWidth();
 		playerStyle.height = '15px';
 		playerStyle.backgroundColor = '#1eb1d2';
 		playerStyle.bottom = '10px';
+		playerStyle.pointerEvents= 'none';
 		playerStyle.position = 'absolute';
 		playerStyle.left = Math.floor(Math.random() * (board.offsetWidth - 16 - playerWidth)) + 'px';
-		playerStyle.transition = 'left .2s linear, width .2s linear';
+		playerStyle.transition = 'width .2s linear';
 		player.id = 'player';
 		board.appendChild(player);
 
-		document.addEventListener('keypress', controller);
-		document.addEventListener('keyup', controllerDone);
+		board.addEventListener('mousemove', movePlayer2);
+		document.addEventListener('keydown', controller);
+
 	}
 
 	return {
 		create: create,
-		getPlayerLocations: getPlayerLocations
+		getPlayerLocations: getPlayerLocations,
+		doubleSizeMe: doubleSizeMe
 	}
 }

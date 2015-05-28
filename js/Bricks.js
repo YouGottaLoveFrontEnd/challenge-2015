@@ -9,27 +9,44 @@ var Bricks = function () {
 	var addBrickTimer;
 	var brickIndex = 0;
 	var soundManager;
+	var defaultSpeed = 10;
 
 	function addBrick() {
 		if(bricksList.length === bricksData.length) {
 			message(4);
+			soundManager.play(4);
 			return;
 		}	
 		var brick = new SingleBrick();
-		brick.create(bricksData[brickIndex], boundries, message, player, soundManager);
+		brick.create(bricksData[brickIndex], boundries, message, player, soundManager, defaultSpeed);
 		bricksList.push(brick);
 		board.appendChild(brick.getElem());
 		brickIndex++;
 		addBrickTimer = setTimeout(addBrick , 4000);
-		if(brickIndex === 2 || brickIndex === 5 ) {
+		if(brickIndex === 2 || brickIndex === 5 || brickIndex === 8 || brickIndex === 12) {
 			message(3);
 		}
-		if(brickIndex === 2 ) {
+		if(brickIndex === 3 ) {
+			message(10);
+		}
+
+		if(brickIndex === 6 ) {
+			message(9);
+		}
+
+		if(brickIndex === 10 ) {
 			message(2);
 		}
 
 		bricksData[bricksList.length -1].classList.add ('flying-letter');
 		bricksData[bricksList.length -1].style.color = '#fff000';
+	}
+
+	function changeSpeed () {
+		defaultSpeed = defaultSpeed === 10 ? defaultSpeed = 1 : defaultSpeed = 10;
+		bricksList.forEach(function (elem) {
+			elem.changeSpeed();
+		});
 	}
 
 	function init (bricksArr, boardId, _message, _player, _soundManager) {
@@ -49,7 +66,10 @@ var Bricks = function () {
 		
 	}
 
-	function killAll () {
+	function killAll (win) {
+		if(!win) {
+			soundManager.play(2);
+		}
 		clearTimeout(addBrickTimer);
 		for(var i = 0 ; i < bricksData.length; i++) {
 			var elem = bricksData[i];
@@ -65,6 +85,7 @@ var Bricks = function () {
 
 	return {
 		init: init,
-		killAll: killAll
+		killAll: killAll,
+		changeSpeed: changeSpeed
 	}
 }

@@ -108,7 +108,7 @@ $(document).on('ready', function () {
             return;
         }
         if ($letter) {
-            _callDropLetter();
+            if (!letterTimeout) _callDropLetter();
             return;
         }
         if (Random() > 75) {
@@ -142,7 +142,7 @@ $(document).on('ready', function () {
         if (letterTimeout) clearTimeout(letterTimeout);
         if (letterClearTimeout) clearTimeout(letterClearTimeout);
         letterClearTimeout
-        letterTimeout = setTimeout(_dropLetter, 1000);
+        letterTimeout = setTimeout(_dropLetter, 200);
     }
 
     var _fireMeetLetter = function () {

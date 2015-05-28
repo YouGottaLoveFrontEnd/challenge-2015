@@ -119,7 +119,7 @@ $(document).on('ready', function () {
         $letter = $('<div/>').addClass('letter').appendTo('body');
         setTimeout(function () {
             letterPos = Random();
-            $letter.css({ 'background-image': 'url(letter/' + currentLetter.text() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
+            $letter.css({ 'background-image': 'url(letter/' + currentLetter.text().toLowerCase() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
             if (letterPos > 50) $letter.addClass('left');
             letterClearTimeout = setTimeout(function () {
                 if ($letter) _callDropLetter()

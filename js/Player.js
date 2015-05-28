@@ -34,17 +34,18 @@ var Player = function () {
 	}
 
 	function setPlayerWidth () {
-		playerStyle.width = playerWidth + 'px';
+		
 		var changeToLeft = parseInt(playerStyle.left) - 10;
 		if(changeToLeft <= 0) {
 			changeToLeft = 0;
 		}
-
 		
-		playerStyle.left = changeToLeft + 'px';
-		if(playerWidth + parseInt(playerStyle.left) > board.offsetWidth - 36) {
-			playerStyle.left = board.offsetWidth - parseInt(playerStyle.width) - 36 + 'px';
+		if(changeToLeft >= board.offsetWidth - playerWidth - 16) {
+			changeToLeft = board.offsetWidth - playerWidth - 16;
 		}
+		playerStyle.left = changeToLeft + 'px';
+		playerStyle.width = playerWidth + 'px';
+
 	}
 
 	function controller(e) {
@@ -101,7 +102,7 @@ var Player = function () {
 		playerStyle.bottom = '10px';
 		playerStyle.position = 'absolute';
 		playerStyle.left = Math.floor(Math.random() * (board.offsetWidth - 16 - playerWidth)) + 'px';
-		playerStyle.transition = 'left .2s linear';
+		playerStyle.transition = 'left .2s linear, width .2s linear';
 		player.id = 'player';
 		board.appendChild(player);
 

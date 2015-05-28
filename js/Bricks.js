@@ -11,6 +11,10 @@ var Bricks = function () {
 	var soundManager;
 
 	function addBrick() {
+		if(bricksList.length === bricksData.length) {
+			message(4);
+			return;
+		}	
 		var brick = new SingleBrick();
 		brick.create(bricksData[brickIndex], boundries, message, player, soundManager);
 		bricksList.push(brick);
@@ -20,7 +24,7 @@ var Bricks = function () {
 		if(brickIndex === 2 || brickIndex === 5 ) {
 			message(3);
 		}
-		if(brickIndex === 3 ) {
+		if(brickIndex === 2 ) {
 			message(2);
 		}
 

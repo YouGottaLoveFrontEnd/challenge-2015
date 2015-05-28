@@ -1,9 +1,10 @@
 var Message = function () {
 	var messageData = {
-		0: 'Game is about to start, press [A] [D] to move',
-		1: 'Game Over! Better Luck next time',
-		2: 'Press the letter [S] to increase player width',
-		3: ''
+		0: 'Game is about to start, press <span class="big">[A]</span> <span class="big">[D]</span> to move',
+		1: '<span class="big">Game Over!</span> Better Luck next time :)',
+		2: 'I dare you not to press <span class="big">[S]</span>.',
+		3: '',
+		4: 'Seriously? you did it?'
 	};
 
 	var isInited = false;
@@ -12,7 +13,7 @@ var Message = function () {
 	function create () {
 		elem.id = id;
 		elem.style.position = 'absolute';
-		elem.style.top = '-88px';
+		elem.style.bottom = '-100px';
 		elem.style.left = '0px';
 		elem.style.width = 'calc(100% - 20px)';
 		elem.style.height = '60px';
@@ -21,9 +22,9 @@ var Message = function () {
 		elem.style.lineHeight = '24px';
 		elem.style.backgroundColor = '#fbfaf8';
 		elem.style.border = '1px solid #1eb1d2';
-		elem.style.borderBottom = 'transparent';
-		elem.style.borderRadius = '10px 10px 0 0';
+		elem.style.borderRadius = '5px';
 		elem.style.padding = '10px';
+		elem.style.color = 'rgba(0,0,0,0.5)';
 		elem.style.fontFamily = 'Futura-pt, Arial';
 
 

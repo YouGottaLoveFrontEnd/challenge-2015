@@ -21,6 +21,7 @@ var Game = function () {
 	function message (data) {
 		switch(data) {
 			case 1:
+			case 4:
 				bricksManager.killAll();
 				setTimeout(clearBoard , 2000);
 			break;

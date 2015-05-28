@@ -32,6 +32,38 @@ body {
   color: rgba(0,0,0,0.5);
 }
 
+.logo label {
+  font-size: 16px;
+  position: absolute;
+  letter-spacing: 0;
+  text-transform: initial;
+}
+
+.speakers {
+ font-family: Futura-pt, Arial;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+label.top {
+  top: -30px;
+  left: 50px;
+}
+
+label.left {
+  top: 0px;
+  left: 0;
+  transform-origin: 200px 230px;
+  transform: rotate(-90deg);
+}
+
+label.right {
+  top: 0px;
+  right: 0;
+   transform: rotate(90deg);
+  transform-origin: 170px 173px;
+}
 .container {
   width: 479px;
   height: 314px;
@@ -520,31 +552,6 @@ span.medium{
     100% { -webkit-filter: blur(13px); transform: skew(280deg, 100deg);}
 }
 
-@-webkit-keyframes shake {
-    0%{top: 2px; left: -2px;}
-    5%{top: -2px; left: 2px;}
-    10%{top: 2px; left: -2px;}
-    15%{top: 2px; left: -2px;}
-    20%{top: 2px; left: -2px;}
-    25%{top: -2px; left: 2px;}
-    30%{top: 2px; left: -2px;}
-    35%{top: -2px; left: 2px;}
-    40%{top: -2px; left: 2px;}
-    45%{top: 2px; left: -2px;}
-    50%{top: -2px; left: -2px;}
-    55%{top: 2px; left: 2px;}
-    60%{top: -2px; left: -2px;}
-    65%{top: -2px; left: 2px;}
-    70%{top: 2px; left: -2px;}
-    75%{top: 2px; left: -2px;}
-    80%{top: -2px; left: -2px;}
-    85%{top: -2px; left: 2px;}
-    90%{top: 2px; left: -2px;}
-    95%{top: -2px; left: 2px;}
-    100%{top: 2px; left: 2px;}
-}
-
-
 .iron-thor .ironman .light{
   position: absolute;
   width: 35px; 
@@ -631,5 +638,8 @@ span.medium{
   top: 0;
 }
 
+#message span.big {
+  font-size: 32px;
+}
 
 

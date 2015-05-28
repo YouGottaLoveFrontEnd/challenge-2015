@@ -123,7 +123,7 @@ $(document).on('ready', function () {
             if (letterPos > 50) $letter.addClass('left');
             letterClearTimeout = setTimeout(function () {
                 if ($letter) _callDropLetter()
-            }, 5001);
+            }, 3001);
         }, 50);
 
     }

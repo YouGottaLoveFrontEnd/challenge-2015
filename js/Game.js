@@ -14,6 +14,9 @@ var Game = function () {
 	}
 
 	function clearBoard () {
+		if(!inited) {
+			return;
+		}
 		inited = false;
 		board.parentNode.removeChild(board);
 	}
@@ -22,9 +25,11 @@ var Game = function () {
 		switch(data) {
 			case 1:
 				bricksManager.killAll(false);
+				player.gameOver();
 				setTimeout(clearBoard , 2500);
 			break;
 			case 4:
+				player.gameOver();
 				bricksManager.killAll(true);
 				setTimeout(clearBoard , 2500);
 			break;

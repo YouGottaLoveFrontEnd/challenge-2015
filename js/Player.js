@@ -19,7 +19,7 @@ var Player = function () {
 	var moveTimeout;
 	var goSlow = false;
 
-	function movePlayer2(e) {
+	function movePlayer(e) {
 		playerWidth = parseInt(playerStyle.width);
 		var mouseX = e.offsetX;
 		var newLeft = mouseX - (playerWidth / 2);
@@ -77,10 +77,15 @@ var Player = function () {
 	function getPlayerLocations () {
 		return {
 			x: parseInt(playerStyle.left),
-			y: board.offsetHeight - parseInt(playerStyle.bottom),
+			y: parseInt(playerStyle.top) ,
 			width: parseInt(playerStyle.width),
 			height: parseInt(playerStyle.height)
 		}
+	}
+
+	function gameOver () {
+		board.removeEventListener('mousemove', movePlayer);
+		document.removeEventListener('keydown', controller);
 	}
 
 	function create(boardId, _message) {
@@ -89,7 +94,7 @@ var Player = function () {
 		setPlayerWidth();
 		playerStyle.height = '15px';
 		playerStyle.backgroundColor = '#1eb1d2';
-		playerStyle.bottom = '10px';
+		playerStyle.top = (parseInt(board.offsetHeight) - 35) +'px';
 		playerStyle.pointerEvents= 'none';
 		playerStyle.position = 'absolute';
 		playerStyle.left = Math.floor(Math.random() * (board.offsetWidth - 16 - playerWidth)) + 'px';
@@ -97,7 +102,7 @@ var Player = function () {
 		player.id = 'player';
 		board.appendChild(player);
 
-		board.addEventListener('mousemove', movePlayer2);
+		board.addEventListener('mousemove', movePlayer);
 		document.addEventListener('keydown', controller);
 
 	}
@@ -105,6 +110,7 @@ var Player = function () {
 	return {
 		create: create,
 		getPlayerLocations: getPlayerLocations,
-		doubleSizeMe: doubleSizeMe
+		doubleSizeMe: doubleSizeMe,
+		gameOver: gameOver
 	}
 }

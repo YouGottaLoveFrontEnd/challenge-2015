@@ -57,7 +57,7 @@ var Bricks = function () {
 		
 		boundries.x = 0;
 		boundries.y = 0;
-		boundries.width = board.offsetWidth;
+		boundries.width = board.offsetWidth - 16 - 25;
 		boundries.height = board.offsetHeight;
 
 		player = _player;

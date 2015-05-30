@@ -1,3 +1,7 @@
+body {
+  background-color: #ddd;
+}
+
 .logo {
   font-family: Futura-pt, Arial;
   text-transform: uppercase;
@@ -15,8 +19,117 @@
   position: absolute;
   top: calc(50vh - 224px);
   left: calc(50vw - 306px);
+  box-shadow:0px 10px 10px -2px #777;
+}
+.logo:hover{
+transition:2s ease-in;
+background:#000000;
+color:#FFFFFF;
 }
 
-body {
-  background-color: #ddd;
+#you{
+opacity:0;
+width:170px;
+cursor:default;
+}
+#gt{
+opacity:0;
+width:282px;
+cursor:default;
+}
+#lv{
+opacity:0;
+cursor:default;
+width:215px;
+}
+#frted{
+opacity:0;
+cursor:default;
+width:460px;
+}
+#you:hover{
+animation:u 2s;
+-webkit-animation:u 2s;
+transition: 2s ease-in;
+}
+#gt:hover{
+animation:u 2s;
+-webkit-animation:u 2s;
+transition: 2s ease-in;
+}
+#lv:hover{
+animation:u 2s;
+-webkit-animation:u 2s;
+transition: 2s ease-in;
+}
+#frted:hover{
+animation:u 2s;
+-webkit-animation:u 2s;
+transition: 2s ease-in;
+}
+
+@-webkit-keyframes u{
+0%{opacity:0;}
+25%{opacity:0.3;}
+50%{opacity:0.5;}
+100%{opacity:0.8;}
+}
+@keyframes u{
+0%{opacity:0;}
+25%{opacity:0.3;}
+50%{opacity:0.5;}
+100%{opacity:0.8;}
+}
+
+#int{
+width:200px;
+height:55px;
+margin-left:40px;
+font-family:Oswald;
+font-size:18px;
+border:none;
+background:#DDD;
+}
+
+::-webkit-input-placeholder {
+   color: #000;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red;  
+}
+
+:-ms-input-placeholder {  
+   color: red;  
+}
+button{
+margin-left:32px;
+border:#DDD solid 1px;
+font-family:Oswald;
+font-size:16px;
+cursor:pointer;
+}
+#op{
+margin-left:35px;
+font-family:Oswald;
+color:#000000;
+font-size:16px;
+width:130px;
+}
+.des{
+margin:auto;
+font-family:Oswald;
+font-size:18px;
+color:#0033FF;
+box-shadow:0px 10px 10px -8px #777;
+width:710px;
+}
+h1{
+width:230px;
+height:50px;
+margin: auto;
 }

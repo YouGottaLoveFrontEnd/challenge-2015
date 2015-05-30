@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Challenge</title>
-	<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
-  media="all">
-	<link rel="stylesheet" href="index.css">
+<title>Challenge</title>
+<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
+media="all">
+<link rel="stylesheet" href="index.css">  
 </head>
 <body>
-	<div class="logo">
-		You
-		<br>gotta
-		<br>love
-		<br>frontend
-	</div>
+<h1>EASY PUZZLE</h1>
+<div class="logo">
+	<div id="you">You</div>
+
+	<div id="gt">gotta</div>
+
+	<div id="lv">love</div>
+
+	<div id="frted">frontend</div>
+</div>
+<p class="des">Hover the box and you will find some words, make a sentences out of it and then check whether you are right or not.</p>
+
+<br>
+<input type="text" placeholder="Your answer over-here please..." id="int">
+<br>
+<br>
+<button onClick="btn()" type="button">Submit</button>
+<p id="op"></p>
+
+<script>
+function btn(){
+var x = document.getElementById('int').value;
+document.getElementById('op').innerHTML = x;
+var y = "YOU GOTTA LOVE FRONTEND";
+if(x === y){
+document.getElementById('op').innerHTML = "You are right....";
+}
+else{
+document.getElementById('op').innerHTML = "No that's not right....";
+}
+}
+</script>
+
 </body>
 </html>

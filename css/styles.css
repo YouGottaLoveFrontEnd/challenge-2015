@@ -266,7 +266,7 @@ body {
 /*********************************************************/
 /*** Scroll Down Arrow ***********************************/
 /*********************************************************/
-.scroll-down-hint {
+#scroll-down-hint {
   position: absolute;
   bottom: 135px;
   left: calc(50% - 20px);
@@ -279,6 +279,10 @@ body {
   animation: bounce 2s infinite;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjkzLjggNDU1LjljLTIwLjIgMjAuMi01My4yIDE5LjktNzMuNy0wLjZsMCAwYy0yMC41LTIwLjUtMjAuOC01My41LTAuNi03My43bDE5MC0xOTBjMjAuMi0yMC4yIDUzLjItMTkuOSA3My43IDAuNmwwIDBjMjAuNSAyMC41IDIwLjggNTMuNSAwLjYgNzMuN0wyOTMuOCA0NTUuOXoiLz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjIwLjIgNDU1LjljMjAuMiAyMC4yIDUzLjIgMTkuOSA3My43LTAuNmwwIDBjMjAuNS0yMC41IDIwLjgtNTMuNSAwLjYtNzMuN2wtMTkwLTE5MGMtMjAuMi0yMC4yLTUzLjItMTkuOS03My43IDAuNmwwIDBjLTIwLjUgMjAuNS0yMC44IDUzLjUtMC42IDczLjdMMjIwLjIgNDU1Ljl6Ii8+PC9zdmc+);
   background-size: contain;
+}
+
+.is-hidden {
+  display: none;
 }
 
 /*** bounce animation ************************************/

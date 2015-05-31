@@ -2,13 +2,17 @@
 /*** Scroll Down Arrow ***********************************/
 /*********************************************************/
 
-.scroll-down-hint {
+#scroll-down-hint {
 	@include position(absolute, null null $scroll-down-hint_position-bottom $scroll-down-hint_position-left);
 	@include size($scroll-down-hint_size);
 	@include filter(drop-shadow(0 22px 13px rgba(0, 0, 0, 0.3)));
 	@include animation(bounce 2s infinite);
 	background-image: $scroll-down-hint_background-image;
 	background-size: contain;
+}
+
+.is-hidden {
+	display: none;
 }
 
 /*** bounce animation ************************************/

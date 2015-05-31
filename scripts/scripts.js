@@ -6,6 +6,14 @@
 		smoothScrolling: false
 	});
 
+	window.onload = function() {
+		window.scrollTo(0,0);
+	};
+
+	Pace.on('done', function(){
+		document.getElementById('scroll-down-hint').classList.remove('is-hidden');
+	});
+
 	// Real shadow
 	realshadow(document.getElementsByTagName('h1'), {type: 'text', color: '100,100,100', length: 6});
 	realshadow(document.getElementsByClassName('item-pen'), {type: 'drop', color: '0,0,0', length: 7, inverse: true});

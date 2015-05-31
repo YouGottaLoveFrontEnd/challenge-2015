@@ -26,8 +26,6 @@ body {
 }
 
 .deck, .deck-blank {
-  background: -webkit-linear-gradient(45deg, #f9f9f9 0%, #e8e8e8 70%, #d6d6d6 100%);
-  background: linear-gradient(to _position-flipper(45deg), #f9f9f9 0%, #e8e8e8 70%, #d6d6d6 100%);
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -274,6 +272,8 @@ body {
   left: calc(50% - 20px);
   height: 40px;
   width: 40px;
+  -webkit-filter: drop-shadow(0 22px 13px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 22px 13px rgba(0, 0, 0, 0.3));
   -webkit-animation: bounce 2s infinite;
   -moz-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
@@ -286,12 +286,15 @@ body {
 @-webkit-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0);
+    -webkit-filter: drop-shadow(0 22px 10px rgba(0, 0, 0, 0.3));
   }
   40% {
     -webkit-transform: translateY(-30px);
+    -webkit-filter: drop-shadow(0 88px 25px rgba(0, 0, 0, 0.3));
   }
   60% {
     -webkit-transform: translateY(-15px);
+    -webkit-filter: drop-shadow(0 48px 15px rgba(0, 0, 0, 0.3));
   }
 }
 @-moz-keyframes bounce {
@@ -312,6 +315,8 @@ body {
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
+    -webkit-filter: drop-shadow(0 22px 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 22px 10px rgba(0, 0, 0, 0.3));
   }
   40% {
     -webkit-transform: translateY(-30px);
@@ -319,6 +324,8 @@ body {
     -ms-transform: translateY(-30px);
     -o-transform: translateY(-30px);
     transform: translateY(-30px);
+    -webkit-filter: drop-shadow(0 88px 25px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 88px 25px rgba(0, 0, 0, 0.3));
   }
   60% {
     -webkit-transform: translateY(-15px);
@@ -326,6 +333,8 @@ body {
     -ms-transform: translateY(-15px);
     -o-transform: translateY(-15px);
     transform: translateY(-15px);
+    -webkit-filter: drop-shadow(0 48px 15px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 48px 15px rgba(0, 0, 0, 0.3));
   }
 }
 /*********************************************************/
@@ -333,7 +342,6 @@ body {
 /*********************************************************/
 #secne-frontend {
   text-align: center;
-  background-size: auto 100vh;
 }
 #secne-frontend h1 {
   position: absolute;
@@ -349,7 +357,7 @@ body {
 }
 #secne-frontend span {
   display: block;
-  padding: 2em 0 0 0;
+  padding: 4em 0 0 0;
   color: #000000;
   font-size: 0.2em;
   text-transform: uppercase;
@@ -366,7 +374,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(../../images/1.jpg) no-repeat center center;
+  background: url("../../images/1.jpg") no-repeat center center;
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -723,10 +732,10 @@ body {
   transform-origin: 50% 50%;
   height: 120%;
   width: 120%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/celebration.jpg") center;
+  background: url("../../images/1.jpg") no-repeat center center;
   background-size: cover;
   display: block;
-  opacity: 0.3;
+  opacity: 1;
   z-index: 150;
 }
 

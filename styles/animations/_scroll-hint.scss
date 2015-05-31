@@ -5,10 +5,10 @@
 .scroll-down-hint {
 	@include position(absolute, null null $scroll-down-hint_position-bottom $scroll-down-hint_position-left);
 	@include size($scroll-down-hint_size);
+	@include filter(drop-shadow(0 22px 13px rgba(0, 0, 0, 0.3)));
 	@include animation(bounce 2s infinite);
 	background-image: $scroll-down-hint_background-image;
 	background-size: contain;
-
 }
 
 /*** bounce animation ************************************/
@@ -17,11 +17,14 @@
 @include keyframes(bounce) {
 	0%, 20%, 50%, 80%, 100% {
 		@include transform(translateY(0));
+		@include filter(drop-shadow(0 22px 10px rgba(0, 0, 0, 0.3)));
 	}
 	40% {
 		@include transform(translateY($scroll-down-hint_bounceY));
+		@include filter(drop-shadow(0 88px 25px rgba(0, 0, 0, 0.3)));
 	}
 	60% {
 		@include transform(translateY($scroll-down-hint_bounceX));
+		@include filter(drop-shadow(0 48px 15px rgba(0, 0, 0, 0.3)));
 	}
 }

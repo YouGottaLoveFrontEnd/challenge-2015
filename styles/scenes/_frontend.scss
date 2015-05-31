@@ -4,7 +4,6 @@
 
 #secne-frontend {
 	text-align: center;
-	background-size: auto 100vh;
 
 	h1 {
 		@include position(absolute, $title_frontend_position-top null null null);
@@ -35,7 +34,8 @@
 
 .hero {
 	@include position(absolute, 0 0 0 0);
-	background: url(../../images/1.jpg) no-repeat center center;
+	background: $scene_frontend_background;
+	background-size: cover;
 	overflow: hidden;
 }
 

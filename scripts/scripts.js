@@ -10,7 +10,7 @@
 	realshadow(document.getElementsByTagName('h1'), {type: 'text', color: '100,100,100', length: 6});
 	realshadow(document.getElementsByClassName('item-pen'), {type: 'drop', color: '0,0,0', length: 7, inverse: true});
 	realshadow(document.getElementsByClassName('item-brush-white'), {type: 'drop', color: '100,100,100', length: 7, inverse: true});
-	realshadow(document.getElementsByClassName('item-mouse'), {type: 'drop', color: '40,40,40', length: 7, inverse: true});
+	realshadow(document.getElementsByClassName('item-mouse'), {type: 'drop', color: '50,50,50', length: 7, inverse: true});
 	realshadow(document.getElementsByClassName('item-css'), {type: 'drop', length: 4});
 	realshadow(document.getElementsByClassName('item-html'), {type: 'drop', length: 3});
 	realshadow(document.getElementsByClassName('item-js'), {type: 'drop', length: 4});

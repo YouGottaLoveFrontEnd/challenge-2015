@@ -41,7 +41,7 @@ $font-weight-bold: 700;
 // *** Backgrounds ****************************************
 // ========================================================
 
-$deck_background: linear-gradient(45deg, rgba(249,249,249,1) 0%, rgba(232,232,232,1) 70%, rgba(214,214,214,1) 100%);
+$scene_frontend_background: url('../../images/1.jpg') no-repeat center center;
 $scene_code_background: linear-gradient(135deg, rgba(161, 174, 189, 1) 0%, rgba(167, 178, 194, 1) 19%, rgba(162, 174, 190, 1) 23%, rgba(144, 158, 178, 1) 43%, rgba(86, 104, 126, 1) 100%);
 $scene_design_background: radial-gradient(ellipse at center, rgba(208, 197, 194, 1) 0%, rgba(165, 148, 141, 1) 100%);
 $scene_behavior_background: linear-gradient(to right, rgba(173, 197, 187, 1) 0%, rgba(195, 213, 205, 1) 100%);
@@ -106,7 +106,7 @@ $title_frontend_position-top: 10vh;
 // *** Sub title in Front End Scene ***********************
 // ========================================================
 
-$title_frontend_span_padding: 2em 0 0 0;
+$title_frontend_span_padding: 4em 0 0 0;
 $title_frontend_span_color: $black;
 $title_frontend_span_font-size: 0.2em;
 $title_frontend_span_letter-spacing: 3px;
@@ -334,8 +334,8 @@ $item_logo_position-right: 120px;
 // ========================================================
 
 $background_effect_image_layer: 150;
-$background_effect_image_background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/celebration.jpg") center;
-$background_effect_image_opacity: 0.3;
+$background_effect_image_background: $scene_frontend_background;
+$background_effect_image_opacity: 1;
 
 // *** YGLF Site link *************************************
 // ========================================================

@@ -11,13 +11,6 @@ Transition into the YGLF logo.
 Go wild and create your own unique transition, gamification or interaction using the YGLF logo.
 For an example, check out how different letters transition into the YGLF logo as you scroll down [our](http://yougottalovefrontend.com) website.
 
-## What can you win?
-1st place: **Apple MacBook Pro and $100,000 credit for [Google Cloud Platform](http://cloud.google.com)** 
-
-2nd place: **Trip for 2 to Europe**
-
-3rd place: **Brand new smartphone**
-
 ## Guidelines
 None. Use any frontend technology you want! The sky(or the latest version of Chrome)'s the limit.
 

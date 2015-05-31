@@ -9,7 +9,6 @@
 	.item-pen {
 		@extend %item;
 		@include position(absolute, $item_pen_position-top $item_pen_position-right $item_pen_position-bottom $item_pen_position-left);
-		@include filter(drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4)));
 		@include size(408px 134px);
 		background-position: 0 -5151px;
 		z-index: $item_pen_layer;

@@ -27,8 +27,16 @@ $deck_width: 100vw;
 
 // *** Colors *********************************************
 // ========================================================
-$credit_box_anchor_border: #888888;
-$yglf_link_box_anchor_border: #ffffff;
+
+$gray: #888888;
+$white: #ffffff;
+$black: #000000;
+
+// *** Font weight ****************************************
+// ========================================================
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
 
 // *** Backgrounds ****************************************
 // ========================================================
@@ -41,17 +49,17 @@ $scene_behavior_background: linear-gradient(to right, rgba(173, 197, 187, 1) 0%,
 // *** Blank Deck *****************************************
 // ========================================================
 
-$deck_blank_background: #000000;
-$deck_blank_color: #ffffff;
-$deck_blank_font-size: 35px;
+$deck_blank_background: $black;
+$deck_blank_color: $white;
+$deck_blank_font-size: 2em;
 $deck_blank_text-align: center;
 
 // ========================================================
 // *** Loader *********************************************
 // ========================================================
 
-$loader_color: #000000;
-$loader_shadow: #000000;
+$loader_color: $black;
+$loader_shadow: $black;
 $loader_border: solid 2px transparent;
 $loader_layer: 200;
 
@@ -60,10 +68,10 @@ $loader_layer: 200;
 // ========================================================
 
 $title_cursor: default;
-$title_font-size: 160px;
-$title_font-weight: 700;
+$title_font-size: 10em;
+$title_font-weight: $font-weight-bold;
 $title_text-align: left;
-$title_letter-spacing: -22px;
+$title_letter-spacing: -21px;
 $title_padding-left: 140px;
 $title_layer: 101;
 
@@ -72,7 +80,7 @@ $title_layer: 101;
 
 $subtitle_title_position-right: 15%;
 $subtitle_title_position-bottom: $subtitle_title_position-right;
-$subtitle_title_font-size: 35px;
+$subtitle_title_font-size: 2em;
 $subtitle_font-style: italic;
 
 // *** Sub-Title in Behavior Scene ************************
@@ -81,11 +89,28 @@ $subtitle_font-style: italic;
 $subtitle_behavior_title_position-top: 50px;
 $subtitle_behavior_title_position-left: 10px;
 $subtitle_behavior_font-family: 'Playfair Display', serif;
-$subtitle_behavior_font-size: 40px;
+$subtitle_behavior_font-size: 3em;
 $subtitle_behavior_text-align: left;
 $subtitle_behavior_padding-left: 140px;
 $subtitle_behavior_letter-spacing: -22px;
 $subtitle_behavior_layer: 101;
+
+// *** Title in Front End Scene ***************************
+// ========================================================
+
+$title_frontend_color: $white;
+$title_frontend_margin: 0.5em 0 0;
+$title_frontend_width: 100%;
+$title_frontend_position-top: 10vh;
+
+// *** Sub title in Front End Scene ***********************
+// ========================================================
+
+$title_frontend_span_padding: 2em 0 0 0;
+$title_frontend_span_color: $black;
+$title_frontend_span_font-size: 0.2em;
+$title_frontend_span_letter-spacing: 3px;
+$title_frontend_span_font-weight: $font-weight-regular;
 
 // *** Animated Titles ************************************
 // ========================================================
@@ -104,7 +129,7 @@ $animated_title_border-style: dashed;
 $scroll-down-hint_background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjkzLjggNDU1LjljLTIwLjIgMjAuMi01My4yIDE5LjktNzMuNy0wLjZsMCAwYy0yMC41LTIwLjUtMjAuOC01My41LTAuNi03My43bDE5MC0xOTBjMjAuMi0yMC4yIDUzLjItMTkuOSA3My43IDAuNmwwIDBjMjAuNSAyMC41IDIwLjggNTMuNSAwLjYgNzMuN0wyOTMuOCA0NTUuOXoiLz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjIwLjIgNDU1LjljMjAuMiAyMC4yIDUzLjIgMTkuOSA3My43LTAuNmwwIDBjMjAuNS0yMC41IDIwLjgtNTMuNSAwLjYtNzMuN2wtMTkwLTE5MGMtMjAuMi0yMC4yLTUzLjItMTkuOS03My43IDAuNmwwIDBjLTIwLjUgMjAuNS0yMC44IDUzLjUtMC42IDczLjdMMjIwLjIgNDU1Ljl6Ii8+PC9zdmc+);
 $scroll-down-hint_size: 40px;
 $scroll-down-hint_position-bottom: 135px;
-$scroll-down-hint_position-left: 154px;
+$scroll-down-hint_position-left: calc(50% - 20px);
 $scroll-down-hint_bounceY: -30px;
 $scroll-down-hint_bounceX: -15px;
 
@@ -318,12 +343,12 @@ $background_effect_image_opacity: 0.3;
 $yglf_link_box_layer: 103;
 $yglf_link_box_position-top: 520px;
 $yglf_link_box_position-right: 120px;
-$yglf_link_box_font-size: 16px;
+$yglf_link_box_font-size: 1em;
 $yglf_link_box_font-weight: 100;
 $yglf_link_box_width: 475px;
-$yglf_link_box_anchor_font-weight: 700;
+$yglf_link_box_anchor_font-weight: $font-weight-bold;
 $yglf_link_box_anchor_padding-bottom: 15px;
-$yglf_link_box_anchor_border-bottom: 2px dashed $yglf_link_box_anchor_border;
+$yglf_link_box_anchor_border-bottom: 2px dashed $white;
 
 // *** Credit Box *****************************************
 // ========================================================
@@ -332,8 +357,8 @@ $credit_box_layer: $item_layer_default;
 $credit_box_position-top: 590px;
 $credit_box_position-right: 120px;
 $credit_box_width: 472px;
-$credit_box_font-size: 11px;
-$credit_box_font-weight: 100;
+$credit_box_font-size: 0.7em;
+$credit_box_font-weight: $font-weight-regular;
 $credit_box_padding: 20px;
-$credit_box_border-bottom: 1px dotted $credit_box_anchor_border;
+$credit_box_border-bottom: 1px dotted $gray;
 $credit_box_svg_size: 10px;

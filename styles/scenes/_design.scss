@@ -9,7 +9,6 @@
 	.item-case {
 		@extend %item;
 		@include position(absolute, $item_case_position-top $item_case_position-right $item_case_position-bottom $item_case_position-left);
-		@include filter(drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.2)));
 		@include size(581px 329px);
 		background-position: 0 -4312px;
 		z-index: $item_case_layer;
@@ -18,7 +17,6 @@
 	.item-brush-white {
 		@extend %item;
 		@include position(absolute, $item_box_position-top $item_box_position-right $item_box_position-bottom $item_box_position-left);
-		@include filter(drop-shadow(22px -18px 16px rgba(0, 0, 0, 0.3)));
 		@include size(206px 374px);
 		background-position: -528px -3920px;
 		z-index: $item_brush_white_layer;

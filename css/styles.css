@@ -40,7 +40,7 @@ body {
   color: #ffffff;
   height: 100vh;
   text-align: center;
-  font-size: 35px;
+  font-size: 2em;
   line-height: 100vh;
   width: 100vw;
 }
@@ -51,11 +51,11 @@ body {
 .title {
   position: relative;
   cursor: default;
-  font-size: 160px;
+  font-size: 10em;
   text-align: left;
   font-weight: 700;
   padding-left: 140px;
-  letter-spacing: -22px;
+  letter-spacing: -21px;
   z-index: 101;
 }
 
@@ -64,7 +64,7 @@ body {
   right: 15%;
   bottom: 15%;
   cursor: default;
-  font-size: 35px;
+  font-size: 2em;
   font-style: italic;
 }
 
@@ -271,7 +271,7 @@ body {
 .scroll-down-hint {
   position: absolute;
   bottom: 135px;
-  left: 154px;
+  left: calc(50% - 20px);
   height: 40px;
   width: 40px;
   -webkit-animation: bounce 2s infinite;
@@ -329,6 +329,110 @@ body {
   }
 }
 /*********************************************************/
+/*** SCENE : Front End ***********************************/
+/*********************************************************/
+#secne-frontend {
+  text-align: center;
+  background-size: auto 100vh;
+}
+#secne-frontend h1 {
+  position: absolute;
+  top: 10vh;
+  color: #ffffff;
+  letter-spacing: -21px;
+  margin: 0.5em 0 0;
+  font-weight: 700;
+  font-size: 10em;
+  width: 100%;
+  pointer-events: none;
+  z-index: 101;
+}
+#secne-frontend span {
+  display: block;
+  padding: 2em 0 0 0;
+  color: #000000;
+  font-size: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-shadow: none;
+}
+
+/*** Tilt effect *****************************************/
+/*********************************************************/
+.hero {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../../images/1.jpg) no-repeat center center;
+  overflow: hidden;
+}
+
+.hero__imgwrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__imgwrap::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  pointer-events: none;
+}
+
+.hero__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: translate3d(-50%, -50%, 0);
+  -moz-transition: translate3d(-50%, -50%, 0);
+  transition: translate3d(-50%, -50%, 0);
+}
+
+.hero__imgwrap .tilt__back,
+.hero__imgwrap .tilt__front {
+  background-size: 100vw 100vh;
+}
+
+.tilt {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.tilt__back,
+.tilt__front {
+  height: 100%;
+  width: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.tilt__back {
+  position: relative;
+}
+
+.tilt__front {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*********************************************************/
 /*** SCENE : Code - ITEMS ********************************/
 /*********************************************************/
 #scene-code {
@@ -339,8 +443,6 @@ body {
   position: absolute;
   top: 0;
   right: 120px;
-  -webkit-filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
-  filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
   height: 134px;
   width: 408px;
   background-position: 0 -5151px;
@@ -396,8 +498,6 @@ body {
   position: absolute;
   top: 0;
   right: 350px;
-  -webkit-filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.2));
-  filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.2));
   height: 329px;
   width: 581px;
   background-position: 0 -4312px;
@@ -407,8 +507,6 @@ body {
   position: absolute;
   top: 0;
   right: 430px;
-  -webkit-filter: drop-shadow(22px -18px 16px rgba(0, 0, 0, 0.3));
-  filter: drop-shadow(22px -18px 16px rgba(0, 0, 0, 0.3));
   height: 374px;
   width: 206px;
   background-position: -528px -3920px;
@@ -469,7 +567,7 @@ body {
   cursor: default;
   content: '&';
   font-family: "Playfair Display", serif;
-  font-size: 40px;
+  font-size: 3em;
   text-align: left;
   padding-left: 140px;
   letter-spacing: -22px;
@@ -564,7 +662,7 @@ body {
   color: #ffffff;
   text-transform: uppercase;
   text-align: center;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 100;
   width: 475px;
   z-index: 103;
@@ -594,8 +692,8 @@ body {
   background: #000000;
   box-sizing: border-box;
   color: #bbbbbb;
-  font-size: 11px;
-  font-weight: 100;
+  font-size: 0.7em;
+  font-weight: 400;
   text-align: center;
   padding: 20px;
   z-index: 100;

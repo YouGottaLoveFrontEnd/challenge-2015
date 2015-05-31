@@ -93,6 +93,7 @@
 		@include size(487px 407px);
 		background-position:-341px -3492px;
 		z-index: $item_book_open_layer;
+		animation: floating_slow 16s ease-in-out both infinite;
 	}
 
 	.item-chrome {
@@ -102,6 +103,7 @@
 		@include size(135px 139px);
 		background-position:-744px -1934px;
 		z-index: $item_chrome_layer;
+		animation: floating 8s ease-in-out both infinite;
 	}
 
 	.item-css {
@@ -110,6 +112,7 @@
 		@include size(101px 131px);
 		background-position:-734px -3920px;
 		z-index: $item_css_layer;
+		animation: floating 4s ease-in-out both infinite;
 	}
 
 	.item-js {
@@ -118,6 +121,7 @@
 		@include size(179px 192px);
 		background-position:-419px -4941px;
 		z-index: $item_js_layer;
+		animation: floating_slow 5s ease-in-out both infinite;
 	}
 
 	.item-html {
@@ -126,6 +130,7 @@
 		@include size(169px 214px);
 		background-position:-713px -4641px;
 		z-index: $item_html_layer;
+		animation: floating 8s ease-in-out both infinite;
 	}
 
 	.item-drupal {
@@ -134,15 +139,7 @@
 		@include size(74px 86px);
 		background-position:-408px -5151px;
 		z-index: $item_drupal_layer;
-	}
-
-	.item-float-stone {
-		@extend %item;
-		@include position(absolute, $item_float-stone_position-top $item_float-stone_position-right $item_float-stone_position-bottom $item_float-stone_position-left);
-		@include filter(drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2)));
-		@include size(58px 52px);
-		background-position: -2166px -894px;
-		z-index: $item_float-stone_layer;
+		animation: floating_slow 5s ease-in-out both infinite;
 	}
 
 	.item-frame {
@@ -151,6 +148,7 @@
 		@include size(427px 621px);
 		background-position:0 -1313px;
 		z-index: $item_frame_layer;
+		animation: floating 10s ease-in-out both infinite;
 	}
 
 	.item-imac-blur {
@@ -159,6 +157,7 @@
 		@include size(888px 534px);
 		background-position:0 -2519px;
 		z-index: $item_imac-blur_layer;
+		animation: floating 15s ease-in-out both infinite;
 	}
 
 	.item-stone-regular {
@@ -167,6 +166,7 @@
 		@include size(44px 51px);
 		background-position:-836px -666px;
 		z-index: $item_stone-regular_layer;
+		animation: floating_slow 20s ease-in-out both infinite;
 	}
 
 	.item-stone-float-right {
@@ -175,6 +175,7 @@
 		@include size(13px 24px);
 		background-position:-874px 0;
 		z-index: $item_stone-float-right_layer;
+		animation: floating 8s ease-in-out both infinite;
 	}
 
 }

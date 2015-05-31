@@ -1,0 +1,27 @@
+/*********************************************************/
+/*** Float Animations ************************************/
+/*********************************************************/
+
+@-webkit-keyframes floating{
+	from {
+		-webkit-transform:translate(0, 0px);
+	}
+	65% {
+		-webkit-transform:translate(0, 15px);
+	}
+	to {
+		-webkit-transform: translate(0, -0px);
+	}
+}
+
+@keyframes floating_slow {
+	from {
+		-webkit-transform:translate(0, 0px);
+	}
+	65% {
+		-webkit-transform:translate(0, 30px);
+	}
+	to {
+		-webkit-transform: translate(0, -0px);
+	}
+}

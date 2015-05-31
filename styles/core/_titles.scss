@@ -29,9 +29,8 @@
 }
 
 .subtitle-frontend {
-	@include position(absolute, null null -110px null);
+	@include position(absolute, null null -140px null);
 	display: block;
-	padding: $title_frontend_span_padding;
 	color: $title_frontend_span_color;
 	font-size: $title_frontend_span_font-size;
 	font-weight: $title_frontend_span_font-weight;

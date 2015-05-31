@@ -69,7 +69,7 @@ $loader_layer: 200;
 
 $title_cursor: default;
 $title_font-size: 11em;
-$title_frontend_font-size: 10em;
+$title_frontend_font-size: 9em;
 $title_font-weight: $font-weight-bold;
 $title_text-align: left;
 $title_frontend_letter-spacing: 22px;
@@ -101,7 +101,6 @@ $title_frontend_position-top: 10vh;
 // *** Sub title in Front End Scene ***********************
 // ========================================================
 
-$title_frontend_span_padding: 2.5em 0 0 0;
 $title_frontend_span_color: $black;
 $title_frontend_span_font-size: 0.2em;
 $title_frontend_span_letter-spacing: 3px;
@@ -262,7 +261,7 @@ $item_book_open_position-left: 70px;
 $item_chrome_layer: 101;
 $item_chrome_position-top: null;
 $item_chrome_position-right: 440px;
-$item_chrome_position-bottom: 15px;
+$item_chrome_position-bottom: 23px;
 $item_chrome_position-left: null;
 
 $item_css_layer: 101;
@@ -288,12 +287,6 @@ $item_drupal_position-top: null;
 $item_drupal_position-right: null;
 $item_drupal_position-bottom: 60px;
 $item_drupal_position-left: 220px;
-
-$item_float-stone_layer: $item_layer_default;
-$item_float-stone_position-top: 50px;
-$item_float-stone_position-right: 100px;
-$item_float-stone_position-bottom: null;
-$item_float-stone_position-left: null;
 
 $item_frame_layer: $item_layer_default;
 $item_frame_position-top: -80px;

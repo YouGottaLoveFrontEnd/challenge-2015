@@ -4,6 +4,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
+@include font-face("source-sans-pro", "/fonts/source-sans-pro/source-sans-pro-regular", $file-formats: eot woff2 woff);
 
 // ========================================================
 // *** Bourbon ********************************************
@@ -31,6 +32,7 @@
 
 @import "animations/loader";
 @import "animations/scroll-hint";
+@import "animations/floating";
 
 // ========================================================
 // *** Scenes *********************************************

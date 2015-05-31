@@ -1,7 +1,6 @@
 // *********************************************************/
 // *** Split the title for the Realshadow text effect ******/
 // *********************************************************/
-
 var string="Front End";
 var t = string.split('');
 
@@ -59,9 +58,11 @@ transform = function(element, transform) {
 	element.style.webkitTransform = transform;
 	return element.style.transform = transform;
 };
+
 blur_fade = function(element, blur, fade) {
 	return element.setAttribute('style', '-webkit-filter: blur(' + blur + '); filter: blur(' + blur + '); opacity: ' + fade + ';');
 };
+
 win_w = window.innerWidth;
 win_h = window.innerHeight;
 center_x = win_w / 2;
@@ -98,12 +99,41 @@ document.addEventListener('mousemove', (function(event) {
 	mouse_move_handler(mouse_x, mouse_y, ratio_x, ratio_y);
 }), false);
 
+// *********************************************************/
+// *** Toggle Fullscreen Mode ******************************/
+// *********************************************************/
+
+function toggleFullScreen() {
+	if ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard method
+		(!document.mozFullScreen && !document.webkitIsFullScreen)) {               // current working methods
+		if (document.documentElement.requestFullScreen) {
+			document.documentElement.requestFullScreen();
+		} else if (document.documentElement.mozRequestFullScreen) {
+			document.documentElement.mozRequestFullScreen();
+		} else if (document.documentElement.webkitRequestFullScreen) {
+			document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+		}
+	} else {
+		if (document.cancelFullScreen) {
+			document.cancelFullScreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitCancelFullScreen) {
+			document.webkitCancelFullScreen();
+		}
+	}
+}
+
+$(".enter_fullscreen").click(function(){
+	toggleFullScreen();
+});
 
 // *********************************************************/
 // *** Tilt background Effect on mouse Movement ************/
 // *** from https://gist.github.com/desandro/1866474 *******/
 // *********************************************************/
 
+;(function(window) {
 var lastTime = 0;
 var prefixes = 'webkit moz ms o'.split(' ');
 // get unprefixed rAF and cAF, if present
@@ -329,3 +359,5 @@ function init() {
 init();
 
 window.TiltFx = TiltFx;
+
+})(window);

@@ -37,3 +37,20 @@ body {
 	line-height: $deck_height;
 	width: $deck_width;
 }
+
+/*********************************************************/
+/*** Toggle Fullscreen ***********************************/
+/*********************************************************/
+
+.enter_fullscreen {
+	@include position(fixed, 5px null null 10px);
+	cursor: pointer;
+	z-index: 103;
+
+	&:after {
+		top: -2px;
+		position: relative;
+		content: 'Toggle Fullscreen';
+		font-size: 8px;
+	}
+}

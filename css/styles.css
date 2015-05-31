@@ -858,20 +858,6 @@ body {
     transform: scale(0.7, 0.7);
   }
 
-  .title {
-    font-size: 100px;
-    padding-left: 80px;
-    letter-spacing: -11px;
-    z-index: 110;
-  }
-
-  .behavior-sub-title {
-    top: 20px;
-    left: 7px;
-    padding-left: 80px;
-  }
-
-  .scroll-down,
   .item-pen,
   .item-flowerpot,
   .item-cup,
@@ -901,26 +887,3 @@ body {
 /*********************************************************/
 /*** Mobile **********************************************/
 /*********************************************************/
-@media (max-width: 480px) {
-  .title {
-    font-size: 80px;
-    padding-left: 40px;
-  }
-
-  .behavior-sub-title {
-    top: 10px;
-    padding-left: 35px;
-  }
-
-  .yglf-site {
-    position: absolute;
-    top: 480px;
-    right: 0;
-    width: 100%;
-  }
-
-  .credit {
-    position: absolute;
-    right: 0;
-  }
-}

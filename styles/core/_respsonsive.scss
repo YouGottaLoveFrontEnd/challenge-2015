@@ -9,19 +9,11 @@
 	}
 
 	.title {
-		font-size: 100px;
-		padding-left: 80px;
-		letter-spacing: -11px;
-		z-index: 110;
 	}
 
 	.behavior-sub-title {
-		top: 20px;
-		left: 7px;
-		padding-left: 80px;
 	}
 
-	.scroll-down,
 	.item-pen,
 	.item-flowerpot,
 	.item-cup,
@@ -55,22 +47,15 @@
 @include breakpoint(mobile) {
 
 	.title {
-		font-size: 80px;
-		padding-left: 40px;
 	}
 
 	.behavior-sub-title {
-		top: 10px;
-		padding-left: 35px;
 	}
 
 	.yglf-site {
-		@include position(absolute, 480px 0 null null);
-		width: 100%;
 	}
 
 	.credit {
-		@include position(absolute, null 0 null null);
 	}
 
 }

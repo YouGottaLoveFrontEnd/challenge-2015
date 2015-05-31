@@ -1,0 +1,339 @@
+// ========================================================
+// *** Layout *********************************************
+// ========================================================
+
+$font-family: 'Montserrat', sans-serif;
+$selection_background: transparent;
+$selection_background: transparent;
+
+// *** Responsive (max-width) *****************************
+// ========================================================
+
+$tablet: 1024px;
+$mobile: 480px;
+
+// *** Items **********************************************
+// ========================================================
+
+$item_layer_default: 100;
+$item_background: url('../images/hq_sprite.png') no-repeat;
+
+// *** Decks **********************************************
+// ========================================================
+
+$deck_height: 100vh;
+$deck_min-height: 800px;
+$deck_width: 100vw;
+
+// *** Colors *********************************************
+// ========================================================
+$credit_box_anchor_border: #888888;
+$yglf_link_box_anchor_border: #ffffff;
+
+// *** Backgrounds ****************************************
+// ========================================================
+
+$deck_background: linear-gradient(45deg, rgba(249,249,249,1) 0%, rgba(232,232,232,1) 70%, rgba(214,214,214,1) 100%);
+$scene_code_background: linear-gradient(135deg, rgba(161, 174, 189, 1) 0%, rgba(167, 178, 194, 1) 19%, rgba(162, 174, 190, 1) 23%, rgba(144, 158, 178, 1) 43%, rgba(86, 104, 126, 1) 100%);
+$scene_design_background: radial-gradient(ellipse at center, rgba(208, 197, 194, 1) 0%, rgba(165, 148, 141, 1) 100%);
+$scene_behavior_background: linear-gradient(to right, rgba(173, 197, 187, 1) 0%, rgba(195, 213, 205, 1) 100%);
+
+// *** Blank Deck *****************************************
+// ========================================================
+
+$deck_blank_background: #000000;
+$deck_blank_color: #ffffff;
+$deck_blank_font-size: 35px;
+$deck_blank_text-align: center;
+
+// ========================================================
+// *** Loader *********************************************
+// ========================================================
+
+$loader_color: #000000;
+$loader_shadow: #000000;
+$loader_border: solid 2px transparent;
+$loader_layer: 200;
+
+// ========================================================
+// *** Titles *********************************************
+// ========================================================
+
+$title_cursor: default;
+$title_font-size: 160px;
+$title_font-weight: 700;
+$title_text-align: left;
+$title_letter-spacing: -22px;
+$title_padding-left: 140px;
+$title_layer: 101;
+
+// *** Sub-Title ******************************************
+// ========================================================
+
+$subtitle_title_position-right: 15%;
+$subtitle_title_position-bottom: $subtitle_title_position-right;
+$subtitle_title_font-size: 35px;
+$subtitle_font-style: italic;
+
+// *** Sub-Title in Behavior Scene ************************
+// ========================================================
+
+$subtitle_behavior_title_position-top: 50px;
+$subtitle_behavior_title_position-left: 10px;
+$subtitle_behavior_font-family: 'Playfair Display', serif;
+$subtitle_behavior_font-size: 40px;
+$subtitle_behavior_text-align: left;
+$subtitle_behavior_padding-left: 140px;
+$subtitle_behavior_letter-spacing: -22px;
+$subtitle_behavior_layer: 101;
+
+// *** Animated Titles ************************************
+// ========================================================
+
+$animated_title_letters: 8;
+$animated_title_letters_reverse: $animated_title_letters;
+$animated_title_cursor: crosshair;
+$animated_title_border-width: 2px 0 0 0;
+$animated_title_border-color: #282828;
+$animated_title_border-style: dashed;
+
+// ========================================================
+// *** Scroll Down Arrow **********************************
+// ========================================================
+
+$scroll-down-hint_background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjkzLjggNDU1LjljLTIwLjIgMjAuMi01My4yIDE5LjktNzMuNy0wLjZsMCAwYy0yMC41LTIwLjUtMjAuOC01My41LTAuNi03My43bDE5MC0xOTBjMjAuMi0yMC4yIDUzLjItMTkuOSA3My43IDAuNmwwIDBjMjAuNSAyMC41IDIwLjggNTMuNSAwLjYgNzMuN0wyOTMuOCA0NTUuOXoiLz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjIwLjIgNDU1LjljMjAuMiAyMC4yIDUzLjIgMTkuOSA3My43LTAuNmwwIDBjMjAuNS0yMC41IDIwLjgtNTMuNSAwLjYtNzMuN2wtMTkwLTE5MGMtMjAuMi0yMC4yLTUzLjItMTkuOS03My43IDAuNmwwIDBjLTIwLjUgMjAuNS0yMC44IDUzLjUtMC42IDczLjdMMjIwLjIgNDU1Ljl6Ii8+PC9zdmc+);
+$scroll-down-hint_size: 40px;
+$scroll-down-hint_position-bottom: 135px;
+$scroll-down-hint_position-left: 154px;
+$scroll-down-hint_bounceY: -30px;
+$scroll-down-hint_bounceX: -15px;
+
+// ========================================================
+// *** Scenes *********************************************
+// ========================================================
+
+// *** Code ***********************************************
+// ========================================================
+
+$item_pen_layer: 104;
+$item_pen_position-top: 0;
+$item_pen_position-right: 120px;
+$item_pen_position-bottom: null;
+$item_pen_position-left: null;
+
+$item_flowerpot_layer: 103;
+$item_flowerpot_position-top: -40px;
+$item_flowerpot_position-right: 0;
+$item_flowerpot_position-bottom: null;
+$item_flowerpot_position-left: null;
+
+$item_machine_layer: 100;
+$item_machine_position-top: null;
+$item_machine_position-right: 0;
+$item_machine_position-bottom: -25px;
+$item_machine_position-left: null;
+
+$item_cup_layer: 104;
+$item_cup_position-top: null;
+$item_cup_position-right: 540px;
+$item_cup_position-bottom: 0;
+$item_cup_position-left: null;
+
+$item_book_layer: 103;
+$item_book_position-top: null;
+$item_book_position-right: null;
+$item_book_position-bottom: -50px;
+$item_book_position-left: 150px;
+
+// *** Design *********************************************
+// ========================================================
+
+$item_case_layer: $item_layer_default;
+$item_case_position-top: 0;
+$item_case_position-right: 350px;
+$item_case_position-bottom: null;
+$item_case_position-left: null;
+
+$item_box_layer: $item_layer_default;
+$item_box_position-top: 0;
+$item_box_position-right: 430px;
+$item_box_position-bottom: null;
+$item_box_position-left: null;
+
+$item_brush_white_layer: 103;
+$item_brush_white_position-top: 0;
+$item_brush_white_position-right: 0;
+$item_brush_white_position-bottom: null;
+$item_brush_white_position-left: null;
+
+$item_brush_black_layer: 104;
+$item_brush_black_position-top: null;
+$item_brush_black_position-right: 300px;
+$item_brush_black_position-bottom: 0;
+$item_brush_black_position-left: null;
+
+$item_palette_layer: 102;
+$item_palette_position-top: 200px;
+$item_palette_position-right: 0;
+$item_palette_position-bottom: null;
+$item_palette_position-left: null;
+
+$item_paint_layer: 103;
+$item_paint_position-top: null;
+$item_paint_position-right: -20px;
+$item_paint_position-bottom: 0;
+$item_paint_position-left: null;
+
+// *** Behavior *******************************************
+// ========================================================
+
+$item_imac_layer: $item_layer_default;
+$item_imac_position-top: null;
+$item_imac_position-right: 0;
+$item_imac_position-bottom: 0;
+$item_imac_position-left: null;
+
+$item_iphone_layer: $item_layer_default;
+$item_iphone_position-top: null;
+$item_iphone_position-right: 388px;
+$item_iphone_position-bottom: 53px;
+$item_iphone_position-left: null;
+
+$item_ipad_layer: 102;
+$item_ipad_position-top: 40px;
+$item_ipad_position-right: 40px;
+$item_ipad_position-bottom: null;
+$item_ipad_position-left: null;
+
+$item_pencil_gray_layer: $item_layer_default;
+$item_pencil_gray_position-top: 40px;
+$item_pencil_gray_position-right: 530px;
+$item_pencil_gray_position-bottom: null;
+$item_pencil_gray_position-left: null;
+
+$item_mouse_layer: 103;
+$item_mouse_position-top: 350px;
+$item_mouse_position-right: 760px;
+$item_mouse_position-bottom: null;
+$item_mouse_position-left: null;
+
+$item_sharpener_layer: $item_layer_default;
+$item_sharpener_position-top: -15px;
+$item_sharpener_position-right: -0;
+$item_sharpener_position-bottom: null;
+$item_sharpener_position-left: null;
+
+$item_stone_layer: $item_layer_default;
+$item_stone_position-top: 40px;
+$item_stone_position-right: 250px;
+$item_stone_position-bottom: null;
+$item_stone_position-left: null;
+
+// *** YGLF ***********************************************
+// ========================================================
+
+$item_book_open_layer: $item_layer_default;
+$item_book_open_position-top: null;
+$item_book_open_position-right: null;
+$item_book_open_position-bottom: -10px;
+$item_book_open_position-left: 70px;
+
+$item_chrome_layer: 101;
+$item_chrome_position-top: null;
+$item_chrome_position-right: 440px;
+$item_chrome_position-bottom: 15px;
+$item_chrome_position-left: null;
+
+$item_css_layer: 101;
+$item_css_position-top: 75px;
+$item_css_position-right: null;
+$item_css_position-bottom: null;
+$item_css_position-left: 422px;
+
+$item_js_layer: 103;
+$item_js_position-top: 220px;
+$item_js_position-right: null;
+$item_js_position-bottom: null;
+$item_js_position-left: 120px;
+
+$item_html_layer: $item_layer_default;
+$item_html_position-top: 402px;
+$item_html_position-right: null;
+$item_html_position-bottom: null;
+$item_html_position-left: 428px;
+
+$item_drupal_layer: $item_layer_default;
+$item_drupal_position-top: null;
+$item_drupal_position-right: null;
+$item_drupal_position-bottom: 60px;
+$item_drupal_position-left: 220px;
+
+$item_float-stone_layer: $item_layer_default;
+$item_float-stone_position-top: 50px;
+$item_float-stone_position-right: 100px;
+$item_float-stone_position-bottom: null;
+$item_float-stone_position-left: null;
+
+$item_frame_layer: $item_layer_default;
+$item_frame_position-top: -80px;
+$item_frame_position-right: null;
+$item_frame_position-bottom: null;
+$item_frame_position-left: 160px;
+
+$item_imac-blur_layer: 99;
+$item_imac-blur_position-top: null;
+$item_imac-blur_position-right: 0;
+$item_imac-blur_position-bottom: 0;
+$item_imac-blur_position-left: null;
+
+$item_stone-regular_layer: $item_layer_default;
+$item_stone-regular_position-top: 20px;
+$item_stone-regular_position-right: null;
+$item_stone-regular_position-bottom: null;
+$item_stone-regular_position-left: 490px;
+
+$item_stone-float-right_layer: 101;
+$item_stone-float-right_position-top: 220px;
+$item_stone-float-right_position-right: 0;
+$item_stone-float-right_position-bottom: null;
+$item_stone-float-right_position-left: null;
+
+// *** YGLF Logo ******************************************
+// ========================================================
+
+$item_logo_layer: 120;
+$item_logo_position-top: 120px;
+$item_logo_position-right: 120px;
+
+// *** YGLF Background Effect *****************************
+// ========================================================
+
+$background_effect_image_layer: 150;
+$background_effect_image_background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/celebration.jpg") center;
+$background_effect_image_opacity: 0.3;
+
+// *** YGLF Site link *************************************
+// ========================================================
+
+$yglf_link_box_layer: 103;
+$yglf_link_box_position-top: 520px;
+$yglf_link_box_position-right: 120px;
+$yglf_link_box_font-size: 16px;
+$yglf_link_box_font-weight: 100;
+$yglf_link_box_width: 475px;
+$yglf_link_box_anchor_font-weight: 700;
+$yglf_link_box_anchor_padding-bottom: 15px;
+$yglf_link_box_anchor_border-bottom: 2px dashed $yglf_link_box_anchor_border;
+
+// *** Credit Box *****************************************
+// ========================================================
+
+$credit_box_layer: $item_layer_default;
+$credit_box_position-top: 590px;
+$credit_box_position-right: 120px;
+$credit_box_width: 472px;
+$credit_box_font-size: 11px;
+$credit_box_font-weight: 100;
+$credit_box_padding: 20px;
+$credit_box_border-bottom: 1px dotted $credit_box_anchor_border;
+$credit_box_svg_size: 10px;

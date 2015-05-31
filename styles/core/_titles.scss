@@ -1,123 +1,69 @@
-//Titles styles
+/*********************************************************/
+/*** Titles **********************************************/
+/*********************************************************/
+
 .title {
 	position: relative;
-	font-size: 160px;
-	text-align: left;
-	padding-left: 140px;
-	z-index: 101;
-	font-weight: 700;
-	letter-spacing: -22px;
-	cursor: default;
-}
-.subtitle {
-	bottom: 15%;
-	right: 15%;
-	font-weight: 300;
-	position: absolute;
-	cursor: default;
-	transform: translate(-15%, -15%);
-	font-style: italic;
-	font-size: 35px;
-}
-.behavior-sub-title {
-	font-family: 'Playfair Display', serif;
-	font-weight: 700;
-	position: absolute;
-	top: 50px;
-	left: 10px;
-	font-size: 40px;
-	text-align: left;
-	padding-left: 140px;
-	z-index: 101;
-	letter-spacing: -22px;
-	cursor: default;
+	cursor: $title_cursor;
+	font-size: $title_font-size;
+	text-align: $title_text-align;
+	font-weight: $title_font-weight;
+	padding-left: $title_padding-left;
+	letter-spacing: $title_letter-spacing;
+	z-index: $title_layer;
 }
 
-//Titles animations
-/* Hover Effects Inspired by http://tympanus.net/Development/TextStylesHoverEffects */
+.subtitle {
+	@include position(absolute, null $subtitle_title_position-right $subtitle_title_position-bottom null);
+	cursor: $title_cursor;
+	font-size: $subtitle_title_font-size;
+	font-style: $subtitle_font-style;
+}
+
+/*********************************************************/
+/*** Flipping Letters animation **************************/
+/*** Inspired by http://goo.gl/7o4rOC ********************/
+/*********************************************************/
+
 .animated-title {
-	cursor: crosshair;
+	cursor: $animated_title_cursor;
 
 	&:before {
+		@include transform(translate3d(-101%, 0, 0));
+		@include position(absolute, null null null 0);
+		@include transition(transform 0.5s ease-in 0s);
+		@include size(100%);
 		content: '';
-		position: absolute;
 		box-sizing: border-box;
-		height: 100%;
-		width: 100%;
-		border-width: 2px 0 0 0;
-		border-color: #282828;
-		border-style: dashed;
-		left: 0;
-		-webkit-transform: translate3d(-101%, 0, 0);
-		transform: translate3d(-101%, 0, 0);
-		-webkit-transition: -webkit-transform 0.5s;
-		transition: transform 0.5s;
+		border-width: $animated_title_border-width;
+		border-color: $animated_title_border-color;
+		border-style: $animated_title_border-style;
 	}
 
 	&:hover:before {
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
+		@include transform(translate3d(0, 0, 0));
 	}
 
 	span {
+		@include transform(perspective(1000px) rotate3d(0, 1, 0, 0deg));
+		@include transition(transform 0.5s, color 0.5s);
 		display: inline-block;
 		position: relative;
-		-webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
-		transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
-		-webkit-transition: -webkit-transform 0.5s, color 0.5s;
-		transition: transform 0.5s, color 0.5s;
 	}
 
 	&:hover span {
-		-webkit-transform: perspective(1000px) rotate3d(0,1,0,360deg);
-		transform: perspective(1000px) rotate3d(0,1,0,360deg);
+		@include transform(perspective(1000px) rotate3d(0,1,0,360deg));
 	}
 }
 
-.animated-title span:nth-child(8),
-.animated-title:hover span:first-child {
-	-webkit-transition-delay: 0.1s;
-	transition-delay: 0.1s;
-}
+/*** Flipping Letters animation  *************************/
+/*********************************************************/
 
-.animated-title span:nth-child(7),
-.animated-title:hover span:nth-child(2) {
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-
-.animated-title span:nth-child(6),
-.animated-title:hover span:nth-child(3) {
-	-webkit-transition-delay: 0.3s;
-	transition-delay: 0.3s;
-}
-
-.animated-title span:nth-child(5),
-.animated-title:hover span:nth-child(4) {
-	-webkit-transition-delay: 0.4s;
-	transition-delay: 0.4s;
-}
-
-.animated-title span:nth-child(4),
-.animated-title:hover span:nth-child(5) {
-	-webkit-transition-delay: 0.5s;
-	transition-delay: 0.5s;
-}
-
-.animated-title span:nth-child(3),
-.animated-title:hover span:nth-child(6) {
-	-webkit-transition-delay: 0.6s;
-	transition-delay: 0.6s;
-}
-
-.animated-title span:nth-child(2),
-.animated-title:hover span:nth-child(7) {
-	-webkit-transition-delay: 0.7s;
-	transition-delay: 0.7s;
-}
-
-.animated-title span:first-child,
-.animated-title:hover span:nth-child(8) {
-	-webkit-transition-delay: 0.8s;
-	transition-delay: 0.8s;
+@for $i from 1 through $animated_title_letters {
+	.animated-title span:nth-child(#{$animated_title_letters_reverse}),
+	.animated-title:hover span:nth-child(#{$i}) {
+		-webkit-transition-delay: (0.1s * $i);
+		transition-delay: (0.1s * $i);
+	}
+	$animated_title_letters_reverse: $animated_title_letters_reverse - 1;
 }

@@ -17,8 +17,6 @@ https://www.dropbox.com/s/4043w4ieyed2wbq/wallpapers.zip?dl=0
 ## Credits
 Parallax slider - https://github.com/Prinzhorn/skrollr
 
-Hover Effects Inspired by - http://tympanus.net/Development/TextStylesHoverEffects/
-
-Scroll Icon by Kevin Haag - https://github.com/Prinzhorn/skrollr
-
 Page load progress bar - http://github.hubspot.com/pace/docs/welcome
+
+Real shadow - https://github.com/Indamix/real-shadow

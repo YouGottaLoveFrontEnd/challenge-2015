@@ -1,62 +1,51 @@
-//Scene style
-.scene-code {
-	background: rgba(161,174,189,1);
-	background: -moz-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
-	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(161,174,189,1)), color-stop(19%, rgba(167,178,194,1)), color-stop(23%, rgba(162,174,190,1)), color-stop(43%, rgba(144,158,178,1)), color-stop(100%, rgba(86,104,126,1)));
-	background: -webkit-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
-	background: -o-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
-	background: -ms-linear-gradient(-45deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
-	background: linear-gradient(135deg, rgba(161,174,189,1) 0%, rgba(167,178,194,1) 19%, rgba(162,174,190,1) 23%, rgba(144,158,178,1) 43%, rgba(86,104,126,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1aebd', endColorstr='#56687e', GradientType=1 );
-}
+/*********************************************************/
+/*** SCENE : Code - ITEMS ********************************/
+/*********************************************************/
 
-//Scene Items
-.item-pen {
-	@extend %item;
-	background-position:0 -5151px;
-	width:408px;
-	height:134px;
-	right: 120px;
-	top: 0;
-	-webkit-filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
-	filter: drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4));
-	z-index: 104;
-}
-.item-flowerpot {
-	@extend %item;
-	background-position:0 -3920px;
-	width:528px;
-	height:392px;
-	right: 0;
-	top: -40px;
-	z-index: 103;
-}
-.item-machine {
-	@extend %item;
-	background-position: 0 0;
-	width:802px;
-	height:666px;
-	right: 0;
-	bottom: -25px;
-	-webkit-filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
-	filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
-	z-index: 100;
-}
-.item-cup {
-	@extend %item;
-	background-position:-414px -4641px;
-	width:299px;
-	height:268px;
-	right: 540px;
-	bottom: 0;
-	z-index: 104;
-}
-.item-book {
-	@extend %item;
-	background-position:-427px -1313px;
-	width:457px;
-	height:489px;
-	left: 150px;
-	bottom: -50px;
-	z-index: 103;
+#scene-code {
+
+	@include background($scene_code_background);
+
+	.item-pen {
+		@extend %item;
+		@include position(absolute, $item_pen_position-top $item_pen_position-right $item_pen_position-bottom $item_pen_position-left);
+		@include filter(drop-shadow(52px 52px 17px rgba(0, 0, 0, 0.4)));
+		@include size(408px 134px);
+		background-position: 0 -5151px;
+		z-index: $item_pen_layer;
+	}
+
+	.item-flowerpot {
+		@extend %item;
+		@include position(absolute, $item_flowerpot_position-top $item_flowerpot_position-right $item_flowerpot_position-bottom $item_flowerpot_position-left);
+		@include size(528px 392px);
+		background-position: 0 -3920px;
+		z-index: $item_flowerpot_layer;
+	}
+
+	.item-machine {
+		@extend %item;
+		@include position(absolute, $item_machine_position-top $item_machine_position-right $item_machine_position-bottom $item_machine_position-left);
+		@include filter(drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3)));
+		@include size(802px 666px);
+		background-position: 0 0;
+		z-index: $item_machine_layer;
+	}
+
+	.item-cup {
+		@extend %item;
+		@include position(absolute, $item_cup_position-top $item_cup_position-right $item_cup_position-bottom $item_cup_position-left);
+		@include size(299px 268px);
+		background-position: -414px -4641px;
+		z-index: $item_cup_layer;
+	}
+
+	.item-book {
+		@extend %item;
+		@include position(absolute, $item_book_position-top $item_book_position-right $item_book_position-bottom $item_book_position-left);
+		@include size(457px 489px);
+		background-position: -427px -1313px;
+		z-index: $item_book_layer;
+	}
+
 }

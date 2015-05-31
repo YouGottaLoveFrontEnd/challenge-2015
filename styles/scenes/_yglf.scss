@@ -1,173 +1,180 @@
-//Scene style
-.yglf-link:link,
-.yglf-link:active,
-.yglf-link:visited,
-.yglf-link:hover {
-	color: #ffffff;
-	font-weight: 700;
-	text-decoration: none;
-	padding-bottom: 15px;
-	border-bottom: 2px dashed #ffffff;
+/*********************************************************/
+/*** SCENE : You Gotta Love Front End ********************/
+/*********************************************************/
 
-	&:after {
-		content: '';
-		padding-bottom: 15px;
-		border-bottom: 2px dashed #ffffff;
-		display: block;
-	}
-}
+/*** YGLF Logo *******************************************/
+/*********************************************************/
+
 .logo {
-	position: absolute;
-	right: 120px;
-	top: 120px;
-	-webkit-filter: drop-shadow(12px 12px 6px rgba(0,0,0,0.2));
-	filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.2));
-	z-index: 102;
+	@include position(absolute, $item_logo_position-top $item_logo_position-right null null);
+	z-index: $item_logo_layer;
 }
-.yglf-site {
-	position: absolute;
-	right: 120px;
-	top: 520px;
-	width: 475px;
+
+/*** YGLF site link **************************************/
+/*********************************************************/
+
+.yglf-box {
+	@include position(absolute, $yglf_link_box_position-top $yglf_link_box_position-right null null);
+	color: #ffffff;
 	text-transform: uppercase;
 	text-align: center;
-	color: #ffffff;
-	font-size: 16px;
-	font-weight: 100;
-	z-index: 103;
-}
-.credit {
-	position: absolute;
-	right: 120px;
-	top: 640px;
-	width: 475px;
-	box-sizing: border-box;
-	text-align: center;
-	color: #bbbbbb;
-	font-size: 11px;
-	font-weight: 100;
-	padding: 20px 20px;
-	z-index: 100;
-	background: #000000;
+	font-size: $yglf_link_box_font-size;
+	font-weight: $yglf_link_box_font-weight;
+	width: $yglf_link_box_width;
+	z-index: $yglf_link_box_layer;
 
+	a {
+		color: #ffffff;
+		font-weight: $yglf_link_box_anchor_font-weight;
+		text-decoration: none;
+		padding-bottom: $yglf_link_box_anchor_padding-bottom;
+		border-bottom: $yglf_link_box_anchor_border-bottom;
+
+		&:after {
+			content: '';
+			padding-bottom: $yglf_link_box_anchor_padding-bottom;
+			border-bottom: $yglf_link_box_anchor_border-bottom;
+			display: block;
+		}
+	}
+}
+
+/*** Credit Box ******************************************/
+/*********************************************************/
+
+.credit-box {
+	@include position(absolute, $credit_box_position-top $credit_box_position-right null null);
+	@include size($credit_box_width auto);
+	background: #000000;
+	box-sizing: border-box;
+	color: #bbbbbb;
+	font-size: $credit_box_font-size;
+	font-weight: $credit_box_font-weight;
+	text-align: center;
+	padding: $credit_box_padding;
+	z-index: $credit_box_layer;
 
 	a {
 		color: #ffffff;
 		text-decoration: none;
-		padding-bottom: 0px;
-		border-bottom: 1px dotted #888;
+		padding-bottom: 0;
+		border-bottom: $credit_box_border-bottom;
 	}
 
 	svg {
-		width: 10px;
-		height: 10px;
-		background-size: 10px 10px;
+		@include size($credit_box_svg_size $credit_box_svg_size);
+		background-size: $credit_box_svg_size $credit_box_svg_size;
 	}
 }
 
-//Scene Items
-.item-book-open {
-	@extend %item;
-	background-position:-341px -3492px;
-	width:487px;
-	height:407px;
-	bottom: -10px;
-	left: 70px;
+/*** Blur background for mouse over effect ***************/
+/*********************************************************/
+
+#background-image-layer {
+	@include position(absolute, -10% null null -10%);
+	@include transform-origin(50% 50%);
+	@include size(120% 120%);
+	background: $background_effect_image_background;
+	background-size: cover;
+	display: block;
+	opacity: $background_effect_image_opacity;
+	z-index: $background_effect_image_layer;
 }
-.item-chrome {
-	@extend %item;
-	background-position:-744px -1934px;
-	width:135px;
-	height:139px;
-	bottom: 15px;
-	right: 440px;
-	-webkit-filter: drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3));
-	filter: drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3));
-	z-index: 101;
-}
-.item-css {
-	@extend %item;
-	background-position:-734px -3920px;
-	width:101px;
-	height:131px;
-	top: 75px;
-	left: 422px;
-	-webkit-filter: drop-shadow(22px 32px 17px rgba(0, 0, 0, 0.3));
-	filter: drop-shadow(22px 32px 17px rgba(0, 0, 0, 0.3));
-	z-index: 101;
-}
-.item-js {
-	@extend %item;
-	background-position:-419px -4941px;
-	width:179px;
-	height:192px;
-	top: 220px;
-	left: 120px;
-	-webkit-filter: drop-shadow(2px 12px 7px rgba(0, 0, 0, 0.5));
-	filter: drop-shadow(2px 12px 7px rgba(0, 0, 0, 0.5));
-	z-index: 103;
-}
-.item-html {
-	@extend %item;
-	background-position:-713px -4641px;
-	width:169px;
-	height:214px;
-	top: 402px;
-	left: 428px;
-	-webkit-filter: drop-shadow(0px 2px 7px rgba(0, 0, 0, 0.7));
-	filter: drop-shadow(0px 2px 7px rgba(0, 0, 0, 0.7));
-}
-.item-drupal {
-	@extend %item;
-	background-position:-408px -5151px;
-	width:74px;
-	height:86px;
-	bottom: 60px;
-	left: 220px;
-	-webkit-filter: drop-shadow(40px 90px 10px rgba(0, 0, 0, 0.2));
-	filter: drop-shadow(40px 90px 10px rgba(0, 0, 0, 0.2));
-}
-.item-float-stone {
-	@extend %item;
-	background-position: -2166px -894px;
-	width: 58px;
-	height: 52px;
-	right: 100px;
-	top: 50px;
-	-webkit-filter: drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2));
-	filter: drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2));
-}
-.item-frame {
-	@extend %item;
-	background-position:0 -1313px;
-	width:427px;
-	height:621px;
-	left: 160px;
-	top: -80px;
-}
-.item-imac-blur {
-	@extend %item;
-	background-position:0 -2519px;
-	width:888px;
-	height:534px;
-	bottom: 0;
-	right: 0;
-	z-index: 99;
-}
-.item-stone-regular {
-	@extend %item;
-	background-position:-836px -666px;
-	width:44px;
-	height:51px;
-	left: 490px;
-	top: 29px;
-}
-.item-stone-float-right {
-	@extend %item;
-	background-position:-874px 0;
-	width:13px;
-	height:24px;
-	top: 220px;
-	right: 0;
-	z-index: 101;
+
+/*********************************************************/
+/*** SCENE : You Gotta Love Front End - ITEMS ************/
+/*********************************************************/
+
+#scene-yglf {
+
+	.item-book-open {
+		@extend %item;
+		@include position(absolute, $item_book_open_position-top $item_book_open_position-right $item_book_open_position-bottom $item_book_open_position-left);
+		@include size(487px 407px);
+		background-position:-341px -3492px;
+		z-index: $item_book_open_layer;
+	}
+
+	.item-chrome {
+		@extend %item;
+		@include position(absolute, $item_chrome_position-top $item_chrome_position-right $item_chrome_position-bottom $item_chrome_position-left);
+		@include filter(drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3)));
+		@include size(135px 139px);
+		background-position:-744px -1934px;
+		z-index: $item_chrome_layer;
+	}
+
+	.item-css {
+		@extend %item;
+		@include position(absolute, $item_css_position-top $item_css_position-right $item_css_position-bottom $item_css_position-left);
+		@include size(101px 131px);
+		background-position:-734px -3920px;
+		z-index: $item_css_layer;
+	}
+
+	.item-js {
+		@extend %item;
+		@include position(absolute, $item_js_position-top $item_js_position-right $item_js_position-bottom $item_js_position-left);
+		@include size(179px 192px);
+		background-position:-419px -4941px;
+		z-index: $item_js_layer;
+	}
+
+	.item-html {
+		@extend %item;
+		@include position(absolute, $item_html_position-top $item_html_position-right $item_html_position-bottom $item_html_position-left);
+		@include size(169px 214px);
+		background-position:-713px -4641px;
+		z-index: $item_html_layer;
+	}
+
+	.item-drupal {
+		@extend %item;
+		@include position(absolute, $item_drupal_position-top $item_drupal_position-right $item_drupal_position-bottom $item_drupal_position-left);
+		@include size(74px 86px);
+		background-position:-408px -5151px;
+		z-index: $item_drupal_layer;
+	}
+
+	.item-float-stone {
+		@extend %item;
+		@include position(absolute, $item_float-stone_position-top $item_float-stone_position-right $item_float-stone_position-bottom $item_float-stone_position-left);
+		@include filter(drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2)));
+		@include size(58px 52px);
+		background-position: -2166px -894px;
+		z-index: $item_float-stone_layer;
+	}
+
+	.item-frame {
+		@extend %item;
+		@include position(absolute, $item_frame_position-top $item_frame_position-right $item_frame_position-bottom $item_frame_position-left);
+		@include size(427px 621px);
+		background-position:0 -1313px;
+		z-index: $item_frame_layer;
+	}
+
+	.item-imac-blur {
+		@extend %item;
+		@include position(absolute, $item_imac-blur_position-top $item_imac-blur_position-right $item_imac-blur_position-bottom $item_imac-blur_position-left);
+		@include size(888px 534px);
+		background-position:0 -2519px;
+		z-index: $item_imac-blur_layer;
+	}
+
+	.item-stone-regular {
+		@extend %item;
+		@include position(absolute, $item_stone-regular_position-top $item_stone-regular_position-right $item_stone-regular_position-bottom $item_stone-regular_position-left);
+		@include size(44px 51px);
+		background-position:-836px -666px;
+		z-index: $item_stone-regular_layer;
+	}
+
+	.item-stone-float-right {
+		@extend %item;
+		@include position(absolute, $item_stone-float-right_position-top $item_stone-float-right_position-right $item_stone-float-right_position-bottom $item_stone-float-right_position-left);
+		@include size(13px 24px);
+		background-position:-874px 0;
+		z-index: $item_stone-float-right_layer;
+	}
+
 }

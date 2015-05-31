@@ -1,0 +1,55 @@
+/*********************************************************/
+/*** Loader **********************************************/
+/*********************************************************/
+
+.pace-running {
+	overflow: hidden;
+}
+
+.pace {
+	@include user-select(none);
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	@include position(fixed, 0 100% null null);
+	@include size(100% 2px);
+	background: $loader_color;
+	z-index: $loader_layer;
+}
+
+.pace .pace-progress-inner {
+	@include position(absolute, null 0 null null);
+	@include animation(rotate 3deg ease-in, translate 0, -4px ease);
+	@include size(100px 100%);
+	box-shadow: 0 0 10px $loader_shadow, 0 0 5px $loader_shadow;
+	display: block;
+	opacity: 1;
+}
+
+.pace .pace-activity {
+	@include position(fixed, 15px 15px null null);
+	@include animation(pace-spinner 400ms linear infinite);
+	@include prefixer(border-radius, 10px, webkit moz spec);
+	@include size(14px 14px);
+	border: $loader_border;
+	border-top-color: $loader_color;
+	border-left-color: $loader_color;
+	display: block;
+	z-index: $loader_layer;
+}
+
+/*** Loader spin animation *******************************/
+/*********************************************************/
+
+@include keyframes(pace-spinner) {
+	from {
+		@include transform(rotate(0deg));
+	}
+	to {
+		@include transform(rotate(360deg));
+	}
+}

@@ -1,8 +1,11 @@
+/*********************************************************/
+/*** Tablet **********************************************/
+/*********************************************************/
+
 @include breakpoint(tablet) {
 
-	.skrollr-deck {
-		height: 500px;
-		max-height: 500px;
+	.logo {
+		@include transform(scale(.7,.7));
 	}
 
 	.title {
@@ -18,7 +21,7 @@
 		padding-left: 80px;
 	}
 
-	#mouse-icon,
+	.scroll-down,
 	.item-pen,
 	.item-flowerpot,
 	.item-cup,
@@ -41,9 +44,13 @@
 	.item-js,
 	.item-frame,
 	.item-drupal,
-	.item-chrome
-	{ display: none }
+	.item-chrome { display: none }
+
 }
+
+/*********************************************************/
+/*** Mobile **********************************************/
+/*********************************************************/
 
 @include breakpoint(mobile) {
 
@@ -57,20 +64,13 @@
 		padding-left: 35px;
 	}
 
-	.logo {
-		transform: scale(.7,.7);
-		right: -40px;
-		top: 130px;
-	}
-
 	.yglf-site {
-		right: 40px;
-		top: 480px;
-		width: 315px;
+		@include position(absolute, 480px 0 null null);
+		width: 100%;
 	}
 
 	.credit {
-		right: -40px;
+		@include position(absolute, null 0 null null);
 	}
 
 }

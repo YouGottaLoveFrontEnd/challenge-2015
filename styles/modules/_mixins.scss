@@ -1,9 +1,13 @@
+// ========================================================
+// *** Breakpoints ****************************************
+// ========================================================
+
 @mixin breakpoint($type) {
 	@if $type == tablet {
-		@media (max-width: 1024px) { @content ; }
+		@media (max-width: $tablet) { @content ; }
 	}
 	@else if $type == mobile {
-		@media (max-width: 480px)  { @content ; }
+		@media (max-width: $mobile)  { @content ; }
 
 	}
 }

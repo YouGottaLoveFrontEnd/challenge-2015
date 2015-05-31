@@ -4,29 +4,29 @@
 
 #secne-frontend {
 	text-align: center;
+}
 
-	h1 {
-		@include position(absolute, $title_frontend_position-top null null null);
-		color: $title_frontend_color;
-		letter-spacing: $title_letter-spacing;
-		margin: $title_frontend_margin;
-		font-weight: $title_font-weight;
-		font-size: $title_font-size;
-		width: $title_frontend_width;
-		pointer-events: none;
-		z-index: $title_layer;
-	}
+.title-main {
+	@include position(absolute, $title_frontend_position-top null null null);
+	color: $title_frontend_color;
+	letter-spacing: $title_letter-spacing;
+	margin: $title_frontend_margin;
+	font-weight: $title_font-weight;
+	font-size: $title_font-size;
+	width: $title_frontend_width;
+	pointer-events: none;
+	z-index: $title_layer;
+}
 
-	span {
-		display: block;
-		padding: $title_frontend_span_padding;
-		color: $title_frontend_span_color;
-		font-size: $title_frontend_span_font-size;
-		text-transform: uppercase;
-		font-weight: $title_frontend_span_font-weight;
-		letter-spacing: $title_frontend_span_letter-spacing;
-		text-shadow: none;
-	}
+.subtitle-main {
+	display: block;
+	padding: $title_frontend_span_padding;
+	color: $title_frontend_span_color;
+	font-size: $title_frontend_span_font-size;
+	text-transform: uppercase;
+	font-weight: $title_frontend_span_font-weight;
+	letter-spacing: $title_frontend_span_letter-spacing;
+	text-shadow: none;
 }
 
 /*** Tilt effect *****************************************/
@@ -43,13 +43,19 @@
 	@include size(100%);
 	position: relative;
 	overflow: hidden;
-}
 
-.hero__imgwrap::after {
-	@include position(absolute, 0 null null 0);
-	@include size(100%);
-	content: '';
-	pointer-events: none;
+	&::after {
+		@include position(absolute, 0 null null 0);
+		@include size(100%);
+		content: '';
+		pointer-events: none;
+	}
+
+	.tilt__back,
+	.tilt__front {
+		background-size: 100vw 100vh;
+	}
+
 }
 
 .hero__img {
@@ -58,10 +64,6 @@
 	@include transition(translate3d(-50%,-50%,0));
 }
 
-.hero__imgwrap .tilt__back,
-.hero__imgwrap .tilt__front {
-	background-size: 100vw 100vh;
-}
 
 .tilt {
 	@include size(100%);

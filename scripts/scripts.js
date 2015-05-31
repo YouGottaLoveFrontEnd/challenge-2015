@@ -11,9 +11,9 @@
 	realshadow(document.getElementsByClassName('item-pen'), {type: 'drop', color: '0,0,0', length: 7, inverse: true});
 	realshadow(document.getElementsByClassName('item-brush-white'), {type: 'drop', color: '100,100,100', length: 7, inverse: true});
 	realshadow(document.getElementsByClassName('item-mouse'), {type: 'drop', color: '50,50,50', length: 7, inverse: true});
-	realshadow(document.getElementsByClassName('item-css'), {type: 'drop', length: 4});
-	realshadow(document.getElementsByClassName('item-html'), {type: 'drop', length: 3});
-	realshadow(document.getElementsByClassName('item-js'), {type: 'drop', length: 4});
+	realshadow(document.getElementsByClassName('item-css'), {type: 'drop', length: 5});
+	realshadow(document.getElementsByClassName('item-html'), {type: 'drop', length: 4});
+	realshadow(document.getElementsByClassName('item-js'), {type: 'drop', length: 5});
 	realshadow(document.getElementsByClassName('item-drupal'), {type: 'drop', length: 6});
 	realshadow(document.getElementsByClassName('logo'), {type: 'drop', length: 3});
 	realshadow(document.getElementsByClassName('credit-box'), {type: 'drop', length: 3});

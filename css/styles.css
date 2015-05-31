@@ -343,7 +343,8 @@ body {
 #secne-frontend {
   text-align: center;
 }
-#secne-frontend h1 {
+
+.title-main {
   position: absolute;
   top: 10vh;
   color: #ffffff;
@@ -355,7 +356,8 @@ body {
   pointer-events: none;
   z-index: 101;
 }
-#secne-frontend span {
+
+.subtitle-main {
   display: block;
   padding: 4em 0 0 0;
   color: #000000;
@@ -385,7 +387,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .hero__imgwrap::after {
   position: absolute;
   top: 0;
@@ -394,6 +395,10 @@ body {
   width: 100%;
   content: '';
   pointer-events: none;
+}
+.hero__imgwrap .tilt__back,
+.hero__imgwrap .tilt__front {
+  background-size: 100vw 100vh;
 }
 
 .hero__img {
@@ -405,11 +410,6 @@ body {
   -webkit-transition: translate3d(-50%, -50%, 0);
   -moz-transition: translate3d(-50%, -50%, 0);
   transition: translate3d(-50%, -50%, 0);
-}
-
-.hero__imgwrap .tilt__back,
-.hero__imgwrap .tilt__front {
-  background-size: 100vw 100vh;
 }
 
 .tilt {

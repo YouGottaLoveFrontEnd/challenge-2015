@@ -3,7 +3,10 @@
 // ========================================================
 
 @mixin breakpoint($type) {
-	@if $type == tablet {
+	@if $type == desktop {
+		@media (min-width: $desktop)  { @content ; }
+	}
+	@else if $type == tablet {
 		@media (max-width: $tablet) { @content ; }
 	}
 	@else if $type == mobile {

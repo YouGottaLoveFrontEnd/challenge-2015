@@ -1,11 +1,26 @@
 /*********************************************************/
+/*** Large Desktop ***************************************/
+/*********************************************************/
+
+@include breakpoint(desktop) {
+
+	body {
+		font-size: $desktop_body_font-size;
+	}
+
+	#scene-behavior:before {
+		margin-top: $desktop_behavior_before_margin-top;
+	}
+}
+
+/*********************************************************/
 /*** Tablet **********************************************/
 /*********************************************************/
 
 @include breakpoint(tablet) {
 
 	body {
-		font-size:$tablet_body_font-size;
+		font-size: $tablet_body_font-size;
 	}
 
 	.title {

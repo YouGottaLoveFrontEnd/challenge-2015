@@ -5,21 +5,6 @@ var challange = {};
 
 (function(challange, createjs) {
 
-
-
-    // sounds/a.wav
-    // sounds/b.wav
-    // sounds/bb.wav
-    // sounds/c.wav
-    // sounds/c#.wav
-    // sounds/d.wav
-    // sounds/e.wav
-    // sounds/eb.wav
-    // sounds/f.wav
-    // sounds/f#.wav
-    // sounds/g.wav
-    // sounds/g#.wav
-    // 
     var letters = [{
         value: 'Y',
         audio: 'a.wav',

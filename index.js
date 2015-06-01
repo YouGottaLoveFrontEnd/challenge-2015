@@ -79,6 +79,7 @@ $(document).on('ready', function () {
 
     var _answer = function (correct) {
         createjs.Sound.play(correct ? SOUNDS.ANSWER_GOOD : SOUNDS.ANSWER_BAD);
+        if (letterClearTimeout) clearTimeout(letterClearTimeout);
         if (correct) {
             TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, }, { autoAlpha: 0, scale: 5 }, 0.2, function () {
                 TweenMax.staggerFromTo(currentLetter.addClass('active'), 0.4, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.2);
@@ -87,9 +88,9 @@ $(document).on('ready', function () {
         } else {
             var _letter = $letters.filter('.active').random().css({ 'color': '#ff0000' });
             TweenMax.staggerFromTo($letter, 0.4, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000) }, 0.2, function () {
+                _callDropLetter();
                 TweenMax.staggerFromTo(_letter, 1, { autoAlpha: 1, scale: 1, x: 0, y: 0, 'color': '#ff0000' }, { autoAlpha: 0, scale: 5, x: Random(-1000, 1000), y: Random(-1000, 1000), 'color': '#ff0000' }, 0.2, function () {
                     _letter.attr('style', '').removeClass('active');
-                    _callDropLetter();
                 });
             });
         }
@@ -100,13 +101,23 @@ $(document).on('ready', function () {
         $('.progressBar span').css({ 'width': (100 * $letters.filter('.active').length / $letters.length) + '%' });
     }
 
-    var _dropLetter = function () {
+    var _checkForWin = function () {
         _setProgress();
         if (!($letters.not('.active').length)) {
             clearTimeout(letterTimeout);
             _winGame();
-            return;
+            return true;
         }
+        return false;
+    }
+
+    var _clearLetter = function () {
+        if ($letter) $letter.remove();
+        $letter = null;
+    }
+
+    var _dropLetter = function () {
+        if (_checkForWin()) return;
         if ($letter) {
             if (!letterTimeout) _callDropLetter();
             return;
@@ -122,26 +133,17 @@ $(document).on('ready', function () {
             $letter.css({ 'background-image': 'url(letter/' + currentLetter.text().toLowerCase() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
             if (letterPos > 50) $letter.addClass('left');
             letterClearTimeout = setTimeout(function () {
-                if ($letter) _callDropLetter()
+                if ($letter) _callDropLetter();
             }, 3001);
         }, 50);
 
     }
 
     var _callDropLetter = function () {
-        _setProgress();
-        if ($letter) {
-            $letter.remove();
-            $letter = null;
-        }
-        if (!($letters.not('.active').length)) {
-            clearTimeout(letterTimeout);
-            _winGame();
-            return;
-        }
+        if (_checkForWin()) return;
+        _clearLetter();
         if (letterTimeout) clearTimeout(letterTimeout);
         if (letterClearTimeout) clearTimeout(letterClearTimeout);
-        letterClearTimeout
         letterTimeout = setTimeout(_dropLetter, 200);
     }
 

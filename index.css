@@ -1,3 +1,4 @@
+
 .logo {
   font-family: Futura-pt, Arial;
   text-transform: uppercase;
@@ -20,3 +21,59 @@
 body {
   background-color: #ddd;
 }
+
+#boxLines path{
+    stroke:#ffffff;
+    fill:none;
+    stroke-width:1;
+}
+
+#movementLetters{
+    transform-origin:50% 50%;
+}
+
+#innerLogo.hideElements.onload{
+    display:none;
+}
+
+#innerLogo.hideElements .hidden{display:none!important;}
+
+.logoWrapper{
+    max-width: 800px;
+    margin:0 auto;
+}
+
+#frameTop{
+    opacity:0;
+}
+
+#jellyBalls circle{
+    transform-origin:50% 50%;
+}
+#hiddenLetters .wordRow path {
+    transform-origin: 50% 50%;
+}
+#hiddenLetters .wordRow.word1 path{
+    fill: url("#row1fill");
+}
+#hiddenLetters .wordRow.word2 path{
+    fill: url("#row2fill");
+}
+#hiddenLetters .wordRow.word3 path{
+    fill: url("#row3fill");
+}
+#hiddenLetters .wordRow.word4 path{
+    fill: url("#row4fill");
+}
+#hiddenLettersTop .wordRow path {
+    transform-origin: 50% 50%;
+    fill:#000000;
+}
+.gooFilter .circle{ width:50px;height: 50px;background-color: red;display: block;}
+
+#movementLetters{display:none!important;}
+
+#pauseAnim,#playAnim{cursor: pointer;pointer-events: bounding-box;}
+#pauseAnim:hover line{stroke:#00CB96}
+#playAnim:hover{stroke:#00CB96;fill:#00CB96}
+

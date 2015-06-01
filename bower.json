@@ -1,0 +1,13 @@
+{
+  "name": "challenge",
+  "private": true,
+  "dependencies": {
+    "requirejs": "~2.1.8",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8",
+    "physicsjs": "~0.7",
+    "webfontloader": "~1.5.21",
+    "tweenjs": "master"
+  },
+  "devDependencies": {}
+}

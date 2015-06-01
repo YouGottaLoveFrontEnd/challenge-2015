@@ -1,0 +1,44 @@
+{
+  "name": "YGLF",
+  "version": "0.0.0",
+  "description": "You gotta love frontend",
+  "main": "./src/app.js",
+  "devDependencies": {
+    "webpack": "~1.9.10",
+    "babel-loader": "~5.1.3",
+    "jsx-loader": "~0.13.2",
+    "webpack-dev-server": "~1.9.0",
+    "react-hot-loader": "~1.2.7",
+    "css-loader": "~0.14.4",
+    "style-loader": "~0.12.3",
+    "node-sass": "~3.1.2",
+    "sass-loader": "~1.0.2",
+    "http-server": "~0.8.0"
+  },
+  "scripts": {
+    "start": "http-server -p 8080 .",
+    "build": "NODE_ENV=production webpack -p",
+    "watch": "webpack-dev-server --hot --progress --colors",
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikhilbaradwaj/challenge.git"
+  },
+  "keywords": [
+    "yglf",
+    "react",
+    "flux",
+    "you gotta love frontend"
+  ],
+  "author": "nikhil baradwaj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikhilbaradwaj/challenge/issues"
+  },
+  "homepage": "https://github.com/nikhilbaradwaj/challenge",
+  "dependencies": {
+    "react": "~0.13.3",
+    "flux": "~2.0.3"
+  }
+}

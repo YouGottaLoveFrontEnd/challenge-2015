@@ -2,7 +2,7 @@
  * Created by nikhilbaradwaj on 5/28/15.
  */
 
-var actions = {
+export var Actions = {
     SCRAMBLE: 1,
     ORGANIZE: 2,
     MOVE_LEFT: 3,
@@ -11,7 +11,7 @@ var actions = {
     MOVE_DOWN: 6
 };
 
-var tileType = {
+export var TileType = {
     BLANK: 1,
     LETTER: 2
 };

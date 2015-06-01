@@ -11,13 +11,33 @@
 	padding-left: $title_padding-left;
 	letter-spacing: $title_letter-spacing;
 	z-index: $title_layer;
+	margin: $title_margin;
+	text-transform: uppercase;
 }
 
-.subtitle {
-	@include position(absolute, null $subtitle_title_position-right $subtitle_title_position-bottom null);
-	cursor: $title_cursor;
-	font-size: $subtitle_title_font-size;
-	font-style: $subtitle_font-style;
+.title-frontend {
+	@include position(absolute, $title_frontend_position-top null null null);
+	color: $title_frontend_color;
+	letter-spacing: $title_frontend_letter-spacing;
+	margin: $title_frontend_margin;
+	font-weight: $title_font-weight;
+	font-size: $title_frontend_font-size;
+	width: $title_frontend_width;
+	pointer-events: none;
+	text-transform: uppercase;
+	z-index: $title_layer;
+}
+
+.subtitle-frontend {
+	@include position(absolute, null null -110px null);
+	display: block;
+	padding: $title_frontend_span_padding;
+	color: $title_frontend_span_color;
+	font-size: $title_frontend_span_font-size;
+	font-weight: $title_frontend_span_font-weight;
+	letter-spacing: $title_frontend_span_letter-spacing;
+	text-shadow: none;
+	width: 100%;
 }
 
 /*********************************************************/
@@ -27,6 +47,7 @@
 
 .animated-title {
 	cursor: $animated_title_cursor;
+	line-height: $animated_title_line-height;
 
 	&:before {
 		@include transform(translate3d(-101%, 0, 0));
@@ -46,7 +67,7 @@
 
 	span {
 		@include transform(perspective(1000px) rotate3d(0, 1, 0, 0deg));
-		@include transition(transform 0.5s, color 0.5s);
+		@include transition(transform 0.3s, color 0.3s);
 		display: inline-block;
 		position: relative;
 	}

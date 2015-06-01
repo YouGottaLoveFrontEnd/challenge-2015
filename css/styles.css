@@ -49,21 +49,41 @@ body {
 .title {
   position: relative;
   cursor: default;
-  font-size: 10em;
+  font-size: 11em;
   text-align: left;
   font-weight: 700;
-  padding-left: 140px;
-  letter-spacing: -21px;
+  padding-left: 110px;
+  letter-spacing: 5px;
+  z-index: 101;
+  margin: 75px 0 0 0;
+  text-transform: uppercase;
+}
+
+.title-frontend {
+  position: absolute;
+  top: 10vh;
+  color: #ffffff;
+  letter-spacing: 22px;
+  margin: 0.5em 0 0;
+  font-weight: 700;
+  font-size: 10em;
+  width: 100%;
+  pointer-events: none;
+  text-transform: uppercase;
   z-index: 101;
 }
 
-.subtitle {
+.subtitle-frontend {
   position: absolute;
-  right: 15%;
-  bottom: 15%;
-  cursor: default;
-  font-size: 2em;
-  font-style: italic;
+  bottom: -110px;
+  display: block;
+  padding: 2.5em 0 0 0;
+  color: #000000;
+  font-size: 0.2em;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-shadow: none;
+  width: 100%;
 }
 
 /*********************************************************/
@@ -72,6 +92,7 @@ body {
 /*********************************************************/
 .animated-title {
   cursor: crosshair;
+  line-height: 280px;
 }
 .animated-title:before {
   -webkit-transform: translate3d(-101%, 0, 0);
@@ -88,9 +109,9 @@ body {
   width: 100%;
   content: '';
   box-sizing: border-box;
-  border-width: 2px 0 0 0;
+  border-width: 1px 0 0 0;
   border-color: #282828;
-  border-style: dashed;
+  border-style: dotted;
 }
 .animated-title:hover:before {
   -webkit-transform: translate3d(0, 0, 0);
@@ -105,9 +126,9 @@ body {
   -ms-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
   -o-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
   transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
-  -webkit-transition: -webkit-transform 0.5s, color 0.5s;
-  -moz-transition: -moz-transform 0.5s, color 0.5s;
-  transition: transform 0.5s, color 0.5s;
+  -webkit-transition: -webkit-transform 0.3s, color 0.3s;
+  -moz-transition: -moz-transform 0.3s, color 0.3s;
+  transition: transform 0.3s, color 0.3s;
   display: inline-block;
   position: relative;
 }
@@ -348,30 +369,6 @@ body {
   text-align: center;
 }
 
-.title-main {
-  position: absolute;
-  top: 10vh;
-  color: #ffffff;
-  letter-spacing: -21px;
-  margin: 0.5em 0 0;
-  font-weight: 700;
-  font-size: 10em;
-  width: 100%;
-  pointer-events: none;
-  z-index: 101;
-}
-
-.subtitle-main {
-  display: block;
-  padding: 4em 0 0 0;
-  color: #000000;
-  font-size: 0.2em;
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-shadow: none;
-}
-
 /*** Tilt effect *****************************************/
 /*********************************************************/
 .hero {
@@ -450,7 +447,7 @@ body {
 /*********************************************************/
 #scene-code {
   background: -webkit-linear-gradient(135deg, #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
-  background: linear-gradient(to _position-flipper(135deg), #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
+  background: linear-gradient(135deg, #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
 }
 #scene-code .item-pen {
   position: absolute;
@@ -570,19 +567,19 @@ body {
 /*** SCENE : Behavior - ITEMS ****************************/
 /*********************************************************/
 #scene-behavior {
-  background: -webkit-linear-gradient(_position-flipper(to) _position-flipper(right) _position-flipper(), #adc5bb 0%, #c3d5cd 100%);
+  background: -webkit-linear-gradient( left , #adc5bb 0%, #c3d5cd 100%);
   background: linear-gradient(to right, #adc5bb 0%, #c3d5cd 100%);
 }
 #scene-behavior:before {
   position: absolute;
-  top: 50px;
+  top: 45px;
   left: 10px;
   cursor: default;
   content: '&';
   font-family: "Playfair Display", serif;
   font-size: 3em;
   text-align: left;
-  padding-left: 140px;
+  padding-left: 110px;
   letter-spacing: -22px;
   z-index: 101;
 }

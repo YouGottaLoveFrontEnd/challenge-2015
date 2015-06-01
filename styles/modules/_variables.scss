@@ -68,30 +68,25 @@ $loader_layer: 200;
 // ========================================================
 
 $title_cursor: default;
-$title_font-size: 10em;
+$title_font-size: 11em;
+$title_frontend_font-size: 10em;
 $title_font-weight: $font-weight-bold;
 $title_text-align: left;
-$title_letter-spacing: -21px;
-$title_padding-left: 140px;
+$title_frontend_letter-spacing: 22px;
+$title_letter-spacing: 5px;
+$title_padding-left: 110px;
 $title_layer: 101;
-
-// *** Sub-Title ******************************************
-// ========================================================
-
-$subtitle_title_position-right: 15%;
-$subtitle_title_position-bottom: $subtitle_title_position-right;
-$subtitle_title_font-size: 2em;
-$subtitle_font-style: italic;
+$title_margin: 75px 0 0 0;
 
 // *** Sub-Title in Behavior Scene ************************
 // ========================================================
 
-$subtitle_behavior_title_position-top: 50px;
+$subtitle_behavior_title_position-top: 45px;
 $subtitle_behavior_title_position-left: 10px;
 $subtitle_behavior_font-family: 'Playfair Display', serif;
 $subtitle_behavior_font-size: 3em;
 $subtitle_behavior_text-align: left;
-$subtitle_behavior_padding-left: 140px;
+$subtitle_behavior_padding-left: $title_padding-left;
 $subtitle_behavior_letter-spacing: -22px;
 $subtitle_behavior_layer: 101;
 
@@ -106,7 +101,7 @@ $title_frontend_position-top: 10vh;
 // *** Sub title in Front End Scene ***********************
 // ========================================================
 
-$title_frontend_span_padding: 4em 0 0 0;
+$title_frontend_span_padding: 2.5em 0 0 0;
 $title_frontend_span_color: $black;
 $title_frontend_span_font-size: 0.2em;
 $title_frontend_span_letter-spacing: 3px;
@@ -118,9 +113,10 @@ $title_frontend_span_font-weight: $font-weight-regular;
 $animated_title_letters: 8;
 $animated_title_letters_reverse: $animated_title_letters;
 $animated_title_cursor: crosshair;
-$animated_title_border-width: 2px 0 0 0;
+$animated_title_border-width: 1px 0 0 0;
 $animated_title_border-color: #282828;
-$animated_title_border-style: dashed;
+$animated_title_border-style: dotted;
+$animated_title_line-height: 280px;
 
 // ========================================================
 // *** Scroll Down Arrow **********************************

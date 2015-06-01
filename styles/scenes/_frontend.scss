@@ -6,29 +6,6 @@
 	text-align: center;
 }
 
-.title-main {
-	@include position(absolute, $title_frontend_position-top null null null);
-	color: $title_frontend_color;
-	letter-spacing: $title_letter-spacing;
-	margin: $title_frontend_margin;
-	font-weight: $title_font-weight;
-	font-size: $title_font-size;
-	width: $title_frontend_width;
-	pointer-events: none;
-	z-index: $title_layer;
-}
-
-.subtitle-main {
-	display: block;
-	padding: $title_frontend_span_padding;
-	color: $title_frontend_span_color;
-	font-size: $title_frontend_span_font-size;
-	text-transform: uppercase;
-	font-weight: $title_frontend_span_font-weight;
-	letter-spacing: $title_frontend_span_letter-spacing;
-	text-shadow: none;
-}
-
 /*** Tilt effect *****************************************/
 /*********************************************************/
 

@@ -171,4 +171,6 @@ $(document).on('ready', function () {
     window.requestAnimFrame(_fireMeetLetter);
     _callDropLetter();
 
+    console.log("%cYGLF!", "text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);font-size:40px;background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;color:#fff"); 
+
 });

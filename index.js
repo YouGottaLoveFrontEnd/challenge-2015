@@ -41,22 +41,24 @@ $(document).on('ready', function () {
         })
     }
 
-    var _spaceShipTimeout;
+    var _spaceShipTimeout, timeDelta = 1;
     var _moveSpaceShip = function (direction) {
         if (_spaceShipTimeout) return;
-        spacePos += direction * 3;
+        spacePos += direction * 3 * Math.min(timeDelta, 2.5);
         spacePos = Math.min(spacePos, 100);
         spacePos = Math.max(spacePos, 0);
         $spaceShip.css({ 'left': spacePos + '%' });
+        timeDelta += 0.5;
         _spaceShipTimeout = setTimeout(function () { _spaceShipTimeout = null; _moveSpaceShip(direction) }, 100);
     }
 
     var $keys = $('.instructions .keys span'), keyMaps = { 32: 1, 37: 2, 39: 3 };
     $doc.on('keydown', function (e) {
         if (_won) return;
+        if (!_spaceShipTimeout) timeDelta = 1;
         if (e.keyCode == 32) _sendFire();
-        if (e.keyCode == 37) _moveSpaceShip(-2);
-        if (e.keyCode == 39) _moveSpaceShip(2);
+        if (e.keyCode == 37) _moveSpaceShip(-1);
+        if (e.keyCode == 39) _moveSpaceShip(1);
         if (e.keyCode && keyMaps[e.keyCode])
             TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.6, { 'background-color': '#3d9882' }, { 'background-color': 'rgba(255, 255, 255, 0.6)' }, 0);
     });

@@ -15,6 +15,11 @@
   margin-right: auto ;
 }
 
+.div-center {
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
 .row1 {
   background: linear-gradient(to bottom, rgb(6,127,186), rgb(3,169,171)) no-repeat;
 }
@@ -54,4 +59,32 @@ body {
 
 .animate-enter.animate-enter-active {
   opacity: 1;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }

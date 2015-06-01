@@ -125,8 +125,12 @@
 
 	dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 
-	function handleButtonClick(event) {
+	function handleScramble() {
 	    dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
+	}
+
+	function handleOrganize() {
+	    dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 	}
 
 	var Logo = (function (_React$Component) {
@@ -183,17 +187,31 @@
 	                null,
 	                _react2['default'].createElement(
 	                    'div',
+	                    { className: 'div-center' },
+	                    _react2['default'].createElement(
+	                        'button',
+	                        { className: 'btn btn-default', onClick: handleScramble },
+	                        ' Scramble '
+	                    ),
+	                    _react2['default'].createElement(
+	                        'button',
+	                        { className: 'btn btn-default', onClick: handleOrganize },
+	                        ' Organize '
+	                    ),
+	                    _react2['default'].createElement(
+	                        'p',
+	                        null,
+	                        ' Or click the tiles around the blank (White) tile to move them and organize the logo yourself '
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
 	                    { className: 'logo', key: Logo.makeKey.next().value },
 	                    _react2['default'].createElement(
 	                        ReactCSSTransitionGroup,
 	                        { transitionName: 'animate' },
 	                        tiles
 	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    'button',
-	                    { onClick: handleButtonClick },
-	                    ' Scramble '
 	                )
 	            );
 	        }
@@ -27044,6 +27062,8 @@
 	    logo = initialLogo;
 	    actions = [];
 	    blankTile = { row: 0, column: 3 };
+	    var tile = logo[0][3];
+	    tile.type = constants.TileType.BLANK;
 	    for (var i = 0; i < 100; i++) {
 	        switch (getNextMove()) {
 	            case MOVE_LEFT:
@@ -27181,10 +27201,15 @@
 	                    break;
 	                case constants.Actions.ORGANIZE:
 	                    var that = this;
-	                    setInterval(function () {
+	                    var intervalId = setInterval(function () {
 	                        if (actions.length > 0) {
 	                            organize();
 	                            that.emitChange();
+	                        } else {
+	                            var tile = logo[0][3];
+	                            tile.type = constants.TileType.LETTER;
+	                            that.emitChange();
+	                            clearInterval(intervalId);
 	                        }
 	                    }, 200);
 	                    break;

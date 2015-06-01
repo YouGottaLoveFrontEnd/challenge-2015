@@ -24,8 +24,12 @@ dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
 
 dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 
-function handleButtonClick(event) {
+function handleScramble() {
     dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
+}
+
+function handleOrganize() {
+    dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 }
 
 class Logo extends React.Component {
@@ -63,12 +67,16 @@ class Logo extends React.Component {
 
         return (
             <div>
+                <div className="div-center">
+                    <button className="btn btn-default" onClick={handleScramble} > Scramble </button>
+                    <button className="btn btn-default" onClick={handleOrganize} > Organize </button>
+                    <p> Or click the tiles around the blank (White) tile to move them and organize the logo yourself </p>
+                </div>
                 <div className="logo" key={Logo.makeKey.next().value}>
                     <ReactCSSTransitionGroup transitionName="animate">
                         {tiles}
                     </ReactCSSTransitionGroup>
                 </div>
-                <button onClick={handleButtonClick} > Scramble </button>
             </div>
         );
     }

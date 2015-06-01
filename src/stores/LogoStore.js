@@ -69,6 +69,8 @@ function scramble() {
     logo = initialLogo;
     actions = [];
     blankTile = {row: 0, column: 3};
+    let tile = logo[0][3];
+    tile.type = constants.TileType.BLANK;
     for(var i=0; i< 100; i++) {
         switch(getNextMove()) {
             case MOVE_LEFT:
@@ -189,10 +191,15 @@ export default class LogoStore extends EventEmitter {
                 break;
             case constants.Actions.ORGANIZE:
                 let that = this;
-                setInterval(function() {
+                let intervalId = setInterval(function() {
                     if (actions.length > 0) {
                         organize();
                         that.emitChange();
+                    } else {
+                        let tile = logo[0][3];
+                        tile.type = constants.TileType.LETTER;
+                        that.emitChange();
+                        clearInterval(intervalId);
                     }
                 }, 200);
                 break;

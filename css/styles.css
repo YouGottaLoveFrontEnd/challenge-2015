@@ -1,5 +1,23 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/montserrat/Montserrat-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/montserrat/Montserrat-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url(../fonts/playfair_Display/PlayfairDisplay-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url(../fonts/playfair_Display/PlayfairDisplay-Bold.ttf);
+  font-weight: 700;
+}
 /*********************************************************/
 /*** Layout **********************************************/
 /*********************************************************/
@@ -16,7 +34,7 @@ body {
   background: transparent;
 }
 
-#scene-code .item-pen, #scene-code .item-flowerpot, #scene-code .item-machine, #scene-code .item-cup, #scene-code .item-book, #scene-design .item-case, #scene-design .item-brush-white, #scene-design .item-box, #scene-design .item-brush-black, #scene-design .item-palette, #scene-design .item-paint, #scene-behavior .item-imac, #scene-behavior .item-iphone, #scene-behavior .item-ipad, #scene-behavior .item-pencil-gray, #scene-behavior .item-mouse, #scene-behavior .item-sharpener, #scene-behavior .item-stone-medium, #scene-yglf .item-book-open, #scene-yglf .item-chrome, #scene-yglf .item-css, #scene-yglf .item-js, #scene-yglf .item-html, #scene-yglf .item-drupal, #scene-yglf .item-float-stone, #scene-yglf .item-frame, #scene-yglf .item-imac-blur, #scene-yglf .item-stone-regular, #scene-yglf .item-stone-float-right {
+#scene-code .item-pen, #scene-code .item-flowerpot, #scene-code .item-machine, #scene-code .item-cup, #scene-code .item-book, #scene-design .item-case, #scene-design .item-brush-white, #scene-design .item-box, #scene-design .item-brush-black, #scene-design .item-palette, #scene-design .item-paint, #scene-behavior .item-imac, #scene-behavior .item-iphone, #scene-behavior .item-ipad, #scene-behavior .item-pencil-gray, #scene-behavior .item-mouse, #scene-behavior .item-sharpener, #scene-behavior .item-stone-medium, #scene-yglf .item-book-open, #scene-yglf .item-chrome, #scene-yglf .item-css, #scene-yglf .item-js, #scene-yglf .item-html, #scene-yglf .item-drupal, #scene-yglf .item-frame, #scene-yglf .item-imac-blur, #scene-yglf .item-stone-regular, #scene-yglf .item-stone-float-right {
   background: url("../images/hq_sprite.png") no-repeat;
   z-index: 100;
 }
@@ -44,6 +62,23 @@ body {
 }
 
 /*********************************************************/
+/*** Toggle Fullscreen ***********************************/
+/*********************************************************/
+.enter_fullscreen {
+  position: fixed;
+  top: 5px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 103;
+}
+.enter_fullscreen:after {
+  top: -2px;
+  position: relative;
+  content: 'Toggle Fullscreen';
+  font-size: 8px;
+}
+
+/*********************************************************/
 /*** Titles **********************************************/
 /*********************************************************/
 .title {
@@ -66,7 +101,7 @@ body {
   letter-spacing: 22px;
   margin: 0.5em 0 0;
   font-weight: 700;
-  font-size: 10em;
+  font-size: 9em;
   width: 100%;
   pointer-events: none;
   text-transform: uppercase;
@@ -75,9 +110,8 @@ body {
 
 .subtitle-frontend {
   position: absolute;
-  bottom: -110px;
+  bottom: -140px;
   display: block;
-  padding: 2.5em 0 0 0;
   color: #000000;
   font-size: 0.2em;
   font-weight: 400;
@@ -363,6 +397,31 @@ body {
   }
 }
 /*********************************************************/
+/*** Float Animations ************************************/
+/*********************************************************/
+@-webkit-keyframes floating {
+  from {
+    -webkit-transform: translate(0, 0px);
+  }
+  65% {
+    -webkit-transform: translate(0, 15px);
+  }
+  to {
+    -webkit-transform: translate(0, 0px);
+  }
+}
+@keyframes floating_slow {
+  from {
+    -webkit-transform: translate(0, 0px);
+  }
+  65% {
+    -webkit-transform: translate(0, 30px);
+  }
+  to {
+    -webkit-transform: translate(0, 0px);
+  }
+}
+/*********************************************************/
 /*** SCENE : Front End ***********************************/
 /*********************************************************/
 #secne-frontend {
@@ -447,7 +506,7 @@ body {
 /*********************************************************/
 #scene-code {
   background: -webkit-linear-gradient(135deg, #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
-  background: linear-gradient(135deg, #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
+  background: linear-gradient(to _position-flipper(135deg), #a1aebd 0%, #a7b2c2 19%, #a2aebe 23%, #909eb2 43%, #56687e 100%);
 }
 #scene-code .item-pen {
   position: absolute;
@@ -567,7 +626,7 @@ body {
 /*** SCENE : Behavior - ITEMS ****************************/
 /*********************************************************/
 #scene-behavior {
-  background: -webkit-linear-gradient( left , #adc5bb 0%, #c3d5cd 100%);
+  background: -webkit-linear-gradient(_position-flipper(to) _position-flipper(right) _position-flipper(), #adc5bb 0%, #c3d5cd 100%);
   background: linear-gradient(to right, #adc5bb 0%, #c3d5cd 100%);
 }
 #scene-behavior:before {
@@ -751,17 +810,19 @@ body {
   width: 487px;
   background-position: -341px -3492px;
   z-index: 100;
+  animation: floating_slow 16s ease-in-out both infinite;
 }
 #scene-yglf .item-chrome {
   position: absolute;
   right: 440px;
-  bottom: 15px;
+  bottom: 23px;
   -webkit-filter: drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3));
   filter: drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3));
   height: 139px;
   width: 135px;
   background-position: -744px -1934px;
   z-index: 101;
+  animation: floating 8s ease-in-out both infinite;
 }
 #scene-yglf .item-css {
   position: absolute;
@@ -771,6 +832,7 @@ body {
   width: 101px;
   background-position: -734px -3920px;
   z-index: 101;
+  animation: floating 4s ease-in-out both infinite;
 }
 #scene-yglf .item-js {
   position: absolute;
@@ -780,6 +842,7 @@ body {
   width: 179px;
   background-position: -419px -4941px;
   z-index: 103;
+  animation: floating_slow 5s ease-in-out both infinite;
 }
 #scene-yglf .item-html {
   position: absolute;
@@ -789,6 +852,7 @@ body {
   width: 169px;
   background-position: -713px -4641px;
   z-index: 100;
+  animation: floating 8s ease-in-out both infinite;
 }
 #scene-yglf .item-drupal {
   position: absolute;
@@ -798,17 +862,7 @@ body {
   width: 74px;
   background-position: -408px -5151px;
   z-index: 100;
-}
-#scene-yglf .item-float-stone {
-  position: absolute;
-  top: 50px;
-  right: 100px;
-  -webkit-filter: drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2));
-  filter: drop-shadow(27px 92px 14px rgba(0, 0, 0, 0.2));
-  height: 52px;
-  width: 58px;
-  background-position: -2166px -894px;
-  z-index: 100;
+  animation: floating_slow 5s ease-in-out both infinite;
 }
 #scene-yglf .item-frame {
   position: absolute;
@@ -818,6 +872,7 @@ body {
   width: 427px;
   background-position: 0 -1313px;
   z-index: 100;
+  animation: floating 10s ease-in-out both infinite;
 }
 #scene-yglf .item-imac-blur {
   position: absolute;
@@ -827,6 +882,7 @@ body {
   width: 888px;
   background-position: 0 -2519px;
   z-index: 99;
+  animation: floating 15s ease-in-out both infinite;
 }
 #scene-yglf .item-stone-regular {
   position: absolute;
@@ -836,6 +892,7 @@ body {
   width: 44px;
   background-position: -836px -666px;
   z-index: 100;
+  animation: floating_slow 20s ease-in-out both infinite;
 }
 #scene-yglf .item-stone-float-right {
   position: absolute;
@@ -845,12 +902,60 @@ body {
   width: 13px;
   background-position: -874px 0;
   z-index: 101;
+  animation: floating 8s ease-in-out both infinite;
 }
 
 /*********************************************************/
 /*** Tablet **********************************************/
 /*********************************************************/
 @media (max-width: 1024px) {
+  body {
+    font-size: 60%;
+  }
+
+  .title {
+    margin: 5px 0 0 0;
+    padding-left: 50px;
+  }
+
+  #scene-behavior:before {
+    margin-top: 11px;
+    padding-left: 50px;
+  }
+
+  .item-pen,
+  .item-book,
+  .item-case,
+  .item-brush-white,
+  .item-ipad,
+  .item-pencil-gray,
+  .item-stone-medium,
+  .item-stone-big,
+  .item-book-open,
+  .item-html,
+  .item-css,
+  .item-js,
+  .item-frame,
+  .item-drupal {
+    display: none;
+  }
+}
+/*********************************************************/
+/*** Mobile **********************************************/
+/*********************************************************/
+@media (max-width: 480px) {
+  body {
+    font-size: 30%;
+  }
+
+  #scene-behavior:before {
+    padding-left: 35px;
+  }
+
+  .title {
+    padding-left: 40px;
+  }
+
   .logo {
     -webkit-transform: scale(0.7, 0.7);
     -moz-transform: scale(0.7, 0.7);
@@ -859,32 +964,21 @@ body {
     transform: scale(0.7, 0.7);
   }
 
-  .item-pen,
+  .logo,
+  .yglf-box,
+  .credit-box {
+    right: -30px;
+  }
+
   .item-flowerpot,
   .item-cup,
-  .item-book,
-  .item-case,
-  .item-brush-white,
   .item-box,
   .item-brush-black,
   .item-paint,
-  .item-iphone,
-  .item-ipad,
-  .item-mouse,
-  .item-pencil-gray,
   .item-sharpener,
-  .item-stone-medium,
-  .item-stone-big,
-  .item-book-open,
-  .item-html,
-  .item-css,
-  .item-js,
-  .item-frame,
-  .item-drupal,
+  .item-iphone,
+  .item-mouse,
   .item-chrome {
     display: none;
   }
 }
-/*********************************************************/
-/*** Mobile **********************************************/
-/*********************************************************/

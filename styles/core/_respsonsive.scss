@@ -4,30 +4,26 @@
 
 @include breakpoint(tablet) {
 
-	.logo {
-		@include transform(scale(.7,.7));
+	body {
+		font-size:$tablet_body_font-size;
 	}
 
 	.title {
+		margin: $tablet_title_margin;
+		padding-left: $tablet_title_padding-left;
 	}
 
-	.behavior-sub-title {
+	#scene-behavior:before {
+		margin-top: $tablet_behavior_before_margin-top;
+		padding-left: $tablet_behavior_before_padding-left;
 	}
 
 	.item-pen,
-	.item-flowerpot,
-	.item-cup,
 	.item-book,
 	.item-case,
 	.item-brush-white,
-	.item-box,
-	.item-brush-black,
-	.item-paint,
-	.item-iphone,
 	.item-ipad,
-	.item-mouse,
 	.item-pencil-gray,
-	.item-sharpener,
 	.item-stone-medium,
 	.item-stone-big,
 	.item-book-open,
@@ -35,8 +31,7 @@
 	.item-css,
 	.item-js,
 	.item-frame,
-	.item-drupal,
-	.item-chrome { display: none }
+	.item-drupal { display: none }
 
 }
 
@@ -46,16 +41,36 @@
 
 @include breakpoint(mobile) {
 
+	body {
+		font-size: $mobile_body_font-size;
+	}
+
+	#scene-behavior:before {
+		padding-left: $mobile_behavior_before_padding-left;
+	}
+
 	.title {
+		padding-left: $mobile_title_padding-left;
 	}
 
-	.behavior-sub-title {
+	.logo {
+		@include transform(scale(.7,.7));
 	}
 
-	.yglf-site {
+	.logo,
+	.yglf-box,
+	.credit-box {
+		right: $mobile_position_right;
 	}
 
-	.credit {
-	}
-
+	.item-flowerpot,
+	.item-cup,
+	.item-box,
+	.item-brush-black,
+	.item-paint,
+	.item-sharpener,
+	.item-iphone,
+	.item-mouse,
+	.item-chrome
+	{ display: none }
 }

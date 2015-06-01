@@ -351,3 +351,26 @@ $credit_box_font-weight: $font-weight-regular;
 $credit_box_padding: 20px;
 $credit_box_border-bottom: 1px dotted $gray;
 $credit_box_svg_size: 10px;
+
+// ========================================================
+// *** Responsive *****************************************
+// ========================================================
+
+// *** Tablet *********************************************
+// ========================================================
+
+$tablet_body_font-size: 60%;
+$tablet_title_margin: 5px 0 0 0;
+$tablet_title_padding-left: 50px;
+$tablet_behavior_before_margin-top: 11px;
+$tablet_behavior_before_padding-left: 50px;
+
+
+// *** Mobile *********************************************
+// ========================================================
+
+$mobile_body_font-size: 30%;
+$mobile_title_padding-left: 40px;
+$mobile_behavior_before_margin-top: 11px;
+$mobile_behavior_before_padding-left: 35px;
+$mobile_position_right: -30px;

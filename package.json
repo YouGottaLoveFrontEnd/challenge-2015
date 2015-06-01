@@ -1,0 +1,29 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "> TL;DR > Create awesome stuff and win an Apple Macbook Pro.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paveliko/challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paveliko/challenge/issues"
+  },
+  "homepage": "https://github.com/paveliko/challenge",
+  "dependencies": {
+    "express": "^4.12.3",
+    "hbs": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-nodemon": "^2.0.3"
+  }
+}

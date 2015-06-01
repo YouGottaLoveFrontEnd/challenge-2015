@@ -28,10 +28,10 @@ $(document).on('ready', function () {
     for (var key in SOUNDS) createjs.Sound.registerSound(SOUNDS[key]);
 
 
-    var $doc = $(this), $spaceShip = $('.spaceship'), spacePos = 50, _won;
+    var $doc = $(this), $body = $('body'), $spaceShip = $('.spaceship'), spacePos = 50, _won;
 
     var _sendFire = function () {
-        var fire = $('<div/>').addClass('fireball').appendTo('body');
+        var fire = $('<div/>').addClass('fireball').appendTo($body);
         setTimeout(function () {
             createjs.Sound.play(SOUNDS.SHOOT);
             fire.css({ 'top': 0, 'left': spacePos + '%', 'width': 50, 'height': 50, 'margin-top': -77 });
@@ -44,10 +44,11 @@ $(document).on('ready', function () {
     var _spaceShipTimeout, timeDelta = 1;
     var _moveSpaceShip = function (direction) {
         if (_spaceShipTimeout) return;
-        spacePos += direction * 3 * Math.min(timeDelta, 2.5);
+        spacePos += direction * 3 * Math.min(timeDelta, 2);
         spacePos = Math.min(spacePos, 100);
         spacePos = Math.max(spacePos, 0);
         $spaceShip.css({ 'left': spacePos + '%' });
+        $body.css({ 'background-position': '0 ' + spacePos + '%' });
         timeDelta += 0.5;
         _spaceShipTimeout = setTimeout(function () { _spaceShipTimeout = null; _moveSpaceShip(direction) }, 100);
     }
@@ -72,7 +73,7 @@ $(document).on('ready', function () {
     var _winGame = function () {
         //TweenMax.staggerFromTo($spaceShip, 2, { bottom: '0%' }, { bottom: '100%' }, 0, function () {
         createjs.Sound.play(SOUNDS.WIN);
-        $('body').addClass('success');
+        $body.addClass('success');
         _won = true;
         TweenMax.staggerFromTo($letters, 0.2, { autoAlpha: 0, scale: 7, x: Random(-1000, 1000), y: Random(-1000, 1000) }, { autoAlpha: 1, scale: 1, x: 0, y: 0 }, 0.1);
         //});
@@ -133,7 +134,7 @@ $(document).on('ready', function () {
         else
             currentLetter = $letters.not('.active').random();
 
-        $letter = $('<div/>').addClass('letter').appendTo('body');
+        $letter = $('<div/>').addClass('letter').appendTo($body);
         setTimeout(function () {
             letterPos = Random();
             $letter.css({ 'background-image': 'url(letter/' + currentLetter.text().toLowerCase() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
@@ -160,7 +161,7 @@ $(document).on('ready', function () {
                 if (Math.abs(letter.top - pos.top) <= 50 && Math.abs(letter.left - pos.left) - (letter.isleft ? 0 : 50) <= 100) {
                     $this.remove();
                     $letter.css($letter.position()).addClass('no_transition');
-                    _answer(!!(currentLetter && currentLetter.parents('body').length));
+                    _answer(!!(currentLetter && currentLetter.parents($body).length));
                 }
             });
         }

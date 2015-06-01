@@ -18,7 +18,9 @@ html, body {
 body {
     font-family: 'Open Sans', Futura-pt, Arial;
     background-color: #ddd;
-    background-image: linear-gradient(180deg,rgba(9, 97, 197,0.6), rgba(0, 208, 157,0.6), rgba(0, 208, 157,0.6));
+    background-image: linear-gradient(180deg,rgba(9, 97, 197,0.6), rgba(0, 208, 157,0.6));
+    background-size:200%;
+    background-position:0 50%;
     position: relative;
 }
 

@@ -55,8 +55,8 @@ $(document).on('ready', function () {
     $doc.on('keydown', function (e) {
         if (_won) return;
         if (e.keyCode == 32) _sendFire();
-        if (e.keyCode == 37) _moveSpaceShip(-1);
-        if (e.keyCode == 39) _moveSpaceShip(1);
+        if (e.keyCode == 37) _moveSpaceShip(-2);
+        if (e.keyCode == 39) _moveSpaceShip(2);
         if (e.keyCode && keyMaps[e.keyCode])
             TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.6, { 'background-color': '#3d9882' }, { 'background-color': 'rgba(255, 255, 255, 0.6)' }, 0);
     });

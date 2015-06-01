@@ -5,10 +5,7 @@
 export var Actions = {
     SCRAMBLE: 1,
     ORGANIZE: 2,
-    MOVE_LEFT: 3,
-    MOVE_RIGHT: 4,
-    MOVE_UP: 5,
-    MOVE_DOWN: 6
+    MOVE: 3
 };
 
 export var TileType = {

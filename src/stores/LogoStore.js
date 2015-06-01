@@ -1,11 +1,12 @@
 import AppDispatcher from '../dispatchers/AppDispatcher.js';
 import {EventEmitter} from 'events';
+import * as constants from '../constants/AppConstants'
 
-let logo = [[
+const initialLogo = [[
     {letter: 'y', style: "row1"},
     {letter: 'o', style: "row1"},
     {letter: 'u', style: "row1"},
-    {letter: ' ', style: "row1", type: TileType.BLANK},
+    {letter: ' ', style: "row1", type: constants.TileType.BLANK},
     {letter: ' ', style: "row1"},
     {letter: ' ', style: "row1"},
     {letter: ' ', style: "row1"},
@@ -39,6 +40,114 @@ let logo = [[
     {letter: 'd', style: "row4"}
 ]];
 
+let logo = initialLogo;
+
+var actions= [];
+
+var blankTile = {row: 0, column: 3};
+
+const MAX_ROW = 3;
+const MAX_COLUMN = 7;
+
+const MOVE_UP = 1;
+const MOVE_DOWN = 2;
+const MOVE_LEFT = 3;
+const MOVE_RIGHT = 4;
+
+
+function swap(row1, column1, row2, column2) {
+    let tempTile = logo[row1][column1];
+    logo[row1][column1] = logo[row2][column2];
+    logo[row2][column2] = tempTile;
+}
+
+function getNextMove() {
+    return Math.floor(Math.random() * 8) + 1;
+}
+
+function scramble() {
+    logo = initialLogo;
+    actions = [];
+    blankTile = {row: 0, column: 3};
+    for(var i=0; i< 100; i++) {
+        switch(getNextMove()) {
+            case MOVE_LEFT:
+            case 8:
+            case 9:
+                if (blankTile.column > 0 && moveTile({row: blankTile.row, column: blankTile.column - 1})) {
+                    blankTile.column--;
+                    actions.push(MOVE_RIGHT);
+                }
+                break;
+            case MOVE_RIGHT:
+            case 5:
+            case 6:
+                if (blankTile.column < MAX_COLUMN && moveTile({row: blankTile.row, column: blankTile.column + 1})) {
+                    blankTile.column++;
+                    actions.push(MOVE_LEFT);
+                }
+                break;
+            case MOVE_UP:
+                if (blankTile.row > 0 &&  moveTile({row: blankTile.row - 1, column: blankTile.column})) {
+                    blankTile.row--;
+                    actions.push(MOVE_DOWN);
+                }
+                break;
+            case MOVE_DOWN:
+            case 7:
+                if (blankTile.row < MAX_ROW && moveTile({row: blankTile.row + 1, column: blankTile.column})) {
+                    blankTile.row++;
+                    actions.push(MOVE_UP);
+                }
+                break;
+        }
+    }
+}
+
+function organize() {
+    switch(actions.pop()) {
+        case MOVE_LEFT:
+            moveTile({row: blankTile.row, column: blankTile.column - 1});
+            blankTile.column--;
+            break;
+        case MOVE_RIGHT:
+            moveTile({row: blankTile.row, column: blankTile.column + 1});
+            blankTile.column++;
+            break;
+        case MOVE_UP:
+            moveTile({row: blankTile.row - 1, column: blankTile.column});
+            blankTile.row--;
+            break;
+        case MOVE_DOWN:
+            moveTile({row: blankTile.row + 1, column: blankTile.column});
+            blankTile.row++;
+            break;
+    }
+}
+
+function moveTile(source) {
+    let hasMoved = 0;
+    let row = source.row;
+    let column = source.column;
+    if(row < MAX_ROW && logo[row+1][column].type === constants.TileType.BLANK) {
+        swap(row, column, row+1, column);
+        hasMoved = MOVE_DOWN;
+    }
+    if(column < MAX_COLUMN && logo[row][column+1].type === constants.TileType.BLANK) {
+        swap(row, column, row, column+1);
+        hasMoved = MOVE_RIGHT;
+    }
+    if(row>0 && logo[row-1][column].type === constants.TileType.BLANK) {
+        swap(row, column, row-1, column);
+        hasMoved = MOVE_UP;
+    }
+    if(column > 0 && logo[row][column-1].type === constants.TileType.BLANK) {
+        swap(row, column, row, column-1);
+        hasMoved = MOVE_LEFT;
+    }
+    return hasMoved;
+}
+
 export default class LogoStore extends EventEmitter {
 
     getState() {
@@ -49,24 +158,46 @@ export default class LogoStore extends EventEmitter {
         this.emit('CHANGE');
     }
 
-    addChangeListener(cb) {
-        this.on('CHANGE', cb);
+    /**
+     * @param {function} callback
+     */
+    addChangeListener(callback) {
+        this.on('CHANGE', callback);
     }
 
-    removeChangeListener(cb) {
-        this.removeListener('CHANGE', cb);
+    /**
+     * @param {function} callback
+     */
+    removeChangeListener(callback) {
+        this.removeListener('CHANGE', callback);
+    }
+
+    performAction(payload) {
+        var action = payload.action;
+
+        switch(action) {
+            case constants.Actions.MOVE:
+                var move = moveTile(payload.source);
+                if (move) {
+                    actions.push(move);
+                    this.emitChange();
+                }
+                break;
+            case constants.Actions.SCRAMBLE:
+                scramble();
+                this.emitChange();
+                break;
+            case constants.Actions.ORGANIZE:
+                let that = this;
+                setInterval(function() {
+                    if (actions.length > 0) {
+                        organize();
+                        that.emitChange();
+                    }
+                }, 200);
+                break;
+        }
+
+        return true; // No errors. Needed by promise in Dispatcher.
     }
 }
-
-
-AppDispatcher.register((payload) => {
-    let action = payload.action;
-    switch(action.type) {
-        case HelloConstants.FETCHING:
-            data = action.data;
-            _HelloStore.emitChange();
-            break;
-        default:
-            break;
-    }
-});

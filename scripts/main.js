@@ -6,8 +6,8 @@
 
         paths: {
             'App': '.', /* Creating a nice namespace for the app, without actually having to create a useless folder */
-            'jquery': '../bower_components/jquery/dist/jquery',
-            'underscore': '../bower_components/underscore/underscore',
+            'jquery': '../bower_components/jquery/dist/jquery.min',
+            'underscore': '../bower_components/underscore/underscore-min',
             'WebFontLoader': '../bower_components/webfontloader/webfontloader',
             'tween' : '../bower_components/tweenjs/src/Tween'
         },
@@ -16,7 +16,7 @@
             {
                 name: 'physicsjs',
                 location: '../bower_components/physicsjs/dist',
-                main: 'physicsjs-full'
+                main: 'physicsjs-full.min'
             }
         ],
     });

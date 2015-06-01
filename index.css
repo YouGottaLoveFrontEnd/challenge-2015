@@ -43,19 +43,8 @@ body {
     margin:0 auto;
 }
 
-.gooFilter {
-    -webkit-filter: url("#goo");
-    filter: url("#goo");
-    position: relative;
-}
-.wordRow path{
-
-}
 #frameTop{
     opacity:0;
-}
-#topLogo .wordRow path{
-    display: none;
 }
 
 #jellyBalls circle{

@@ -42,6 +42,7 @@
   text-align: center;
   /*margin-left: -.3em; */
   width: 64px;
+  cursor: pointer;
 }
 
 .blank {

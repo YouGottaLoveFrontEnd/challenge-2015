@@ -170,12 +170,11 @@ var yglf = yglf || {};
             _starrted = true;
         };
 
-
     }
 
     intro.start = function() {
         intro.ready();
-        intro.audio.currentTime = 30;
+        intro.audio.currentTime = 0;
         intro.audio.play();
         intro.movieClip.gotoAndPlay(0);
         yglf.utils.hideLetters();

@@ -37,6 +37,11 @@ var yglf = yglf || {};
 
     menu.init = function() {
 
+        if (!yglf.utils.isMobile) {
+            alert('This is mobile app. Please, visit from your mobile phone.');
+            return;
+        };
+
         yglf.menuContainer = new createjs.Container();
 
         yglf.menuButtons = [ {

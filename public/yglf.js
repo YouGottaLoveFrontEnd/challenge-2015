@@ -664,12 +664,11 @@ var yglf = yglf || {};
             _starrted = true;
         };
 
-
     }
 
     intro.start = function() {
         intro.ready();
-        intro.audio.currentTime = 30;
+        intro.audio.currentTime = 0;
         intro.audio.play();
         intro.movieClip.gotoAndPlay(0);
         yglf.utils.hideLetters();
@@ -1097,6 +1096,11 @@ var yglf = yglf || {};
     }
 
     menu.init = function() {
+
+        if (!yglf.utils.isMobile) {
+            alert('This is mobile app. Please, visit from your mobile phone.');
+            return;
+        };
 
         yglf.menuContainer = new createjs.Container();
 

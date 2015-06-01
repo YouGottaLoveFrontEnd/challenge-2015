@@ -17,6 +17,9 @@
     "EaselJS": "~0.8.0",
     "TweenJS": "~0.6.0",
     "SoundJS": "~0.6.0",
-    "PreloadJS": "~0.6.0"
+    "PreloadJS": "~0.6.0",
+    "shake.js": "~1.2.1",
+    "webfontloader": "~1.6.2",
+    "ionicons": "~2.0.1"
   }
 }

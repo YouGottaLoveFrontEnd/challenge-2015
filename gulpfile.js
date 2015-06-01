@@ -8,8 +8,8 @@ var libs = [
     'bower_components/EaselJS/lib/easeljs-0.8.0.min.js',
     'bower_components/TweenJS/lib/tweenjs-0.6.0.min.js',
     'bower_components/EaselJS/lib/movieclip-0.8.0.min.js',
-    'bower_components/PreloadJS/lib/preloadjs-0.6.0.min.js',
-    'bower_components/SoundJS/lib/soundjs-0.6.0.min.js'
+    'bower_components/webfontloader/webfontloader.js',
+    'bower_components/shake.js/shake.js'
 ];
 
 gulp.task('js:lib', function() {
@@ -19,14 +19,15 @@ gulp.task('js:lib', function() {
 });
 
 gulp.task('js', function() {
-    return gulp.src(['./index.js'])
+    return gulp.src(['./public/src/*'])
+        .pipe(concat('yglf.js'))
         .pipe(gulp.dest('./public'))
         .pipe(livereload());
 });
 
 gulp.task('watch', function() {
     livereload.listen();
-    gulp.watch('./index.js', ['js']);
+    gulp.watch('./public/src/*', ['js']);
 });
 
 // SERVER
@@ -40,4 +41,4 @@ gulp.task('server', function() {
         });
 });
 
-gulp.task('default', ['js:lib', 'server']);
+gulp.task('default', ['js:lib', 'js', 'server', 'watch']);

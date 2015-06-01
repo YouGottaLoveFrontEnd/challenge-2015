@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Challenge</title>
-	<link rel="stylesheet" href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
-  media="all">
-	<link rel="stylesheet" href="index.css">
+  <title>YGLF Challenge: Selfies!</title>
+  <link rel="stylesheet"
+        href="http://use.typekit.net/c/378ea6/1w;futura-pt,2,SHB:R:n3,Y5K:R:n4,SH3:R:n5/d?3bb2a6e53c9684ffdc9a9bf1135b2a62ecbeaca761fbe87f15aec123ab5093d026e6e1bb0d00ffc19956aac399f687d37207ff0330bc849d7519f782e5795707e78fd4f92779514ac98f3c769303b71fbde8f0e29e96fabb2e7f3a73d1d2b97547169569af50e8d45aedbf371b103c11b2f7d0e1a043a9713c753390cb87e51662e4ec3f0bc59e3604c2407428380fa1ca58d18f5feee2373fd24b8a287646038c5b62c26fa4a434f83e10a9b7b2c4fbcc86eb"
+        media="all">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<div class="logo">
-		You
-		<br>gotta
-		<br>love
-		<br>frontend
-	</div>
+<div class="container">
+  <figure class="logo">
+    <div class="captured animated">
+      <div class="photo-frame">
+        <div class="tools">
+          <button class="btn close"></button>
+          <button class="btn download"></button>
+        </div>
+        <canvas id="captureCanvas"></canvas>
+      </div>
+    </div>
+    <video autoplay></video>
+    <div class="frame animated zoomIn"></div>
+    <div class="caption"></div>
+    <div class="messages top"></div>
+    <div class="messages bottom"></div>
+    <div class="tools">
+      <button class="btn switch-camera"></button>
+      <button class="btn toggle-filter"></button>
+      <button class="btn capture"></button>
+    </div>
+  </figure>
+</div>
+
+<div id="filtersContainer" class="hidden"></div>
+
+<div class="credits">Created by <a href="http://www.eyalw.co.il">Eyal Weiss</a> for the <a href="https://github.com/YouGottaLoveFrontEnd/challenge">YGLF Challenge</a></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery.min.js"><\/script>')</script>
+<script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>

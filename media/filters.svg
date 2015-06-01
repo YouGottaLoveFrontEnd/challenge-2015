@@ -1,0 +1,56 @@
+<svg id="filters" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="yglf1">
+      <feComponentTransfer in="SourceGraphic" result="lighten">
+        <feFuncR type="linear" slope="3"/>
+        <feFuncG type="linear" slope="3"/>
+        <feFuncB type="linear" slope="3"/>
+      </feComponentTransfer>
+
+      <feGaussianBlur stdDeviation="1.05" in="lighten" result="blurred"/>
+
+      <feComponentTransfer in="blurred" result="posterized">
+        <feFuncR type="discrete" tableValues="0 .25 .5 .75 1"/>
+        <feFuncG type="discrete" tableValues="0 .5 .75 1"/>
+        <feFuncB type="discrete" tableValues="0"/>
+      </feComponentTransfer>
+
+      <feColorMatrix in="contrasted" result="grayscaled" type="matrix"
+                     values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+
+      <feComponentTransfer in="grayscaled" result="gradientMapped">
+        <feFuncR type="table" tableValues="0 0 0 0.125 1"/>
+        <feFuncG type="table" tableValues="0.02 0.243 0.42 0.812 1"/>
+        <feFuncB type="table" tableValues="0.042 0.478 0.749 0.62 1"/>
+      </feComponentTransfer>
+
+      <feImage xlink:href="media/grad.svg" result="grad"/>
+      <feBlend in="gradientMapped" in2="grad" mode="darken"/>
+    </filter>
+    <filter id="yglf2">
+      <feComponentTransfer in="SourceGraphic" result="lighten">
+        <feFuncR type="linear" slope="4"/>
+        <feFuncG type="linear" slope="4"/>
+        <feFuncB type="linear" slope="4"/>
+      </feComponentTransfer>
+
+      <feComponentTransfer in="lighten" result="contrasted">
+        <feFuncR type="linear" slope="2" intercept="-0.5"/>
+        <feFuncG type="linear" slope="2" intercept="-0.5"/>
+        <feFuncB type="linear" slope="2" intercept="-0.5"/>
+      </feComponentTransfer>
+
+      <feColorMatrix in="contrasted" result="grayscaled" type="matrix"
+                     values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+
+      <feComponentTransfer in="grayscaled" result="gradientMapped">
+        <feFuncR type="table" tableValues="0 0 0 0.125 1"/>
+        <feFuncG type="table" tableValues="0.02 0.243 0.42 0.812 1"/>
+        <feFuncB type="table" tableValues="0.042 0.478 0.749 0.62 1"/>
+      </feComponentTransfer>
+
+      <feImage xlink:href="media/grad.svg" result="grad"/>
+      <feBlend in="gradientMapped" in2="grad" mode="darken"/>
+    </filter>
+  </defs>
+</svg>

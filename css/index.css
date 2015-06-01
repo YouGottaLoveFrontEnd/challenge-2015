@@ -2906,7 +2906,7 @@ body {
   top: 50%;
   margin-left: -400px;
   margin-top: -300px;
-  background: #00aca4 url(/media/grad.svg) no-repeat;
+  background: #00aca4 url(../media/grad.svg) no-repeat;
   background-size: cover;
 }
 .logo video {
@@ -3033,19 +3033,19 @@ body {
   -webkit-transform: scale(0.95);
 }
 .logo .btn.switch-camera {
-  background-image: url(/media/switch-camera.svg);
+  background-image: url(../media/switch-camera.svg);
 }
 .logo .btn.toggle-filter {
-  background-image: url(/media/toggle-filter.svg);
+  background-image: url(../media/toggle-filter.svg);
 }
 .logo .btn.capture {
-  background-image: url(/media/capture.svg);
+  background-image: url(../media/capture.svg);
 }
 .logo .btn.close {
-  background-image: url(/media/close.svg);
+  background-image: url(../media/close.svg);
 }
 .logo .btn.download {
-  background-image: url(/media/download.svg);
+  background-image: url(../media/download.svg);
 }
 .logo .tools {
   position: absolute;

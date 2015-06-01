@@ -196,8 +196,8 @@
     if (!window.chrome) {
       notify('Please run this on Chrome', $('.messages.top'));
     }
-    $('#filtersContainer').load('/media/filters.svg', function () {
-      $('.caption').load('/media/caption.svg', drawLogo);
+    $('#filtersContainer').load('media/filters.svg', function () {
+      $('.caption').load('media/caption.svg', drawLogo);
       initCamera();
     });
 

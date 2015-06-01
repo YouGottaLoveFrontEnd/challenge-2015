@@ -436,7 +436,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url("../../images/1.jpg") no-repeat center center;
+  background: url("../images/background.jpg") no-repeat center center;
   background-size: cover;
   overflow: hidden;
 }
@@ -792,7 +792,7 @@ body {
   transform-origin: 50% 50%;
   height: 120%;
   width: 120%;
-  background: url("../../images/1.jpg") no-repeat center center;
+  background: url("../images/background.jpg") no-repeat center center;
   background-size: cover;
   display: block;
   opacity: 1;

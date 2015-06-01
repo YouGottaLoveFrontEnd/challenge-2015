@@ -936,7 +936,7 @@ body {
   }
 
   .credit-box {
-    font-size: 130%;
+    font-size: 120%;
   }
 
   #scene-blur-layer,
@@ -972,6 +972,10 @@ body {
 
   .title {
     padding-left: 40px;
+  }
+
+  .credit-box {
+    font-size: 220%;
   }
 
   .logo {

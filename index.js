@@ -58,7 +58,7 @@ $(document).on('ready', function () {
         if (e.keyCode == 37) _moveSpaceShip(-1);
         if (e.keyCode == 39) _moveSpaceShip(1);
         if (e.keyCode && keyMaps[e.keyCode])
-            TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.4, { 'background-color': 'rgba(0, 208, 157,1)' }, { 'background-color': 'rgba(255, 255, 255, 0.8)' }, 0);
+            TweenMax.staggerFromTo($keys.eq(keyMaps[e.keyCode] - 1), 0.6, { 'background-color': '#3d9882' }, { 'background-color': 'rgba(255, 255, 255, 0.6)' }, 0);
     });
 
     $doc.on('keyup', function (e) { clearTimeout(_spaceShipTimeout); _spaceShipTimeout = null });
@@ -116,25 +116,27 @@ $(document).on('ready', function () {
         $letter = null;
     }
 
+    var _prevRandom = false;
     var _dropLetter = function () {
         if (_checkForWin()) return;
         if ($letter) {
             if (!letterTimeout) _callDropLetter();
             return;
         }
-        if (Random() > 75) {
+
+        _prevRandom = (Random() > 90) && !_prevRandom;
+
+        if (_prevRandom)
             currentLetter = $('<span/>').text(wrongLetters[Math.floor(Random(0, 4))]);
-        } else {
+        else
             currentLetter = $letters.not('.active').random();
-        }
+
         $letter = $('<div/>').addClass('letter').appendTo('body');
         setTimeout(function () {
             letterPos = Random();
             $letter.css({ 'background-image': 'url(letter/' + currentLetter.text().toLowerCase() + '.png)', 'bottom': 0, 'left': letterPos + '%', 'margin-left': (letterPos > 50 ? -1 : 1) * 50 });
             if (letterPos > 50) $letter.addClass('left');
-            letterClearTimeout = setTimeout(function () {
-                if ($letter) _callDropLetter();
-            }, 3001);
+            letterClearTimeout = setTimeout(function () { if ($letter) _callDropLetter(); }, 3001);
         }, 50);
 
     }

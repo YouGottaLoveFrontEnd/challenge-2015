@@ -15,12 +15,12 @@ Download YGLF wallpapers (1980x1200):
 https://www.dropbox.com/s/4043w4ieyed2wbq/wallpapers.zip?dl=0
 
 ## Credits
-Parallax slider: https://github.com/Prinzhorn/skrollr
+Parallax slider: https://goo.gl/OQVwR
 
-Page load progress bar: http://github.hubspot.com/pace/docs/welcome
+Page load progress bar: http://goo.gl/zusHU8
 
-Real shadow: https://github.com/Indamix/real-shadow
+Real shadow: http://goo.gl/zusHU8
 
-Image Tilt Effect: http://tympanus.net/codrops/2015/05/28/image-tilt-effect/
+Image Tilt Effect: http://goo.gl/FHvNb6
 
-Animated Title inspired by: http://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/
+Animated Title inspired by: http://goo.gl/du7Hmi

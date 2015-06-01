@@ -935,6 +935,8 @@ body {
     padding-left: 50px;
   }
 
+  #scene-blur-layer,
+  .enter_fullscreen,
   .item-pen,
   .item-book,
   .item-case,
@@ -982,6 +984,7 @@ body {
     right: -30px;
   }
 
+  #scene-blur-layer,
   .item-flowerpot,
   .item-cup,
   .item-box,

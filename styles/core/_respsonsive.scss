@@ -33,6 +33,8 @@
 		padding-left: $tablet_behavior_before_padding-left;
 	}
 
+	#scene-blur-layer,
+	.enter_fullscreen,
 	.item-pen,
 	.item-book,
 	.item-case,
@@ -78,6 +80,7 @@
 		right: $mobile_position_right;
 	}
 
+	#scene-blur-layer,
 	.item-flowerpot,
 	.item-cup,
 	.item-box,

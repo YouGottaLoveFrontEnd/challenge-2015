@@ -1,9 +1,5 @@
-# YGLF Coding Challenge
-
-> TL;DR
-> Create awesome stuff and win an Apple Macbook Pro.
-
-![frame](/frame.png)
+# YGLF Coding Challenge: You Gotta Love Selfies!
+![Screenshot](/screenshot.png)
 
 ## Overview
 Transition into the YGLF logo.

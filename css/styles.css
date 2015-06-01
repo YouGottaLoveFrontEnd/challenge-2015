@@ -930,9 +930,17 @@ body {
     padding-left: 50px;
   }
 
+  .subtitle-frontend {
+    font-size: 25px;
+  }
+
   #scene-behavior:before {
     margin-top: 11px;
     padding-left: 50px;
+  }
+
+  .yglf-box {
+    font-size: 180%;
   }
 
   .credit-box {
@@ -966,12 +974,20 @@ body {
     font-size: 30%;
   }
 
+  #scroll-down-hint {
+    bottom: 250px;
+  }
+
   #scene-behavior:before {
     padding-left: 35px;
   }
 
   .title {
     padding-left: 40px;
+  }
+
+  .yglf-box {
+    font-size: 310%;
   }
 
   .credit-box {

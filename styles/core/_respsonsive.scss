@@ -28,9 +28,17 @@
 		padding-left: $tablet_title_padding-left;
 	}
 
+	.subtitle-frontend {
+		font-size: $tablet_subtitle-frontend_font_size;
+	}
+
 	#scene-behavior:before {
 		margin-top: $tablet_behavior_before_margin-top;
 		padding-left: $tablet_behavior_before_padding-left;
+	}
+
+	.yglf-box {
+		font-size: 180%;
 	}
 
 	.credit-box {
@@ -66,12 +74,20 @@
 		font-size: $mobile_body_font-size;
 	}
 
+	#scroll-down-hint {
+		bottom: $mobile_scroll_hint_position_bottom;
+	}
+
 	#scene-behavior:before {
 		padding-left: $mobile_behavior_before_padding-left;
 	}
 
 	.title {
 		padding-left: $mobile_title_padding-left;
+	}
+
+	.yglf-box {
+		font-size: 310%;
 	}
 
 	.credit-box {

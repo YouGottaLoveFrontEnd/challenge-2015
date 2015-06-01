@@ -1,0 +1,287 @@
+@start-color: #fff;
+@blue: #0961c5;
+@green: #00d09d;
+body {
+    position: relative;
+    background-color: #ddd;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+
+.wrapper {
+    font-family: 'Arial' !important;
+    text-transform: uppercase;
+    position: relative;
+    width: 613px;
+    height: 448px;
+    display: block;
+    font-size: 30px;
+    top: 100px;
+    margin: auto;
+    letter-spacing: 15px;
+    div {
+        position: absolute !important;
+        left: 60px;
+        &:nth-child(1) {
+            top: 60px;
+        }
+        &:nth-child(2) {
+            top: 130px;
+        }
+        &:nth-child(3) {
+            top: 220px;
+        }
+        &:nth-child(4) {
+            top: 290px;
+        }
+    }
+}
+
+.background {
+    border: solid 7px #fff;
+    background: linear-gradient(rgb(9, 97, 197), rgb(0, 208, 157), rgb(0, 208, 157)) no-repeat;
+}
+
+.link {
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'Arial';
+    position: relative;
+    font-size: 50px;
+    line-height: 1;
+    color: @start-color;
+    display: inline-block;
+}
+/* Yaku - You */
+
+.link--yaku {
+    color: @start-color;
+    overflow: hidden;
+    padding: 0 0 10px;
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-width: 2px 0;
+        border-color: #282828;
+        border-style: solid;
+        left: 0;
+        -webkit-transform: translate3d(-101%, 0, 0);
+        transform: translate3d(-101%, 0, 0);
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+    }
+    &:hover::before,
+    &.active::before {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    span {
+        display: inline-block;
+        position: relative;
+        -webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+        -webkit-transition: -webkit-transform 0.5s, color 0.5s;
+        transition: transform 0.5s, color 0.5s;
+        &:nth-child(3) {
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+        &:nth-child(2) {
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+        &:nth-child(1) {
+            -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+        }
+    }
+    &:hover,
+    &.active {
+        span {
+            color: #1e1a1b;
+            -webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 360deg);
+            transform: perspective(1000px) rotate3d(0, 1, 0, 360deg);
+            &:nth-child(1) {
+                -webkit-transition-delay: 0s;
+                transition-delay: 0s;
+            }
+            &:nth-child(2) {
+                -webkit-transition-delay: 0.1s;
+                transition-delay: 0.1s;
+            }
+            &:nth-child(3) {
+                -webkit-transition-delay: 0.2s;
+                transition-delay: 0.2s;
+            }
+        }
+    }
+}
+
+/* Nukun - Gotta */
+
+.link--nukun {
+    color: @start-color;
+    font-weight: normal;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 10px 0;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    span {
+        color: @start-color;
+        display: inline-block;
+        position: relative;
+        -webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+        -webkit-transition: -webkit-transform 0.5s, color 0.5s;
+        transition: transform 0.5s, color 0.5s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    &:hover,
+    &.active {
+        color: #1e1a1b;
+    }
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 30%;
+        height: 5px;
+        background: @green;
+        bottom: 0;
+        left: 35%;
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    &::after {
+        background: #6C7A89;
+        -webkit-transform: translate3d(-300%, 0, 0) scale3d(0, 1, 1);
+        transform: translate3d(-300%, 0, 0) scale3d(0, 1, 1);
+    }
+    &:hover,
+    &.active {
+        &::before {
+            -webkit-transform: translate3d(300%, 0, 0) scale3d(0, 1, 1);
+            transform: translate3d(300%, 0, 0) scale3d(0, 1, 1);
+        }
+        &::after {
+            -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        }
+        span {
+            color: #fff;
+            -webkit-transform: perspective(1000px) rotate3d(0, 1, 0, 180deg);
+            transform: perspective(1000px) rotate3d(0, 1, 0, 180deg);
+            left: -13px;
+        }
+    }
+}
+
+/* Ilin  - LOVE */
+
+.link--ilin {
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 0.8;
+    overflow: hidden;
+    color: @start-color;
+}
+
+.link--ilin span {
+    position: relative;
+    display: inline-block;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
+.link--ilin:hover span:first-of-type,
+.link--ilin.active span:first-of-type {
+    color: #fff;
+}
+
+.link--ilin:hover span:last-of-type,
+.link--ilin.active span:last-of-type {
+    color: #1e1a1b;
+}
+
+.link--ilin span::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    line-height: 0.8;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+}
+
+.link--ilin span:last-of-type::before {
+    background: #1e1a1b;
+}
+
+.link--ilin:hover span:last-of-type::before,
+.link--ilin.active span:last-of-type::before,
+.link--ilin span:first-of-type::before {
+    -webkit-transform: translate3d(0, -150%, 0);
+    transform: translate3d(0, -150%, 0);
+}
+
+.link--ilin:hover span:first-of-type::before,
+.link--ilin.active span:first-of-type::before,
+.link--ilin span:last-of-type::before {
+    -webkit-transform: translate3d(0, 150%, 0);
+    transform: translate3d(0, 150%, 0);
+}
+
+/* Kukuri -FRONTEND */
+
+.link--kukuri {
+    font-weight: normal;
+    overflow: hidden;
+    line-height: 1;
+    color: @start-color;
+    &:hover, &.active {
+        color: #c5c2b8;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        height: 16px;
+        width: 100%;
+        top: 50%;
+        margin-top: -8px;
+        right: 0;
+        background: #F9F9F9;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transition: -webkit-transform 0.4s;
+        transition: transform 0.4s;
+        -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    }
+    &:hover::after, &.active::after {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    &::before {
+        content: attr(data-letters);
+        position: absolute;
+        z-index: 2;
+        overflow: hidden;
+        color: #424242;
+        white-space: nowrap;
+        width: 0%;
+        -webkit-transition: width 0.4s 0.3s;
+        transition: width 0.4s 0.3s;
+    }
+    &:hover::before, &.active::before {
+        width: 100%;
+    }
+}

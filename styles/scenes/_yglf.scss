@@ -91,9 +91,9 @@
 		@extend %item;
 		@include position(absolute, $item_book_open_position-top $item_book_open_position-right $item_book_open_position-bottom $item_book_open_position-left);
 		@include size(487px 407px);
+		animation: $float_up_15;
 		background-position:-341px -3492px;
 		z-index: $item_book_open_layer;
-		animation: floating_slow 16s ease-in-out both infinite;
 	}
 
 	.item-chrome {
@@ -101,81 +101,81 @@
 		@include position(absolute, $item_chrome_position-top $item_chrome_position-right $item_chrome_position-bottom $item_chrome_position-left);
 		@include filter(drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3)));
 		@include size(135px 139px);
+		animation: $float_down_10;
 		background-position:-744px -1934px;
 		z-index: $item_chrome_layer;
-		animation: floating 8s ease-in-out both infinite;
 	}
 
 	.item-css {
 		@extend %item;
 		@include position(absolute, $item_css_position-top $item_css_position-right $item_css_position-bottom $item_css_position-left);
 		@include size(101px 131px);
+		animation: $float_down_5;
 		background-position:-734px -3920px;
 		z-index: $item_css_layer;
-		animation: floating 4s ease-in-out both infinite;
 	}
 
 	.item-js {
 		@extend %item;
 		@include position(absolute, $item_js_position-top $item_js_position-right $item_js_position-bottom $item_js_position-left);
 		@include size(179px 192px);
+		animation: $float_up_5;
 		background-position:-419px -4941px;
 		z-index: $item_js_layer;
-		animation: floating_slow 5s ease-in-out both infinite;
 	}
 
 	.item-html {
 		@extend %item;
 		@include position(absolute, $item_html_position-top $item_html_position-right $item_html_position-bottom $item_html_position-left);
 		@include size(169px 214px);
+		animation: $float_down_10;
 		background-position:-713px -4641px;
 		z-index: $item_html_layer;
-		animation: floating 8s ease-in-out both infinite;
 	}
 
 	.item-drupal {
 		@extend %item;
 		@include position(absolute, $item_drupal_position-top $item_drupal_position-right $item_drupal_position-bottom $item_drupal_position-left);
 		@include size(74px 86px);
+		animation: $float_up_5;
 		background-position:-408px -5151px;
 		z-index: $item_drupal_layer;
-		animation: floating_slow 5s ease-in-out both infinite;
 	}
 
 	.item-frame {
 		@extend %item;
 		@include position(absolute, $item_frame_position-top $item_frame_position-right $item_frame_position-bottom $item_frame_position-left);
 		@include size(427px 621px);
+		animation: $float_down_10;
 		background-position:0 -1313px;
 		z-index: $item_frame_layer;
-		animation: floating 10s ease-in-out both infinite;
 	}
 
 	.item-imac-blur {
 		@extend %item;
 		@include position(absolute, $item_imac-blur_position-top $item_imac-blur_position-right $item_imac-blur_position-bottom $item_imac-blur_position-left);
 		@include size(888px 534px);
+		animation: $float_down_15;
 		background-position:0 -2519px;
 		z-index: $item_imac-blur_layer;
-		animation: floating 15s ease-in-out both infinite;
 	}
 
 	.item-stone-regular {
 		@extend %item;
 		@include position(absolute, $item_stone-regular_position-top $item_stone-regular_position-right $item_stone-regular_position-bottom $item_stone-regular_position-left);
 		@include size(44px 51px);
+		animation: $float_up_20;
 		background-position:-836px -666px;
 		z-index: $item_stone-regular_layer;
-		animation: floating_slow 20s ease-in-out both infinite;
 	}
 
 	.item-stone-float-right {
 		@extend %item;
 		@include position(absolute, $item_stone-float-right_position-top $item_stone-float-right_position-right $item_stone-float-right_position-bottom $item_stone-float-right_position-left);
 		@include size(13px 24px);
+		animation: $float_down_10;
 		background-position:-874px 0;
 		z-index: $item_stone-float-right_layer;
-		animation: floating 8s ease-in-out both infinite;
 	}
 
 }

@@ -399,7 +399,7 @@ body {
 /*********************************************************/
 /*** Float Animations ************************************/
 /*********************************************************/
-@-webkit-keyframes floating {
+@-webkit-keyframes floating_down {
   from {
     -webkit-transform: translate(0, 0px);
   }
@@ -410,12 +410,12 @@ body {
     -webkit-transform: translate(0, 0px);
   }
 }
-@keyframes floating_slow {
+@keyframes floating_up {
   from {
     -webkit-transform: translate(0, 0px);
   }
   65% {
-    -webkit-transform: translate(0, 30px);
+    -webkit-transform: translate(0, -15px);
   }
   to {
     -webkit-transform: translate(0, 0px);
@@ -514,6 +514,7 @@ body {
   right: 120px;
   height: 134px;
   width: 408px;
+  animation: floating_up 10s ease-in-out both infinite;
   background-position: 0 -5151px;
   z-index: 104;
 }
@@ -534,6 +535,7 @@ body {
   filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
   height: 666px;
   width: 802px;
+  animation: floating_down 20s ease-in-out both infinite;
   background-position: 0 0;
   z-index: 100;
 }
@@ -543,6 +545,7 @@ body {
   bottom: 0;
   height: 268px;
   width: 299px;
+  animation: floating_down 5s ease-in-out both infinite;
   background-position: -414px -4641px;
   z-index: 104;
 }
@@ -589,6 +592,7 @@ body {
   filter: drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5));
   height: 107px;
   width: 72px;
+  animation: floating_up 5s ease-in-out both infinite;
   background-position: -802px 0;
   z-index: 100;
 }
@@ -598,6 +602,7 @@ body {
   bottom: 0;
   height: 439px;
   width: 732px;
+  animation: floating_down 10s ease-in-out both infinite;
   background-position: 0 -3053px;
   z-index: 104;
 }
@@ -609,6 +614,7 @@ body {
   filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
   height: 585px;
   width: 744px;
+  animation: floating_down 20s ease-in-out both infinite;
   background-position: 0 -1934px;
   z-index: 102;
 }
@@ -650,6 +656,7 @@ body {
   filter: drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3));
   height: 647px;
   width: 836px;
+  animation: floating_down 15s ease-in-out both infinite;
   background-position: 0 -666px;
   z-index: 100;
 }
@@ -688,6 +695,7 @@ body {
   filter: drop-shadow(22px 32px 17px rgba(0, 0, 0, 0.5));
   height: 90px;
   width: 132px;
+  animation: floating_up 20s ease-in-out both infinite;
   background-position: -748px -4312px;
   z-index: 103;
 }
@@ -697,15 +705,17 @@ body {
   right: 0;
   height: 194px;
   width: 150px;
+  animation: floating_up 5s ease-in-out both infinite;
   background-position: -732px -3053px;
   z-index: 100;
 }
 #scene-behavior .item-stone-medium {
   position: absolute;
-  top: 40px;
-  right: 250px;
+  top: 30px;
+  right: 400px;
   height: 64px;
   width: 64px;
+  animation: floating_down 5s ease-in-out both infinite;
   background-position: -482px -5151px;
   z-index: 100;
 }
@@ -808,9 +818,9 @@ body {
   left: 70px;
   height: 407px;
   width: 487px;
+  animation: floating_up 15s ease-in-out both infinite;
   background-position: -341px -3492px;
   z-index: 100;
-  animation: floating_slow 16s ease-in-out both infinite;
 }
 #scene-yglf .item-chrome {
   position: absolute;
@@ -820,9 +830,9 @@ body {
   filter: drop-shadow(0px 22px 8px rgba(0, 0, 0, 0.3));
   height: 139px;
   width: 135px;
+  animation: floating_down 10s ease-in-out both infinite;
   background-position: -744px -1934px;
   z-index: 101;
-  animation: floating 8s ease-in-out both infinite;
 }
 #scene-yglf .item-css {
   position: absolute;
@@ -830,9 +840,9 @@ body {
   left: 422px;
   height: 131px;
   width: 101px;
+  animation: floating_down 5s ease-in-out both infinite;
   background-position: -734px -3920px;
   z-index: 101;
-  animation: floating 4s ease-in-out both infinite;
 }
 #scene-yglf .item-js {
   position: absolute;
@@ -840,9 +850,9 @@ body {
   left: 120px;
   height: 192px;
   width: 179px;
+  animation: floating_up 5s ease-in-out both infinite;
   background-position: -419px -4941px;
   z-index: 103;
-  animation: floating_slow 5s ease-in-out both infinite;
 }
 #scene-yglf .item-html {
   position: absolute;
@@ -850,9 +860,9 @@ body {
   left: 428px;
   height: 214px;
   width: 169px;
+  animation: floating_down 10s ease-in-out both infinite;
   background-position: -713px -4641px;
   z-index: 100;
-  animation: floating 8s ease-in-out both infinite;
 }
 #scene-yglf .item-drupal {
   position: absolute;
@@ -860,9 +870,9 @@ body {
   left: 220px;
   height: 86px;
   width: 74px;
+  animation: floating_up 5s ease-in-out both infinite;
   background-position: -408px -5151px;
   z-index: 100;
-  animation: floating_slow 5s ease-in-out both infinite;
 }
 #scene-yglf .item-frame {
   position: absolute;
@@ -870,9 +880,9 @@ body {
   left: 160px;
   height: 621px;
   width: 427px;
+  animation: floating_down 10s ease-in-out both infinite;
   background-position: 0 -1313px;
   z-index: 100;
-  animation: floating 10s ease-in-out both infinite;
 }
 #scene-yglf .item-imac-blur {
   position: absolute;
@@ -880,9 +890,9 @@ body {
   bottom: 0;
   height: 534px;
   width: 888px;
+  animation: floating_down 15s ease-in-out both infinite;
   background-position: 0 -2519px;
   z-index: 99;
-  animation: floating 15s ease-in-out both infinite;
 }
 #scene-yglf .item-stone-regular {
   position: absolute;
@@ -890,9 +900,9 @@ body {
   left: 490px;
   height: 51px;
   width: 44px;
+  animation: floating_up 20s ease-in-out both infinite;
   background-position: -836px -666px;
   z-index: 100;
-  animation: floating_slow 20s ease-in-out both infinite;
 }
 #scene-yglf .item-stone-float-right {
   position: absolute;
@@ -900,9 +910,9 @@ body {
   right: 0;
   height: 24px;
   width: 13px;
+  animation: floating_down 10s ease-in-out both infinite;
   background-position: -874px 0;
   z-index: 101;
-  animation: floating 8s ease-in-out both infinite;
 }
 
 /*********************************************************/

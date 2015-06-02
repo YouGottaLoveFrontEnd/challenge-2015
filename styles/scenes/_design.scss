@@ -27,6 +27,7 @@
 		@include position(absolute, $item_brush_white_position-top $item_brush_white_position-right $item_brush_white_position-bottom $item_brush_white_position-left);
 		@include filter(drop-shadow(12px 22px 13px rgba(0, 0, 0, 0.5)));
 		@include size(72px 107px);
+		animation: $float_up_5;
 		background-position: -802px 0;
 		z-index: $item_box_layer;
 	}
@@ -35,6 +36,7 @@
 		@extend %item;
 		@include position(absolute, $item_brush_black_position-top $item_brush_black_position-right $item_brush_black_position-bottom $item_brush_black_position-left);
 		@include size(732px 439px);
+		animation: $float_down_10;
 		background-position: 0 -3053px;
 		z-index: $item_brush_black_layer;
 	}
@@ -44,6 +46,7 @@
 		@include position(absolute, $item_palette_position-top $item_palette_position-right $item_palette_position-bottom $item_palette_position-left);
 		@include filter(drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3)));
 		@include size(744px 585px);
+		animation: $float_down_20;
 		background-position: 0 -1934px;
 		z-index: $item_palette_layer;
 	}

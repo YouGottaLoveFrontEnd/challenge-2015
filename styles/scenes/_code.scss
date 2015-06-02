@@ -10,6 +10,7 @@
 		@extend %item;
 		@include position(absolute, $item_pen_position-top $item_pen_position-right $item_pen_position-bottom $item_pen_position-left);
 		@include size(408px 134px);
+		animation: $float_up_10;
 		background-position: 0 -5151px;
 		z-index: $item_pen_layer;
 	}
@@ -27,6 +28,7 @@
 		@include position(absolute, $item_machine_position-top $item_machine_position-right $item_machine_position-bottom $item_machine_position-left);
 		@include filter(drop-shadow(12px 12px 14px rgba(0, 0, 0, 0.3)));
 		@include size(802px 666px);
+		animation: $float_down_20;
 		background-position: 0 0;
 		z-index: $item_machine_layer;
 	}
@@ -35,6 +37,7 @@
 		@extend %item;
 		@include position(absolute, $item_cup_position-top $item_cup_position-right $item_cup_position-bottom $item_cup_position-left);
 		@include size(299px 268px);
+		animation: $float_down_5;
 		background-position: -414px -4641px;
 		z-index: $item_cup_layer;
 	}

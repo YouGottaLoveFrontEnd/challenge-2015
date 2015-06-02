@@ -2,7 +2,7 @@
 /*** Float Animations ************************************/
 /*********************************************************/
 
-@-webkit-keyframes floating{
+@-webkit-keyframes floating_down {
 	from {
 		-webkit-transform:translate(0, 0px);
 	}
@@ -14,14 +14,14 @@
 	}
 }
 
-@keyframes floating_slow {
+@keyframes floating_up {
 	from {
-		-webkit-transform:translate(0, 0px);
+		-webkit-transform:translate(0, -0px);
 	}
 	65% {
-		-webkit-transform:translate(0, 30px);
+		-webkit-transform:translate(0, -15px);
 	}
 	to {
-		-webkit-transform: translate(0, -0px);
+		-webkit-transform: translate(0, 0px);
 	}
 }

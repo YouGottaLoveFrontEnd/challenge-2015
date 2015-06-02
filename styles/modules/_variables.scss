@@ -56,6 +56,9 @@ $deck_blank_font-size: 2em;
 $deck_blank_text-align: center;
 
 // ========================================================
+// *** Animations *****************************************
+// ========================================================
+
 // *** Loader *********************************************
 // ========================================================
 
@@ -63,6 +66,18 @@ $loader_color: $black;
 $loader_shadow: $black;
 $loader_border: solid 2px transparent;
 $loader_layer: 200;
+
+// *** Floating *******************************************
+// ========================================================
+
+$float_down_5: floating_down 5s ease-in-out both infinite;
+$float_down_10: floating_down 10s ease-in-out both infinite;
+$float_down_15: floating_down 15s ease-in-out both infinite;
+$float_down_20: floating_down 20s ease-in-out both infinite;
+$float_up_5: floating_up 5s ease-in-out both infinite;
+$float_up_10: floating_up 10s ease-in-out both infinite;
+$float_up_15: floating_up 15s ease-in-out both infinite;
+$float_up_20: floating_up 20s ease-in-out both infinite;
 
 // ========================================================
 // *** Titles *********************************************
@@ -245,8 +260,8 @@ $item_sharpener_position-bottom: null;
 $item_sharpener_position-left: null;
 
 $item_stone_layer: $item_layer_default;
-$item_stone_position-top: 40px;
-$item_stone_position-right: 250px;
+$item_stone_position-top: 30px;
+$item_stone_position-right: 400px;
 $item_stone_position-bottom: null;
 $item_stone_position-left: null;
 
@@ -372,7 +387,6 @@ $tablet_title_padding-left: 50px;
 $tablet_behavior_before_margin-top: 11px;
 $tablet_subtitle-frontend_font_size: 25px;
 $tablet_behavior_before_padding-left: 50px;
-
 
 // *** Mobile *********************************************
 // ========================================================

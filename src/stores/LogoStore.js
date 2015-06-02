@@ -62,7 +62,7 @@ function swap(row1, column1, row2, column2) {
 }
 
 function getNextMove() {
-    return Math.floor(Math.random() * 8) + 1;
+    return Math.floor(Math.random() * 11) + 1;
 }
 
 function scramble() {
@@ -90,6 +90,8 @@ function scramble() {
                 }
                 break;
             case MOVE_UP:
+            case 10:
+            case 12:
                 if (blankTile.row > 0 &&  moveTile({row: blankTile.row - 1, column: blankTile.column})) {
                     blankTile.row--;
                     actions.push(MOVE_DOWN);
@@ -97,6 +99,7 @@ function scramble() {
                 break;
             case MOVE_DOWN:
             case 7:
+            case 11:
                 if (blankTile.row < MAX_ROW && moveTile({row: blankTile.row + 1, column: blankTile.column})) {
                     blankTile.row++;
                     actions.push(MOVE_UP);
@@ -182,6 +185,20 @@ export default class LogoStore extends EventEmitter {
                 var move = moveTile(payload.source);
                 if (move) {
                     actions.push(move);
+                    switch (move) {
+                        case MOVE_DOWN:
+                            blankTile.row--;
+                            break;
+                        case MOVE_UP:
+                            blankTile.row++;
+                            break;
+                        case MOVE_LEFT:
+                            blankTile.column++;
+                            break;
+                        case MOVE_RIGHT:
+                            blankTile.column--;
+                            break;
+                    }
                     this.emitChange();
                 }
                 break;

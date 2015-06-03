@@ -159,22 +159,36 @@ export default class LogoStore extends EventEmitter {
         return logo;
     }
 
-    emitChange() {
-        this.emit('CHANGE');
+    emitChange(evt) {
+        if (evt) {
+            this.emit(evt);
+        } else {
+            this.emit(constants.StoreEvents.CHANGED);
+        }
     }
 
-    /**
-     * @param {function} callback
-     */
     addChangeListener(callback) {
-        this.on('CHANGE', callback);
+        this.on(constants.StoreEvents.CHANGED, callback);
     }
 
-    /**
-     * @param {function} callback
-     */
     removeChangeListener(callback) {
-        this.removeListener('CHANGE', callback);
+        this.removeListener(constants.StoreEvents.CHANGED, callback);
+    }
+
+    addOrganizeListener(callback) {
+        this.on(constants.StoreEvents.ORGANIZED, callback);
+    }
+
+    removeOrganizeListener(callback) {
+        this.removeListener(constants.StoreEvents.ORGANIZED, callback);
+    }
+
+    addScrambleListener(callback) {
+        this.on(constants.StoreEvents.SCRAMBLED, callback);
+    }
+
+    removeScrambleListener(callback) {
+        this.removeListener(constants.StoreEvents.SCRAMBLED, callback);
     }
 
     performAction(payload) {
@@ -199,23 +213,23 @@ export default class LogoStore extends EventEmitter {
                             blankTile.column--;
                             break;
                     }
-                    this.emitChange();
+                    this.emitChange(constants.StoreEvents.CHANGED);
                 }
                 break;
             case constants.Actions.SCRAMBLE:
                 scramble();
-                this.emitChange();
+                this.emitChange(constants.StoreEvents.SCRAMBLED);
                 break;
             case constants.Actions.ORGANIZE:
                 let that = this;
                 let intervalId = setInterval(function() {
                     if (actions.length > 0) {
                         organize();
-                        that.emitChange();
+                        that.emitChange(constants.StoreEvents.CHANGED);
                     } else {
                         let tile = logo[0][3];
                         tile.type = constants.TileType.LETTER;
-                        that.emitChange();
+                        that.emitChange(constants.StoreEvents.ORGANIZED);
                         clearInterval(intervalId);
                     }
                 }, 200);

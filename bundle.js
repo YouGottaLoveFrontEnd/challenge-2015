@@ -75,6 +75,10 @@
 
 	var _componentsTile2 = _interopRequireDefault(_componentsTile);
 
+	var _componentsControls = __webpack_require__(274);
+
+	var _componentsControls2 = _interopRequireDefault(_componentsControls);
+
 	var _constantsAppConstants = __webpack_require__(159);
 
 	var constants = _interopRequireWildcard(_constantsAppConstants);
@@ -125,14 +129,6 @@
 
 	dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 
-	function handleScramble() {
-	    dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
-	}
-
-	function handleOrganize() {
-	    dispatcher.handleViewAction(constants.Actions.ORGANIZE);
-	}
-
 	var Logo = (function (_React$Component) {
 	    function Logo() {
 	        _classCallCheck(this, Logo);
@@ -152,11 +148,15 @@
 	            };
 
 	            store.addChangeListener(this.adjust.bind(this));
+	            store.addOrganizeListener(this.adjust.bind(this));
+	            store.addScrambleListener(this.adjust.bind(this));
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            store.removeChangeListener(this.adjust.bind(this));
+	            store.removeOrganizeListener(this.adjust.bind(this));
+	            store.removeScrambleListener(this.adjust.bind(this));
 	        }
 	    }, {
 	        key: 'adjust',
@@ -177,7 +177,11 @@
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { key: Logo.makeKey.next().value },
-	                        letters
+	                        _react2['default'].createElement(
+	                            ReactCSSTransitionGroup,
+	                            { transitionName: 'animate' },
+	                            letters
+	                        )
 	                    )
 	                );
 	            });
@@ -188,30 +192,12 @@
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: 'div-center' },
-	                    _react2['default'].createElement(
-	                        'button',
-	                        { className: 'btn btn-default', onClick: handleScramble },
-	                        ' Scramble '
-	                    ),
-	                    _react2['default'].createElement(
-	                        'button',
-	                        { className: 'btn btn-default', onClick: handleOrganize },
-	                        ' Organize '
-	                    ),
-	                    _react2['default'].createElement(
-	                        'p',
-	                        null,
-	                        ' Or click the tiles around the blank (White) tile to move them and organize the logo yourself '
-	                    )
+	                    _react2['default'].createElement(_componentsControls2['default'], { dispatcher: dispatcher, store: store })
 	                ),
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: 'logo', key: Logo.makeKey.next().value },
-	                    _react2['default'].createElement(
-	                        ReactCSSTransitionGroup,
-	                        { transitionName: 'animate' },
-	                        tiles
-	                    )
+	                    tiles
 	                )
 	            );
 	        }
@@ -20706,7 +20692,14 @@
 	    BLANK: 1,
 	    LETTER: 2
 	};
+
 	exports.TileType = TileType;
+	var StoreEvents = {
+	    CHANGED: 1,
+	    SCRAMBLED: 2,
+	    ORGANIZED: 3
+	};
+	exports.StoreEvents = StoreEvents;
 
 /***/ },
 /* 160 */
@@ -27164,26 +27157,42 @@
 	        }
 	    }, {
 	        key: 'emitChange',
-	        value: function emitChange() {
-	            this.emit('CHANGE');
+	        value: function emitChange(evt) {
+	            if (evt) {
+	                this.emit(evt);
+	            } else {
+	                this.emit(constants.StoreEvents.CHANGED);
+	            }
 	        }
 	    }, {
 	        key: 'addChangeListener',
-
-	        /**
-	         * @param {function} callback
-	         */
 	        value: function addChangeListener(callback) {
-	            this.on('CHANGE', callback);
+	            this.on(constants.StoreEvents.CHANGED, callback);
 	        }
 	    }, {
 	        key: 'removeChangeListener',
-
-	        /**
-	         * @param {function} callback
-	         */
 	        value: function removeChangeListener(callback) {
-	            this.removeListener('CHANGE', callback);
+	            this.removeListener(constants.StoreEvents.CHANGED, callback);
+	        }
+	    }, {
+	        key: 'addOrganizeListener',
+	        value: function addOrganizeListener(callback) {
+	            this.on(constants.StoreEvents.ORGANIZED, callback);
+	        }
+	    }, {
+	        key: 'removeOrganizeListener',
+	        value: function removeOrganizeListener(callback) {
+	            this.removeListener(constants.StoreEvents.ORGANIZED, callback);
+	        }
+	    }, {
+	        key: 'addScrambleListener',
+	        value: function addScrambleListener(callback) {
+	            this.on(constants.StoreEvents.SCRAMBLED, callback);
+	        }
+	    }, {
+	        key: 'removeScrambleListener',
+	        value: function removeScrambleListener(callback) {
+	            this.removeListener(constants.StoreEvents.SCRAMBLED, callback);
 	        }
 	    }, {
 	        key: 'performAction',
@@ -27209,23 +27218,23 @@
 	                                blankTile.column--;
 	                                break;
 	                        }
-	                        this.emitChange();
+	                        this.emitChange(constants.StoreEvents.CHANGED);
 	                    }
 	                    break;
 	                case constants.Actions.SCRAMBLE:
 	                    scramble();
-	                    this.emitChange();
+	                    this.emitChange(constants.StoreEvents.SCRAMBLED);
 	                    break;
 	                case constants.Actions.ORGANIZE:
 	                    var that = this;
 	                    var intervalId = setInterval(function () {
 	                        if (actions.length > 0) {
 	                            organize();
-	                            that.emitChange();
+	                            that.emitChange(constants.StoreEvents.CHANGED);
 	                        } else {
 	                            var tile = logo[0][3];
 	                            tile.type = constants.TileType.LETTER;
-	                            that.emitChange();
+	                            that.emitChange(constants.StoreEvents.ORGANIZED);
 	                            clearInterval(intervalId);
 	                        }
 	                    }, 200);
@@ -27600,6 +27609,127 @@
 	  return arg === void 0;
 	}
 
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _constantsAppConstants = __webpack_require__(159);
+
+	var constants = _interopRequireWildcard(_constantsAppConstants);
+
+	function handleScramble() {
+	    this.props.dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
+	    this.setState({ isScramble: false });
+	}
+
+	function handleOrganize() {
+	    this.props.dispatcher.handleViewAction(constants.Actions.ORGANIZE);
+	    this.setState({ isScramble: true, disabled: true });
+	}
+
+	var Controls = (function (_React$Component) {
+	    function Controls() {
+	        _classCallCheck(this, Controls);
+
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(Controls, _React$Component);
+
+	    _createClass(Controls, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.state = {
+	                isScramble: true,
+	                disabled: false
+	            };
+	            this.props.store.addOrganizeListener(this.adjust.bind(this));
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.props.store.removeOrganizeListener(this.adjust.bind(this));
+	        }
+	    }, {
+	        key: 'adjust',
+	        value: function adjust() {
+	            this.setState({ disabled: false });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var caption;
+	            var handler;
+	            var description;
+	            if (this.state.isScramble) {
+	                caption = 'Scramble';
+	                handler = handleScramble.bind(this);
+	                description = '';
+	            } else {
+	                caption = 'Organize';
+	                handler = handleOrganize.bind(this);
+	                description = 'Or click the tiles around the blank (White) tile to move them and organize the logo yourself';
+	            }
+	            var html;
+	            if (this.state.disabled) {
+	                html = _react2['default'].createElement(
+	                    'button',
+	                    { className: 'btn btn-default', onClick: handler, disabled: 'true' },
+	                    ' ',
+	                    caption,
+	                    ' '
+	                );
+	            } else {
+	                html = _react2['default'].createElement(
+	                    'button',
+	                    { className: 'btn btn-default', onClick: handler },
+	                    ' ',
+	                    caption,
+	                    ' '
+	                );
+	            }
+	            return _react2['default'].createElement(
+	                'div',
+	                null,
+	                html,
+	                _react2['default'].createElement(
+	                    'span',
+	                    { style: { paddingLeft: 10 + 'px' } },
+	                    description,
+	                    ' '
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Controls;
+	})(_react2['default'].Component);
+
+	exports['default'] = Controls;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

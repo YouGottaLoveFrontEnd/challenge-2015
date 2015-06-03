@@ -12,3 +12,9 @@ export var TileType = {
     BLANK: 1,
     LETTER: 2
 };
+
+export var StoreEvents = {
+    CHANGED: 1,
+    SCRAMBLED: 2,
+    ORGANIZED: 3
+};

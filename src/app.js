@@ -3,6 +3,7 @@
 import * as p from 'babel-core/polyfill'
 import React from 'react';
 import Tile from './components/Tile';
+import Controls from './components/Controls';
 import * as constants from './constants/AppConstants';
 import {addons} from 'react/addons';
 import LogoStore from './stores/LogoStore';
@@ -24,14 +25,6 @@ dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
 
 dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 
-function handleScramble() {
-    dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
-}
-
-function handleOrganize() {
-    dispatcher.handleViewAction(constants.Actions.ORGANIZE);
-}
-
 class Logo extends React.Component {
     componentWillMount() {
         this.state = {
@@ -39,11 +32,15 @@ class Logo extends React.Component {
         };
 
         store.addChangeListener(this.adjust.bind(this));
+        store.addOrganizeListener(this.adjust.bind(this));
+        store.addScrambleListener(this.adjust.bind(this));
 
     }
 
     componentWillUnmount() {
         store.removeChangeListener(this.adjust.bind(this));
+        store.removeOrganizeListener(this.adjust.bind(this));
+        store.removeScrambleListener(this.adjust.bind(this));
     }
 
     adjust() {
@@ -59,7 +56,9 @@ class Logo extends React.Component {
             return (
                 <div>
                     <div key={Logo.makeKey.next().value}>
-                        {letters}
+                        <ReactCSSTransitionGroup transitionName="animate">
+                            {letters}
+                        </ReactCSSTransitionGroup>
                     </div>
                 </div>
             );
@@ -68,14 +67,10 @@ class Logo extends React.Component {
         return (
             <div>
                 <div className="div-center">
-                    <button className="btn btn-default" onClick={handleScramble} > Scramble </button>
-                    <button className="btn btn-default" onClick={handleOrganize} > Organize </button>
-                    <p> Or click the tiles around the blank (White) tile to move them and organize the logo yourself </p>
+                    <Controls dispatcher={dispatcher} store={store}/>
                 </div>
                 <div className="logo" key={Logo.makeKey.next().value}>
-                    <ReactCSSTransitionGroup transitionName="animate">
-                        {tiles}
-                    </ReactCSSTransitionGroup>
+                    {tiles}
                 </div>
             </div>
         );
@@ -85,4 +80,3 @@ class Logo extends React.Component {
 Logo.makeKey = getNextKey();
 
 React.render(<Logo />, document.getElementById('content'));
-

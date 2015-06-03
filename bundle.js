@@ -55,25 +55,21 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _babelCorePolyfill = __webpack_require__(163);
-
-	var p = _interopRequireWildcard(_babelCorePolyfill);
-
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _componentsTile = __webpack_require__(158);
+	var _componentsLogo = __webpack_require__(275);
 
-	var _componentsTile2 = _interopRequireDefault(_componentsTile);
+	var _componentsLogo2 = _interopRequireDefault(_componentsLogo);
 
 	var _componentsControls = __webpack_require__(274);
 
@@ -83,8 +79,6 @@
 
 	var constants = _interopRequireWildcard(_constantsAppConstants);
 
-	var _reactAddons = __webpack_require__(253);
-
 	var _storesLogoStore = __webpack_require__(271);
 
 	var _storesLogoStore2 = _interopRequireDefault(_storesLogoStore);
@@ -93,122 +87,40 @@
 
 	var _dispatchersAppDispatcher2 = _interopRequireDefault(_dispatchersAppDispatcher);
 
-	var getNextKey = regeneratorRuntime.mark(function getNextKey() {
-	    var id;
-	    return regeneratorRuntime.wrap(function getNextKey$(context$1$0) {
-	        while (1) switch (context$1$0.prev = context$1$0.next) {
-	            case 0:
-	                id = 0;
-
-	            case 1:
-	                if (false) {
-	                    context$1$0.next = 6;
-	                    break;
-	                }
-
-	                context$1$0.next = 4;
-	                return id++;
-
-	            case 4:
-	                context$1$0.next = 1;
-	                break;
-
-	            case 6:
-	            case 'end':
-	                return context$1$0.stop();
-	        }
-	    }, getNextKey, this);
-	});
-
 	var store = new _storesLogoStore2['default']();
 	var dispatcher = new _dispatchersAppDispatcher2['default']();
 	dispatcher.register(store.performAction.bind(store));
-
 	//Scramble to start with
 	dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
-
 	dispatcher.handleViewAction(constants.Actions.ORGANIZE);
 
-	var Logo = (function (_React$Component) {
-	    function Logo() {
-	        _classCallCheck(this, Logo);
+	var App = (function (_React$Component) {
+	    function App() {
+	        _classCallCheck(this, App);
 
 	        if (_React$Component != null) {
 	            _React$Component.apply(this, arguments);
 	        }
 	    }
 
-	    _inherits(Logo, _React$Component);
+	    _inherits(App, _React$Component);
 
-	    _createClass(Logo, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            this.state = {
-	                logo: store.getState()
-	            };
-
-	            store.addChangeListener(this.adjust.bind(this));
-	            store.addOrganizeListener(this.adjust.bind(this));
-	            store.addScrambleListener(this.adjust.bind(this));
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            store.removeChangeListener(this.adjust.bind(this));
-	            store.removeOrganizeListener(this.adjust.bind(this));
-	            store.removeScrambleListener(this.adjust.bind(this));
-	        }
-	    }, {
-	        key: 'adjust',
-	        value: function adjust() {
-	            this.setState({ logo: store.getState() });
-	        }
-	    }, {
+	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
-	            var ReactCSSTransitionGroup = _reactAddons.addons.CSSTransitionGroup;
-	            var tiles = this.state.logo.map(function (rows, rowIndex) {
-	                var letters = rows.map(function (tile, columnIndex) {
-	                    return _react2['default'].createElement(_componentsTile2['default'], { row: rowIndex, column: columnIndex, dispatcher: dispatcher, value: tile.letter, style: tile.style, key: Logo.makeKey.next().value, type: tile.type });
-	                });
-	                return _react2['default'].createElement(
-	                    'div',
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { key: Logo.makeKey.next().value },
-	                        _react2['default'].createElement(
-	                            ReactCSSTransitionGroup,
-	                            { transitionName: 'animate' },
-	                            letters
-	                        )
-	                    )
-	                );
-	            });
-
 	            return _react2['default'].createElement(
 	                'div',
 	                null,
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'div-center' },
-	                    _react2['default'].createElement(_componentsControls2['default'], { dispatcher: dispatcher, store: store })
-	                ),
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'logo', key: Logo.makeKey.next().value },
-	                    tiles
-	                )
+	                _react2['default'].createElement(_componentsControls2['default'], { dispatcher: dispatcher, store: store }),
+	                _react2['default'].createElement(_componentsLogo2['default'], { dispatcher: dispatcher, store: store })
 	            );
 	        }
 	    }]);
 
-	    return Logo;
+	    return App;
 	})(_react2['default'].Component);
 
-	Logo.makeKey = getNextKey();
-
-	_react2['default'].render(_react2['default'].createElement(Logo, null), document.getElementById('content'));
+	_react2['default'].render(_react2['default'].createElement(App, null), document.getElementById('content'));
 
 /***/ },
 /* 2 */
@@ -27729,6 +27641,149 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Controls;
+	module.exports = exports['default'];
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _babelCorePolyfill = __webpack_require__(163);
+
+	var p = _interopRequireWildcard(_babelCorePolyfill);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsTile = __webpack_require__(158);
+
+	var _componentsTile2 = _interopRequireDefault(_componentsTile);
+
+	var _constantsAppConstants = __webpack_require__(159);
+
+	var constants = _interopRequireWildcard(_constantsAppConstants);
+
+	var _reactAddons = __webpack_require__(253);
+
+	var getNextKey = regeneratorRuntime.mark(function getNextKey() {
+	    var id;
+	    return regeneratorRuntime.wrap(function getNextKey$(context$1$0) {
+	        while (1) switch (context$1$0.prev = context$1$0.next) {
+	            case 0:
+	                id = 0;
+
+	            case 1:
+	                if (false) {
+	                    context$1$0.next = 6;
+	                    break;
+	                }
+
+	                context$1$0.next = 4;
+	                return id++;
+
+	            case 4:
+	                context$1$0.next = 1;
+	                break;
+
+	            case 6:
+	            case 'end':
+	                return context$1$0.stop();
+	        }
+	    }, getNextKey, this);
+	});
+
+	var Logo = (function (_React$Component) {
+	    function Logo() {
+	        _classCallCheck(this, Logo);
+
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(Logo, _React$Component);
+
+	    _createClass(Logo, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.state = {
+	                logo: this.props.store.getState()
+	            };
+
+	            this.props.store.addChangeListener(this.adjust.bind(this));
+	            this.props.store.addOrganizeListener(this.adjust.bind(this));
+	            this.props.store.addScrambleListener(this.adjust.bind(this));
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.props.store.removeChangeListener(this.adjust.bind(this));
+	            this.props.store.removeOrganizeListener(this.adjust.bind(this));
+	            this.props.store.removeScrambleListener(this.adjust.bind(this));
+	        }
+	    }, {
+	        key: 'adjust',
+	        value: function adjust() {
+	            this.setState({ logo: this.props.store.getState() });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var that = this;
+	            var ReactCSSTransitionGroup = _reactAddons.addons.CSSTransitionGroup;
+	            var tiles = this.state.logo.map(function (rows, rowIndex) {
+	                var letters = rows.map(function (tile, columnIndex) {
+	                    return _react2['default'].createElement(_componentsTile2['default'], { row: rowIndex, column: columnIndex, dispatcher: that.props.dispatcher, value: tile.letter, style: tile.style, key: Logo.makeKey.next().value, type: tile.type });
+	                });
+	                return _react2['default'].createElement(
+	                    'div',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { key: Logo.makeKey.next().value },
+	                        _react2['default'].createElement(
+	                            ReactCSSTransitionGroup,
+	                            { transitionName: 'animate' },
+	                            letters
+	                        )
+	                    )
+	                );
+	            });
+
+	            return _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'logo', key: Logo.makeKey.next().value },
+	                    tiles
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Logo;
+	})(_react2['default'].Component);
+
+	exports['default'] = Logo;
+
+	Logo.makeKey = getNextKey();
 	module.exports = exports['default'];
 
 /***/ }

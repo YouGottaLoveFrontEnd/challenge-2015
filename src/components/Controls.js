@@ -15,7 +15,7 @@ export default class Controls extends React.Component {
     componentWillMount() {
         this.state = {
             isScramble: true,
-            disabled: false
+            disabled: true
         };
         this.props.store.addOrganizeListener(this.adjust.bind(this));
 

@@ -87,9 +87,8 @@
 
 	var _dispatchersAppDispatcher2 = _interopRequireDefault(_dispatchersAppDispatcher);
 
-	var store = new _storesLogoStore2['default']();
 	var dispatcher = new _dispatchersAppDispatcher2['default']();
-	dispatcher.register(store.performAction.bind(store));
+	var store = new _storesLogoStore2['default'](dispatcher);
 	//Scramble to start with
 	dispatcher.handleViewAction(constants.Actions.SCRAMBLE);
 	dispatcher.handleViewAction(constants.Actions.ORGANIZE);
@@ -26919,17 +26918,13 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _dispatchersAppDispatcherJs = __webpack_require__(272);
-
-	var _dispatchersAppDispatcherJs2 = _interopRequireDefault(_dispatchersAppDispatcherJs);
 
 	var _events = __webpack_require__(273);
 
@@ -27051,13 +27046,60 @@
 	    return hasMoved;
 	}
 
+	function performAction(payload) {
+	    var action = payload.action;
+
+	    switch (action) {
+	        case constants.Actions.MOVE:
+	            var move = moveTile(payload.source);
+	            if (move) {
+	                actions.push(move);
+	                switch (move) {
+	                    case MOVE_DOWN:
+	                        blankTile.row--;
+	                        break;
+	                    case MOVE_UP:
+	                        blankTile.row++;
+	                        break;
+	                    case MOVE_LEFT:
+	                        blankTile.column++;
+	                        break;
+	                    case MOVE_RIGHT:
+	                        blankTile.column--;
+	                        break;
+	                }
+	                this.emitChange(constants.StoreEvents.CHANGED);
+	            }
+	            break;
+	        case constants.Actions.SCRAMBLE:
+	            scramble();
+	            this.emitChange(constants.StoreEvents.SCRAMBLED);
+	            break;
+	        case constants.Actions.ORGANIZE:
+	            var that = this;
+	            var intervalId = setInterval(function () {
+	                if (actions.length > 0) {
+	                    organize();
+	                    that.emitChange(constants.StoreEvents.CHANGED);
+	                } else {
+	                    var tile = logo[0][3];
+	                    tile.type = constants.TileType.LETTER;
+	                    that.emitChange(constants.StoreEvents.ORGANIZED);
+	                    clearInterval(intervalId);
+	                }
+	            }, 200);
+	            break;
+	    }
+
+	    return true; // No errors. Needed by promise in Dispatcher.
+	}
+
 	var LogoStore = (function (_EventEmitter) {
-	    function LogoStore() {
+	    function LogoStore(dispatcher) {
 	        _classCallCheck(this, LogoStore);
 
-	        if (_EventEmitter != null) {
-	            _EventEmitter.apply(this, arguments);
-	        }
+	        _get(Object.getPrototypeOf(LogoStore.prototype), 'constructor', this).call(this);
+	        dispatcher.register(performAction.bind(this));
 	    }
 
 	    _inherits(LogoStore, _EventEmitter);
@@ -27105,55 +27147,6 @@
 	        key: 'removeScrambleListener',
 	        value: function removeScrambleListener(callback) {
 	            this.removeListener(constants.StoreEvents.SCRAMBLED, callback);
-	        }
-	    }, {
-	        key: 'performAction',
-	        value: function performAction(payload) {
-	            var action = payload.action;
-
-	            switch (action) {
-	                case constants.Actions.MOVE:
-	                    var move = moveTile(payload.source);
-	                    if (move) {
-	                        actions.push(move);
-	                        switch (move) {
-	                            case MOVE_DOWN:
-	                                blankTile.row--;
-	                                break;
-	                            case MOVE_UP:
-	                                blankTile.row++;
-	                                break;
-	                            case MOVE_LEFT:
-	                                blankTile.column++;
-	                                break;
-	                            case MOVE_RIGHT:
-	                                blankTile.column--;
-	                                break;
-	                        }
-	                        this.emitChange(constants.StoreEvents.CHANGED);
-	                    }
-	                    break;
-	                case constants.Actions.SCRAMBLE:
-	                    scramble();
-	                    this.emitChange(constants.StoreEvents.SCRAMBLED);
-	                    break;
-	                case constants.Actions.ORGANIZE:
-	                    var that = this;
-	                    var intervalId = setInterval(function () {
-	                        if (actions.length > 0) {
-	                            organize();
-	                            that.emitChange(constants.StoreEvents.CHANGED);
-	                        } else {
-	                            var tile = logo[0][3];
-	                            tile.type = constants.TileType.LETTER;
-	                            that.emitChange(constants.StoreEvents.ORGANIZED);
-	                            clearInterval(intervalId);
-	                        }
-	                    }, 200);
-	                    break;
-	            }
-
-	            return true; // No errors. Needed by promise in Dispatcher.
 	        }
 	    }]);
 

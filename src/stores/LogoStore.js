@@ -1,4 +1,3 @@
-import AppDispatcher from '../dispatchers/AppDispatcher.js';
 import {EventEmitter} from 'events';
 import * as constants from '../constants/AppConstants'
 
@@ -153,7 +152,60 @@ function moveTile(source) {
     return hasMoved;
 }
 
+function performAction(payload) {
+    var action = payload.action;
+
+    switch(action) {
+        case constants.Actions.MOVE:
+            var move = moveTile(payload.source);
+            if (move) {
+                actions.push(move);
+                switch (move) {
+                    case MOVE_DOWN:
+                        blankTile.row--;
+                        break;
+                    case MOVE_UP:
+                        blankTile.row++;
+                        break;
+                    case MOVE_LEFT:
+                        blankTile.column++;
+                        break;
+                    case MOVE_RIGHT:
+                        blankTile.column--;
+                        break;
+                }
+                this.emitChange(constants.StoreEvents.CHANGED);
+            }
+            break;
+        case constants.Actions.SCRAMBLE:
+            scramble();
+            this.emitChange(constants.StoreEvents.SCRAMBLED);
+            break;
+        case constants.Actions.ORGANIZE:
+            let that = this;
+            let intervalId = setInterval(function() {
+                if (actions.length > 0) {
+                    organize();
+                    that.emitChange(constants.StoreEvents.CHANGED);
+                } else {
+                    let tile = logo[0][3];
+                    tile.type = constants.TileType.LETTER;
+                    that.emitChange(constants.StoreEvents.ORGANIZED);
+                    clearInterval(intervalId);
+                }
+            }, 200);
+            break;
+    }
+
+    return true; // No errors. Needed by promise in Dispatcher.
+}
+
 export default class LogoStore extends EventEmitter {
+
+    constructor(dispatcher) {
+        super();
+        dispatcher.register(performAction.bind(this));
+    }
 
     getState() {
         return logo;
@@ -189,53 +241,5 @@ export default class LogoStore extends EventEmitter {
 
     removeScrambleListener(callback) {
         this.removeListener(constants.StoreEvents.SCRAMBLED, callback);
-    }
-
-    performAction(payload) {
-        var action = payload.action;
-
-        switch(action) {
-            case constants.Actions.MOVE:
-                var move = moveTile(payload.source);
-                if (move) {
-                    actions.push(move);
-                    switch (move) {
-                        case MOVE_DOWN:
-                            blankTile.row--;
-                            break;
-                        case MOVE_UP:
-                            blankTile.row++;
-                            break;
-                        case MOVE_LEFT:
-                            blankTile.column++;
-                            break;
-                        case MOVE_RIGHT:
-                            blankTile.column--;
-                            break;
-                    }
-                    this.emitChange(constants.StoreEvents.CHANGED);
-                }
-                break;
-            case constants.Actions.SCRAMBLE:
-                scramble();
-                this.emitChange(constants.StoreEvents.SCRAMBLED);
-                break;
-            case constants.Actions.ORGANIZE:
-                let that = this;
-                let intervalId = setInterval(function() {
-                    if (actions.length > 0) {
-                        organize();
-                        that.emitChange(constants.StoreEvents.CHANGED);
-                    } else {
-                        let tile = logo[0][3];
-                        tile.type = constants.TileType.LETTER;
-                        that.emitChange(constants.StoreEvents.ORGANIZED);
-                        clearInterval(intervalId);
-                    }
-                }, 200);
-                break;
-        }
-
-        return true; // No errors. Needed by promise in Dispatcher.
     }
 }

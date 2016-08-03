@@ -8,19 +8,22 @@ The concept is to illustrate the areas that the Front End developer deals with e
 It's a fully responsive landing page using a Parallax slider with CSS transitions, SVG animation, tons of graphic design and love.
 
 ## Preview
-http://eliorshalev.com/yglf/
+https://github.com/eliorshalev/challenge.git
 
 ## Goodies
 Download YGLF wallpapers (1980x1200):
 https://www.dropbox.com/s/4043w4ieyed2wbq/wallpapers.zip?dl=0
 
 ## Credits
-Parallax slider: https://goo.gl/OQVwR
 
-Page load progress bar: http://goo.gl/zusHU8
+[Elior Shalev Tabeka](http://codepen.io/eliorshalev)
 
-Real shadow: http://goo.gl/zusHU8
+[Parallax slider](https://goo.gl/OQVwR)
 
-Image Tilt Effect: http://goo.gl/FHvNb6
+[Page load progress bar](http://goo.gl/zusHU8)
 
-Animated Title inspired by: http://goo.gl/du7Hmi
+[Real shadow](http://goo.gl/zusHU8)
+
+[Image Tilt Effect](http://goo.gl/FHvNb6)
+
+[Animated Title inspired by](http://goo.gl/du7Hmi)

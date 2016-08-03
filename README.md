@@ -11,8 +11,7 @@ It's a fully responsive landing page using a Parallax slider with CSS transition
 http://eliorshalev.github.io/challenge/
 
 ## Goodies
-Download YGLF wallpapers (1980x1200):
-https://www.dropbox.com/s/4043w4ieyed2wbq/wallpapers.zip?dl=0
+[Download YGLF wallpapers (1980x1200)](/goodies.zip)
 
 ## Credits
 

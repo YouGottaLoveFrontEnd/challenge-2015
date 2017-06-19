@@ -15,7 +15,7 @@ http://eliortabeka.github.io/challenge/
 
 ## Credits
 
-[Elior Shalev Tabeka](http://codepen.io/eliorshalev)
+[Elior Shalev Tabeka](http://codepen.io/eliortabeka)
 
 [Parallax slider](https://goo.gl/OQVwR)
 

@@ -8,7 +8,7 @@ The concept is to illustrate the areas that the Front End developer deals with e
 It's a fully responsive landing page using a Parallax slider with CSS transitions, SVG animation, tons of graphic design and love.
 
 ## Preview
-http://eliorshalev.github.io/challenge/
+http://eliortabeka.github.io/challenge/
 
 ## Goodies
 [Download YGLF wallpapers (1980x1200)](/goodies.zip)
